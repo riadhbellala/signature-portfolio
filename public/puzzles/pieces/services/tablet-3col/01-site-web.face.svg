@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-380 -380 1760 1760">
+  <!-- body square: 0 0 1000 1000 (top face); thickness 48 below; edges t/r/b/l: flat / tab / socket / flat -->
+  <!-- layer: face. Render every base layer of a group first, then every face layer. -->
+  <defs>
+    <path id="sg-tablet-3col-01-site-web-face-p" d="M0 0 L1000 0 L1000 350 C1000 420 1035 430 1080 400 C1130 370 1300 330 1300 500 C1300 670 1130 630 1080 600 C1035 570 1000 580 1000 650 L1000 1000 L650 1000 C580 1000 570 965 600 920 C630 870 670 700 500 700 C330 700 370 870 400 920 C430 965 420 1000 350 1000 L0 1000 L0 0 Z"/>
+    <g id="sg-tablet-3col-01-site-web-face-side"><use href="#sg-tablet-3col-01-site-web-face-p" y="2"/><use href="#sg-tablet-3col-01-site-web-face-p" y="4"/><use href="#sg-tablet-3col-01-site-web-face-p" y="6"/><use href="#sg-tablet-3col-01-site-web-face-p" y="8"/><use href="#sg-tablet-3col-01-site-web-face-p" y="10"/><use href="#sg-tablet-3col-01-site-web-face-p" y="12"/><use href="#sg-tablet-3col-01-site-web-face-p" y="14"/><use href="#sg-tablet-3col-01-site-web-face-p" y="16"/><use href="#sg-tablet-3col-01-site-web-face-p" y="18"/><use href="#sg-tablet-3col-01-site-web-face-p" y="20"/><use href="#sg-tablet-3col-01-site-web-face-p" y="22"/><use href="#sg-tablet-3col-01-site-web-face-p" y="24"/><use href="#sg-tablet-3col-01-site-web-face-p" y="26"/><use href="#sg-tablet-3col-01-site-web-face-p" y="28"/><use href="#sg-tablet-3col-01-site-web-face-p" y="30"/><use href="#sg-tablet-3col-01-site-web-face-p" y="32"/><use href="#sg-tablet-3col-01-site-web-face-p" y="34"/><use href="#sg-tablet-3col-01-site-web-face-p" y="36"/><use href="#sg-tablet-3col-01-site-web-face-p" y="38"/><use href="#sg-tablet-3col-01-site-web-face-p" y="40"/><use href="#sg-tablet-3col-01-site-web-face-p" y="42"/><use href="#sg-tablet-3col-01-site-web-face-p" y="44"/><use href="#sg-tablet-3col-01-site-web-face-p" y="46"/><use href="#sg-tablet-3col-01-site-web-face-p" y="48"/></g>
+    <filter id="sg-tablet-3col-01-site-web-face-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="sg-tablet-3col-01-site-web-face-bevel" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.7" specularExponent="64" lighting-color="#ffffff" result="spec">
+        <feDistantLight azimuth="225" elevation="48"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
+      <feDiffuseLighting in="blur" surfaceScale="5" diffuseConstant="1" lighting-color="#ffffff" result="diff">
+        <feDistantLight azimuth="225" elevation="58"/>
+      </feDiffuseLighting>
+      <!-- flat diffuse = sin(58deg) = 0.848, so k1 = 1/0.848 keeps the flat face on the exact brand colour -->
+      <feComposite in="SourceGraphic" in2="diff" operator="arithmetic" k1="1.179" k2="0" k3="0" k4="0" result="lit"/>
+      <feComposite in="lit" in2="specIn" operator="arithmetic" k1="0" k2="1" k3="0.5" k4="0" result="out"/>
+      <feComposite in="out" in2="SourceAlpha" operator="in"/>
+    </filter>
+  </defs>
+  <use href="#sg-tablet-3col-01-site-web-face-p" fill="currentColor" filter="url(#sg-tablet-3col-01-site-web-face-bevel)"/>
+</svg>

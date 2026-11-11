@@ -1,0 +1,3189 @@
+{
+ "url": "http://localhost:3123/",
+ "at": "2026-11-09T18:53:31.140Z",
+ "allow": [
+  "numbering",
+  "micro-label",
+  "palette-cream",
+  "few-pictures",
+  "no-footage",
+  "small-text",
+  "dashed",
+  "hairline",
+  "outlined-box",
+  "eyebrow"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 11,
+   "filled": [
+    0.38,
+    0.38,
+    0.39,
+    0.44,
+    0.53,
+    0.78,
+    0.91,
+    0.24,
+    0.74,
+    0.96,
+    0.73
+   ],
+   "motion": {
+    "elements": 14,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 13,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 9810,
+     "screens": 10.9,
+     "words": 596,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 48,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Votre marque, on la construit. Votre marque, on la construit.",
+     "words": 10,
+     "chars": 61,
+     "lines": 2,
+     "size": 129.6,
+     "vw": 9,
+     "font": "Poppins",
+     "weight": 800,
+     "tracking": -0.045,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.81,
+     "top": 160,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Votre marque, on la construit. Votre marque, on la construit.",
+     "words": 10,
+     "lines": 2,
+     "size": 129.6,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "Votre marque, on la construit. Votre marque, on la construit.",
+      "words": 10,
+      "chars": 61,
+      "lines": 2,
+      "size": 129.6,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 160,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 1058,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 1058,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 1058,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 1058,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Projets choisis",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 1367,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.26,
+      "top": 1583,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 2131,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.26,
+      "top": 2678,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 3226,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Chaque pièce de votre image",
+      "words": 5,
+      "chars": 27,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 4013,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Tous les projets",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 5237,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Comment on travaille",
+      "words": 3,
+      "chars": 20,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 6665,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Une équipe, toute votre image.",
+      "words": 5,
+      "chars": 30,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 7597,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Un projet en tête ? On en parle. Un projet en tête ? On en parle.",
+      "words": 16,
+      "chars": 65,
+      "lines": 2,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.55,
+      "top": 8889,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 15,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter Tight",
+       "share": 0.66,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.34,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      22,
+      24,
+      56,
+      76,
+      130
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter Tight",
+      "size": 18,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.4
+     },
+     "measureChars": 53,
+     "max": {
+      "size": 129.6,
+      "vw": 9,
+      "font": "Poppins",
+      "text": "Votre marque,"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 32,
+     "microLabelShare": 0.109,
+     "microSamples": [
+      "(01)",
+      "(02)",
+      "(01)",
+      "Façade & enseigne",
+      "Image à venir",
+      "Façade & enseigne · [Année]"
+     ],
+     "upperShare": 0.24,
+     "centerShare": 0.03,
+     "smallText": 37
+    },
+    "eyebrows": [
+     {
+      "text": "(01)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 1550
+     },
+     {
+      "text": "(02)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 2098
+     },
+     {
+      "text": "(03)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 2645
+     },
+     {
+      "text": "(04)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 3193
+     }
+    ],
+    "numbered": [
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 447
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 447
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 774
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 774
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 774
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 1500
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 1550
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 2048
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 2098
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 2595
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 2645
+     },
+     {
+      "text": "(04)",
+      "size": 12,
+      "top": 3143
+     }
+    ],
+    "color": {
+     "bodyBg": "#f4ead9",
+     "bodyBgHsl": {
+      "h": 38,
+      "s": 0.55,
+      "l": 0.9
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4ead9",
+       "top": 65,
+       "hsl": {
+        "h": 38,
+        "s": 0.55,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#e9d5ba",
+       "top": 3853,
+       "hsl": {
+        "h": 34,
+        "s": 0.52,
+        "l": 0.82
+       }
+      },
+      {
+       "color": "#255156",
+       "top": 5077,
+       "hsl": {
+        "h": 186,
+        "s": 0.4,
+        "l": 0.24
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#255156",
+       "share": 0.41
+      },
+      {
+       "color": "#f4ead9",
+       "share": 0.26
+      },
+      {
+       "color": "#3c6266",
+       "share": 0.2
+      },
+      {
+       "color": "#bac1b5",
+       "share": 0.1
+      }
+     ],
+     "button": {
+      "bg": "#e8b348",
+      "hsl": {
+       "h": 40,
+       "s": 0.78,
+       "l": 0.6
+      },
+      "fg": "#255156"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 1,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Voir nos projets"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "header.tone-cream.sticky 1440px"
+     ],
+     "outlinedBoxes": 16,
+     "dashed": 2,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.42
+     },
+     {
+      "type": "svg",
+      "ratio": 0.12
+     },
+     {
+      "type": "svg",
+      "ratio": 0.12
+     }
+    ],
+    "nav": {
+     "links": 7,
+     "fixed": true,
+     "height": 65,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "inter tight"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 9810,
+    "margins": {
+     "left": 124,
+     "right": 149
+    },
+    "sections": [
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 65,
+      "height": 929,
+      "words": 64,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Votre marque,",
+       "size": 130,
+       "tag": "h1"
+      },
+      "left": 136,
+      "right": 67,
+      "textLeft": 136,
+      "textRight": 149,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.py-12",
+      "tag": "section",
+      "top": 994,
+      "height": 213,
+      "words": 9,
+      "media": 0,
+      "middle": 187,
+      "heading": {
+       "text": "[XX]",
+       "size": 56,
+       "tag": "span"
+      },
+      "left": 136,
+      "right": 271,
+      "textLeft": 136,
+      "textRight": 271,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#projets.tone-cream.relative",
+      "tag": "section",
+      "top": 1207,
+      "height": 2646,
+      "words": 84,
+      "media": 0,
+      "middle": 136,
+      "heading": {
+       "text": "Projets choisis",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 149,
+      "textLeft": 136,
+      "textRight": 149,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#services.tone-sand.relative",
+      "tag": "section",
+      "top": 3853,
+      "height": 1224,
+      "words": 101,
+      "media": 7,
+      "middle": 0,
+      "heading": {
+       "text": "Chaque pièce de votre image",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 54,
+      "right": 54,
+      "textLeft": 136,
+      "textRight": 176,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#tous-les-projets.tone-teal.relative",
+      "tag": "section",
+      "top": 5077,
+      "height": 1428,
+      "words": 103,
+      "media": 0,
+      "middle": 20,
+      "heading": {
+       "text": "Tous les projets",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 116,
+      "right": 149,
+      "textLeft": 136,
+      "textRight": 149,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#methode.tone-cream.relative",
+      "tag": "section",
+      "top": 6505,
+      "height": 932,
+      "words": 63,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "Comment on travaille",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 54,
+      "right": 54,
+      "textLeft": 136,
+      "textRight": 188,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#agence.tone-sand.relative",
+      "tag": "section",
+      "top": 7437,
+      "height": 1292,
+      "words": 99,
+      "media": 0,
+      "middle": 50,
+      "heading": {
+       "text": "Une équipe, toute votre image.",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 149,
+      "textLeft": 136,
+      "textRight": 149,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.tone-teal.relative",
+      "tag": "section",
+      "top": 8729,
+      "height": 827,
+      "words": 45,
+      "media": 0,
+      "middle": 88,
+      "heading": {
+       "text": "Un projet en tête ?",
+       "size": 76,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 230,
+      "textLeft": 136,
+      "textRight": 230,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.tone-cream.py-16",
+      "tag": "footer",
+      "top": 9557,
+      "height": 253,
+      "words": 16,
+      "media": 0,
+      "middle": 476,
+      "heading": null,
+      "left": 136,
+      "right": 136,
+      "textLeft": 136,
+      "textRight": 136,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Votre marque, on la construit. Votre marque, on la construit.",
+      "size": 130,
+      "top": 160,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 136,
+      "n": 18
+     },
+     {
+      "x": 831,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 19,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.07,
+    "voidBox": {
+     "x": 0,
+     "y": 120,
+     "w": 120,
+     "h": 780
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 11,
+   "filled": [
+    0.31,
+    0.47,
+    0.54,
+    0.59,
+    0.37,
+    0.71,
+    0.93,
+    0.49,
+    0.78,
+    0.96,
+    0.68
+   ],
+   "motion": {
+    "elements": 14,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 13,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 11150,
+     "screens": 10.9,
+     "words": 504,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 48,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Votre marque, on la construit. Votre marque, on la construit.",
+     "words": 10,
+     "chars": 61,
+     "lines": 2,
+     "size": 69.1,
+     "vw": 9,
+     "font": "Poppins",
+     "weight": 800,
+     "tracking": -0.045,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 220,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Votre marque, on la construit. Votre marque, on la construit.",
+     "words": 10,
+     "lines": 2,
+     "size": 69.1,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "Votre marque, on la construit. Votre marque, on la construit.",
+      "words": 10,
+      "chars": 61,
+      "lines": 2,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 220,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 1082,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 1082,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 1082,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 1082,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Projets choisis",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1335,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1926,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2697,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3469,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4240,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Chaque pièce de votre image",
+      "words": 5,
+      "chars": 27,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 4821,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Tous les projets",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 6089,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Comment on travaille",
+      "words": 3,
+      "chars": 20,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 7745,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Une équipe, toute votre image.",
+      "words": 5,
+      "chars": 30,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 8497,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Un projet en tête ? On en parle. Un projet en tête ? On en parle.",
+      "words": 16,
+      "chars": 65,
+      "lines": 2,
+      "size": 42.2,
+      "vw": 5.5,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 10235,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 15,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter Tight",
+       "share": 0.6,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.4,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      21,
+      24,
+      32,
+      42,
+      69
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter Tight",
+      "size": 18,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.4
+     },
+     "measureChars": 69,
+     "max": {
+      "size": 69.1,
+      "vw": 9,
+      "font": "Poppins",
+      "text": "Votre marque,"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 32,
+     "microLabelShare": 0.133,
+     "microSamples": [
+      "(01)",
+      "(02)",
+      "(01)",
+      "Façade & enseigne",
+      "Image à venir",
+      "Façade & enseigne · [Année]"
+     ],
+     "upperShare": 0.3,
+     "centerShare": 0.04,
+     "smallText": 37
+    },
+    "eyebrows": [
+     {
+      "text": "(01)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 1893
+     },
+     {
+      "text": "(02)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 2665
+     },
+     {
+      "text": "(03)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 3436
+     },
+     {
+      "text": "(04)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 4208
+     }
+    ],
+    "numbered": [
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 602
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 602
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 898
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 898
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 898
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 1444
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 1893
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 2216
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 2665
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 2987
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 3436
+     },
+     {
+      "text": "(04)",
+      "size": 12,
+      "top": 3759
+     }
+    ],
+    "color": {
+     "bodyBg": "#f4ead9",
+     "bodyBgHsl": {
+      "h": 38,
+      "s": 0.55,
+      "l": 0.9
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4ead9",
+       "top": 65,
+       "hsl": {
+        "h": 38,
+        "s": 0.55,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#e9d5ba",
+       "top": 1431,
+       "hsl": {
+        "h": 34,
+        "s": 0.52,
+        "l": 0.82
+       }
+      },
+      {
+       "color": "#255156",
+       "top": 5961,
+       "hsl": {
+        "h": 186,
+        "s": 0.4,
+        "l": 0.24
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#255156",
+       "share": 0.45
+      },
+      {
+       "color": "#3c6266",
+       "share": 0.25
+      },
+      {
+       "color": "#f4ead9",
+       "share": 0.15
+      },
+      {
+       "color": "#bac1b5",
+       "share": 0.13
+      }
+     ],
+     "button": {
+      "bg": "#e8b348",
+      "hsl": {
+       "h": 40,
+       "s": 0.78,
+       "l": 0.6
+      },
+      "fg": "#255156"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 1,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Voir nos projets"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "header.tone-cream.sticky 768px"
+     ],
+     "outlinedBoxes": 16,
+     "dashed": 2,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.88
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 65,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "inter tight"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 11150,
+    "margins": {
+     "left": 40,
+     "right": 53
+    },
+    "sections": [
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 65,
+      "height": 953,
+      "words": 64,
+      "media": 2,
+      "middle": 60,
+      "heading": {
+       "text": "Votre marque,",
+       "size": 69,
+       "tag": "h1"
+      },
+      "left": 0,
+      "right": 53,
+      "textLeft": 40,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.py-12",
+      "tag": "section",
+      "top": 1018,
+      "height": 189,
+      "words": 9,
+      "media": 0,
+      "middle": 122,
+      "heading": {
+       "text": "[XX]",
+       "size": 32,
+       "tag": "span"
+      },
+      "left": 40,
+      "right": 55,
+      "textLeft": 40,
+      "textRight": 55,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#projets.tone-cream.relative",
+      "tag": "section",
+      "top": 1207,
+      "height": 3486,
+      "words": 84,
+      "media": 0,
+      "middle": 305,
+      "heading": {
+       "text": "Projets choisis",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 53,
+      "textLeft": 40,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#services.tone-sand.relative",
+      "tag": "section",
+      "top": 4693,
+      "height": 1268,
+      "words": 43,
+      "media": 7,
+      "middle": 0,
+      "heading": {
+       "text": "Chaque pièce de votre image",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 40,
+      "textRight": 128,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#tous-les-projets.tone-teal.relative",
+      "tag": "section",
+      "top": 5961,
+      "height": 1656,
+      "words": 103,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Tous les projets",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 53,
+      "textLeft": 40,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#methode.tone-cream.relative",
+      "tag": "section",
+      "top": 7617,
+      "height": 752,
+      "words": 27,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "Comment on travaille",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 40,
+      "textRight": 123,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 8369,
+      "height": 1738,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 8497,
+      "height": 1482,
+      "words": 94,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 40,
+      "right": 53,
+      "textLeft": 40,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.tone-teal.relative",
+      "tag": "section",
+      "top": 10107,
+      "height": 751,
+      "words": 45,
+      "media": 0,
+      "middle": 4,
+      "heading": {
+       "text": "Un projet en tête ?",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 93,
+      "textLeft": 40,
+      "textRight": 93,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.tone-cream.py-16",
+      "tag": "footer",
+      "top": 10858,
+      "height": 292,
+      "words": 16,
+      "media": 0,
+      "middle": 32,
+      "heading": null,
+      "left": 40,
+      "right": 178,
+      "textLeft": 40,
+      "textRight": 178,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Votre marque, on la construit. Votre marque, on la construit.",
+      "size": 69,
+      "top": 220,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 40,
+      "n": 19
+     }
+    ],
+    "leftBlocks": 19,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 360,
+   "height": 225,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.42,
+    0.71,
+    0.27,
+    0.47,
+    0.42,
+    0.39,
+    0.5,
+    0.31,
+    0.75,
+    0.33,
+    0.44,
+    0.46
+   ],
+   "motion": {
+    "elements": 8,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 8,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 360,
+     "h": 225
+    },
+    "page": {
+     "height": 11478,
+     "screens": 51,
+     "words": 519,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 48,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Votre marque, on la construit. Votre marque, on la construit.",
+     "words": 10,
+     "chars": 61,
+     "lines": 4,
+     "size": 56,
+     "vw": 15.6,
+     "font": "Poppins",
+     "weight": 800,
+     "tracking": -0.045,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.89,
+     "top": 113,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Votre marque, on la construit. Votre marque, on la construit.",
+     "words": 10,
+     "lines": 4,
+     "size": 56,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "Votre marque, on la construit. Votre marque, on la construit.",
+      "words": 10,
+      "chars": 61,
+      "lines": 4,
+      "size": 56,
+      "vw": 15.6,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 113,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 944,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.38,
+      "top": 944,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 1037,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[XX]",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.38,
+      "top": 1037,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Projets choisis",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 1225,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 1570,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 2112,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 2653,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 3203,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Chaque pièce de votre image",
+      "words": 5,
+      "chars": 27,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 3647,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Tous les projets",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 4751,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 5359,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 5672,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 5984,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 6297,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 6609,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 6921,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Comment on travaille",
+      "words": 3,
+      "chars": 20,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 7338,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Une équipe, toute votre image.",
+      "words": 5,
+      "chars": 30,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 8922,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Un projet en tête ? On en parle. Un projet en tête ? On en parle.",
+      "words": 16,
+      "chars": 65,
+      "lines": 3,
+      "size": 40,
+      "vw": 11.1,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 10263,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 21,
+     "maxLines": 4,
+     "over2Lines": 2,
+     "statements": 10,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter Tight",
+       "share": 0.62,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.38,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      20,
+      24,
+      32,
+      40,
+      56
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter Tight",
+      "size": 18,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.4
+     },
+     "measureChars": 36,
+     "max": {
+      "size": 56,
+      "vw": 15.6,
+      "font": "Poppins",
+      "text": "Votre marque,"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 32,
+     "microLabelShare": 0.127,
+     "microSamples": [
+      "(01)",
+      "(02)",
+      "(01)",
+      "Façade & enseigne",
+      "Image à venir",
+      "Façade & enseigne · [Année]"
+     ],
+     "upperShare": 0.26,
+     "centerShare": 0.04,
+     "smallText": 33
+    },
+    "eyebrows": [
+     {
+      "text": "(01)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 1537
+     },
+     {
+      "text": "(02)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 2079
+     },
+     {
+      "text": "(03)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 2620
+     },
+     {
+      "text": "(04)",
+      "above": "[Nom du client]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 3170
+     },
+     {
+      "text": "Image à venir",
+      "above": "[Nom du client]",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 5314
+     },
+     {
+      "text": "Image à venir",
+      "above": "[Nom du client]",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 5626
+     },
+     {
+      "text": "Image à venir",
+      "above": "[Nom du client]",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 5938
+     },
+     {
+      "text": "Image à venir",
+      "above": "[Nom du client]",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 6251
+     },
+     {
+      "text": "Image à venir",
+      "above": "[Nom du client]",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 6563
+     },
+     {
+      "text": "Image à venir",
+      "above": "[Nom du client]",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 6876
+     }
+    ],
+    "numbered": [
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 670
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 670
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 847
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 847
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 847
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 1318
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 1537
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 1860
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 2079
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 2401
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 2620
+     },
+     {
+      "text": "(04)",
+      "size": 12,
+      "top": 2951
+     }
+    ],
+    "color": {
+     "bodyBg": "#f4ead9",
+     "bodyBgHsl": {
+      "h": 38,
+      "s": 0.55,
+      "l": 0.9
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4ead9",
+       "top": 65,
+       "hsl": {
+        "h": 38,
+        "s": 0.55,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#e9d5ba",
+       "top": 1305,
+       "hsl": {
+        "h": 34,
+        "s": 0.52,
+        "l": 0.82
+       }
+      },
+      {
+       "color": "#255156",
+       "top": 4671,
+       "hsl": {
+        "h": 186,
+        "s": 0.4,
+        "l": 0.24
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#255156",
+       "share": 0.44
+      },
+      {
+       "color": "#3c6266",
+       "share": 0.21
+      },
+      {
+       "color": "#f4ead9",
+       "share": 0.2
+      },
+      {
+       "color": "#bac1b5",
+       "share": 0.12
+      }
+     ],
+     "button": {
+      "bg": "#e8b348",
+      "hsl": {
+       "h": 40,
+       "s": 0.78,
+       "l": 0.6
+      },
+      "fg": "#255156"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 0,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "header.tone-cream.sticky 360px"
+     ],
+     "outlinedBoxes": 13,
+     "dashed": 2,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 65,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "inter tight"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 360,
+     "h": 225
+    },
+    "pageH": 11478,
+    "margins": {
+     "left": 8,
+     "right": 31
+    },
+    "sections": [
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 65,
+      "height": 831,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 65,
+      "height": 831,
+      "words": 49,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Votre marque,",
+       "size": 56,
+       "tag": "h1"
+      },
+      "left": 0,
+      "right": 25,
+      "textLeft": 20,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.py-12",
+      "tag": "section",
+      "top": 896,
+      "height": 250,
+      "words": 9,
+      "media": 0,
+      "middle": 110,
+      "heading": {
+       "text": "[XX]",
+       "size": 32,
+       "tag": "span"
+      },
+      "left": 20,
+      "right": 23,
+      "textLeft": 20,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#projets.tone-cream.relative",
+      "tag": "section",
+      "top": 1145,
+      "height": 2422,
+      "words": 63,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Projets choisis",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 33,
+      "textLeft": 20,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 3567,
+      "height": 1104,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 3647,
+      "height": 944,
+      "words": 38,
+      "media": 7,
+      "middle": 0,
+      "heading": null,
+      "left": 0,
+      "right": 0,
+      "textLeft": 20,
+      "textRight": 34,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#tous-les-projets.tone-teal.relative",
+      "tag": "section",
+      "top": 4671,
+      "height": 2587,
+      "words": 103,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Tous les projets",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 0,
+      "right": 33,
+      "textLeft": 20,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#methode.tone-cream.relative",
+      "tag": "section",
+      "top": 7258,
+      "height": 1584,
+      "words": 63,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "Comment on travaille",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 38,
+      "textLeft": 20,
+      "textRight": 38,
+      "fullBleed": true,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 8842,
+      "height": 1341,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 8922,
+      "height": 1181,
+      "words": 76,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 31,
+      "textLeft": 20,
+      "textRight": 31,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 10183,
+      "height": 898,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 10263,
+      "height": 738,
+      "words": 35,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "On en parle.",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 77,
+      "textLeft": 20,
+      "textRight": 77,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.tone-cream.py-16",
+      "tag": "footer",
+      "top": 11081,
+      "height": 397,
+      "words": 16,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 79,
+      "textLeft": 20,
+      "textRight": 79,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Votre marque, on la construit. Votre marque, on la construit.",
+      "size": 56,
+      "top": 113,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 19
+     }
+    ],
+    "leftBlocks": 19,
+    "bodySize": 18,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 124px on the left, 149px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+  },
+  {
+   "level": "FAIL",
+   "id": "covered-text",
+   "width": 1440,
+   "message": "Large text lies under another element at some scroll position: \"Chaque pièce de votre image\" (screen 5, 25% hidden); \"Comment on travaille\" (screen 8, 25% hidden)",
+   "fix": "Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground."
+  },
+  {
+   "level": "WARN",
+   "id": "long-pin",
+   "width": 1440,
+   "message": "The same large text stays on screen for 3 screens in a row: \"[Nom du client]\"",
+   "fix": "A pinned element earns two screens, and something must change at each. Shorten the run or give every screen its own content."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 14 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 360,
+   "message": "2 headline(s) wrap past two lines at 360px: \"Votre marque, on la construit. Votre marque, on \" → 4 lines (10 words, 56px); \"Un projet en tête ? On en parle. Un projet en tê\" → 3 lines (16 words, 40px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "first-action",
+   "width": 360,
+   "message": "No visible button in the first phone screen.",
+   "fix": "On a phone the first screen still holds the headline, the supporting sentence and the action; move navigation into one row or a menu so it does not push them down."
+  },
+  {
+   "level": "FAIL",
+   "id": "off-centre",
+   "width": 360,
+   "message": "The page sits off-centre: its content comes to 8px from the left edge but only to 31px from the right, at 360px.",
+   "fix": "Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure)."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/desktop-fold.jpg",
+   "pages": [
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/desktop-page-01.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/desktop-page-02.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/tablet-fold.jpg",
+   "pages": [
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/tablet-page-01.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 360,
+   "fold": "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/mobile-fold.jpg",
+   "pages": [
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/mobile-page-01.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/final/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

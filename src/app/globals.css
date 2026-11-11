@@ -1,0 +1,344 @@
+@import "tailwindcss";
+
+/*
+  Signature creative co. — design tokens.
+  Single source of truth: DESIGN.md. Three colours only (cream 60 / teal 30 / ochre 10)
+  plus tonal steps of those same colours. Every other colour Tailwind ships is removed.
+*/
+
+@theme {
+  /* Kill every default palette, radius, shadow and blur so nothing off-system can compile. */
+  --color-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --text-shadow-*: initial;
+  --blur-*: initial;
+  --font-*: initial;
+  --text-*: initial;
+
+  /* Foundation: the three colours of the logo (sampled, see docs/brand-analysis.md) */
+  --color-cream: #f5ebd9; /* 60% ground */
+  --color-teal: #245056; /* 30% ink and teal fields */
+  --color-ochre: #e9b248; /* 10% accent */
+
+  /* Tonal steps of the same three colours (no new hues) */
+  --color-sand: #e9d4bb; /* second paper tone, also the script trace on cream */
+  --color-teal-muted: #3d6366; /* teal 88% on cream: 5.60:1 on cream, 4.60:1 on sand */
+  --color-cream-muted: #bac0b4; /* cream 72% on teal: 4.79:1 */
+  --color-rule: #d4d2c4; /* teal 16% on cream */
+  --color-rule-on-teal: #4a6c6e; /* cream 18% on teal */
+  --color-trace-on-teal: #396063; /* cream 10% on teal: background script trace */
+
+  /* Puzzle piece sides: each tone at 68% light, the thickness under the face. */
+  --color-teal-deep: #18363a;
+  --color-ochre-deep: #9e7931;
+  --color-cream-deep: #a7a094;
+
+  /* Radius: square everything. Only knobs and dots are round (rounded-full is static). */
+  --radius-xs: 2px;
+
+  /* Type */
+  --font-display: var(--font-poppins), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-inter-tight), ui-sans-serif, sans-serif;
+
+  --text-display: clamp(3.5rem, 9vw, 8.75rem);
+  --text-display--line-height: 0.9;
+  --text-display--letter-spacing: -0.045em;
+  --text-display--font-weight: 800;
+
+  --text-h1: clamp(2.5rem, 5.5vw, 4.75rem);
+  --text-h1--line-height: 0.95;
+  --text-h1--letter-spacing: -0.035em;
+  --text-h1--font-weight: 700;
+
+  --text-h2: clamp(2rem, 4vw, 3.5rem);
+  --text-h2--line-height: 1;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h2--font-weight: 700;
+
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.15;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 700;
+
+  --text-list: clamp(1.25rem, 1rem + 0.6vw, 1.5rem);
+  --text-list--line-height: 1.3;
+  --text-list--letter-spacing: -0.01em;
+  --text-list--font-weight: 600;
+
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.55;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.55;
+
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1.4;
+  --text-meta--letter-spacing: 0.06em;
+  --text-meta--font-weight: 500;
+
+  --text-piece: clamp(1rem, 0.85rem + 0.6vw, 1.375rem);
+  --text-piece--line-height: 1.15;
+  --text-piece--letter-spacing: -0.01em;
+  --text-piece--font-weight: 600;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.45;
+
+  --text-button: 1rem;
+  --text-button--line-height: 1;
+  --text-button--letter-spacing: -0.01em;
+  --text-button--font-weight: 600;
+
+  /* Motion */
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Semantic tokens, re-pointed by tone. Components read these, not the raw colours. */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-trace: var(--trace);
+  --color-focus: var(--focus);
+  --color-accent: var(--color-ochre);
+  --color-on-accent: var(--color-teal);
+}
+
+:root,
+.tone-cream {
+  --surface: var(--color-cream);
+  --ink: var(--color-teal);
+  --ink-muted: var(--color-teal-muted);
+  --line: var(--color-rule);
+  --trace: var(--color-sand);
+  --focus: var(--color-teal);
+  --secondary-ink: var(--color-teal);
+}
+
+.tone-sand {
+  --surface: var(--color-sand);
+  --ink: var(--color-teal);
+  --ink-muted: var(--color-teal-muted);
+  --line: var(--color-rule);
+  --trace: var(--color-cream);
+  --focus: var(--color-teal);
+  --secondary-ink: var(--color-teal);
+}
+
+.tone-teal {
+  --surface: var(--color-teal);
+  --ink: var(--color-cream);
+  --ink-muted: var(--color-cream-muted);
+  --line: var(--color-rule-on-teal);
+  --trace: var(--color-trace-on-teal);
+  --focus: var(--color-cream);
+  --secondary-ink: var(--color-cream);
+}
+
+.tone-cream,
+.tone-sand,
+.tone-teal {
+  background-color: var(--surface);
+  color: var(--ink);
+}
+
+/* Durations live as plain custom properties (Tailwind has no duration namespace). */
+:root {
+  --dur-press: 120ms;
+  --dur-ui: 200ms;
+  --dur-snap: 560ms;
+  --dur-draw: 800ms;
+  --gutter: 20px;
+  /* Left edge of the 1280px container's content, for things placed on the section. */
+  --page-edge: max(var(--gutter), calc((100% - 1280px) / 2 + var(--gutter)));
+}
+@media (min-width: 48rem) {
+  :root { --gutter: 40px; }
+}
+@media (min-width: 64rem) {
+  :root { --gutter: 56px; }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-cream);
+    color: var(--color-teal);
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--color-teal-muted) var(--color-cream);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    background-color: var(--color-cream);
+    color: var(--color-teal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    caret-color: var(--color-teal);
+  }
+
+  ::selection {
+    background-color: var(--color-ochre);
+    color: var(--color-teal);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  /* One focus ring for the whole site: 2px, 2px offset, teal on cream, cream on teal. */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--color-ochre);
+  }
+}
+
+@layer utilities {
+  .tabular { font-variant-numeric: tabular-nums; }
+  .measure { max-width: 60ch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Button ----------
+   Primary: ochre fill, teal label (both tones). Secondary: ink label + 2px ochre underline.
+   Hover only grows an underline; press scales to 0.97. data-state forces a state for /styleguide. */
+@layer components {
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding-inline: 20px;
+    border-radius: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-button);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform var(--dur-press) var(--ease-out-quint);
+  }
+  .btn:active:not(:disabled, [aria-disabled="true"]),
+  .btn[data-state="press"] {
+    transform: scale(0.97);
+  }
+  .btn[data-state="focus"] {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .btn-label {
+    position: relative;
+  }
+  .btn-label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    transition: transform var(--dur-ui) var(--ease-out-quint);
+  }
+
+  .btn-primary {
+    background-color: var(--color-ochre);
+    color: var(--color-teal);
+  }
+  .btn-primary .btn-label::after {
+    bottom: -6px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .btn-primary[data-state="hover"] .btn-label::after {
+    transform: scaleX(1);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--secondary-ink);
+  }
+  .btn-secondary .btn-label::after {
+    bottom: -8px;
+    background-color: var(--color-ochre);
+    transform-origin: bottom;
+  }
+  .btn-secondary[data-state="hover"] .btn-label::after {
+    transform: scaleY(2);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover:not(:disabled, [aria-disabled="true"]) .btn-label::after {
+      transform: scaleX(1);
+    }
+    .btn-secondary:hover:not(:disabled, [aria-disabled="true"]) .btn-label::after {
+      transform: scaleY(2);
+    }
+  }
+
+  .btn:disabled,
+  .btn[aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+  .btn-primary:disabled,
+  .btn-primary[aria-disabled="true"] {
+    background-color: var(--line);
+    color: var(--ink-muted);
+  }
+  .btn-secondary:disabled,
+  .btn-secondary[aria-disabled="true"] {
+    color: var(--ink-muted);
+  }
+  .btn-secondary:disabled .btn-label::after,
+  .btn-secondary[aria-disabled="true"] .btn-label::after {
+    background-color: var(--line);
+  }
+}
+
+/* Ink tokens inside a puzzle piece: cream on teal, teal on ochre. */
+/* Light source of the puzzle bevel filter. A light, not a surface colour: never use as a fill. */
+:root {
+  --puzzle-light: #fff;
+}
+
+.tone-ink-cream {
+  --ink: var(--color-teal);
+  --ink-muted: var(--color-teal-muted);
+  --focus: var(--color-teal);
+}
+.tone-ink-teal {
+  --ink: var(--color-cream);
+  --ink-muted: var(--color-cream-muted);
+  --focus: var(--color-cream);
+}
+.tone-ink-ochre {
+  --ink: var(--color-teal);
+  --ink-muted: var(--color-teal);
+  --focus: var(--color-teal);
+}

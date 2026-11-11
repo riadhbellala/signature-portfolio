@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-380 -380 1760 1760">
+  <!-- body square: 0 0 1000 1000 (top face); thickness 48 below; edges t/r/b/l: tab / flat / flat / flat -->
+  <!-- layer: base. Render every base layer of a group first, then every face layer. -->
+  <defs>
+    <path id="sg-mobile-2col-07-reseaux-sociaux-base-p" d="M0 0 L350 0 C420 0 430 -35 400 -80 C370 -130 330 -300 500 -300 C670 -300 630 -130 600 -80 C570 -35 580 0 650 0 L1000 0 L1000 1000 L0 1000 L0 0 Z"/>
+    <g id="sg-mobile-2col-07-reseaux-sociaux-base-side"><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="2"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="4"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="6"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="8"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="10"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="12"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="14"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="16"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="18"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="20"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="22"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="24"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="26"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="28"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="30"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="32"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="34"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="36"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="38"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="40"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="42"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="44"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="46"/><use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" y="48"/></g>
+    <filter id="sg-mobile-2col-07-reseaux-sociaux-base-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="sg-mobile-2col-07-reseaux-sociaux-base-bevel" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.7" specularExponent="64" lighting-color="#ffffff" result="spec">
+        <feDistantLight azimuth="225" elevation="48"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
+      <feDiffuseLighting in="blur" surfaceScale="5" diffuseConstant="1" lighting-color="#ffffff" result="diff">
+        <feDistantLight azimuth="225" elevation="58"/>
+      </feDiffuseLighting>
+      <!-- flat diffuse = sin(58deg) = 0.848, so k1 = 1/0.848 keeps the flat face on the exact brand colour -->
+      <feComposite in="SourceGraphic" in2="diff" operator="arithmetic" k1="1.179" k2="0" k3="0" k4="0" result="lit"/>
+      <feComposite in="lit" in2="specIn" operator="arithmetic" k1="0" k2="1" k3="0.5" k4="0" result="out"/>
+      <feComposite in="out" in2="SourceAlpha" operator="in"/>
+    </filter>
+  </defs>
+  <use href="#sg-mobile-2col-07-reseaux-sociaux-base-p" transform="translate(18 78)" fill="currentColor" opacity="0.28" filter="url(#sg-mobile-2col-07-reseaux-sociaux-base-shadow)"/>
+  <use href="#sg-mobile-2col-07-reseaux-sociaux-base-side" fill="currentColor"/>
+  <use href="#sg-mobile-2col-07-reseaux-sociaux-base-side" fill="#000" opacity="0.32"/>
+</svg>

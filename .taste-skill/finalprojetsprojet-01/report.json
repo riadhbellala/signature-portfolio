@@ -1,0 +1,2035 @@
+{
+ "url": "http://localhost:3123/projets/projet-01",
+ "at": "2026-11-09T16:23:27.758Z",
+ "allow": [
+  "numbering",
+  "micro-label",
+  "palette-cream",
+  "few-pictures",
+  "no-footage",
+  "small-text",
+  "dashed",
+  "hairline",
+  "outlined-box",
+  "eyebrow"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.69,
+    0.71,
+    0.75,
+    0.63,
+    0.52,
+    0.31
+   ],
+   "motion": {
+    "elements": 9,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 8,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4893,
+     "screens": 5.4,
+     "words": 151,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 4,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "[Titre du projet]",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 76,
+     "vw": 5.3,
+     "font": "Poppins",
+     "weight": 700,
+     "tracking": -0.035,
+     "leading": 0.95,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.47,
+     "top": 670,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "[Titre du projet]",
+     "words": 3,
+     "lines": 1,
+     "size": 76,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "[Titre du projet]",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 670,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Le besoin",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 1030,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Notre réponse",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 1214,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "En images",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 1646,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Le résultat",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 3524,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 4263,
+      "tag": "span",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 6,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter Tight",
+       "share": 0.59,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.41,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      24,
+      56,
+      76
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter Tight",
+      "size": 18,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 6.2
+     },
+     "measureChars": 64,
+     "max": {
+      "size": 76,
+      "vw": 5.3,
+      "font": "Poppins",
+      "text": "[Titre du projet]"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 19,
+     "microLabelShare": 0.269,
+     "microSamples": [
+      "(01)",
+      "Façade & enseigne",
+      "Image à venir",
+      "Client",
+      "Service",
+      "Année"
+     ],
+     "upperShare": 0.38,
+     "centerShare": 0,
+     "smallText": 13
+    },
+    "eyebrows": [
+     {
+      "text": "(01)",
+      "above": "[Titre du projet]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 637
+     }
+    ],
+    "numbered": [
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 78
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 637
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 1763
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 1763
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 2502
+     },
+     {
+      "text": "(04)",
+      "size": 12,
+      "top": 2502
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 4073
+     }
+    ],
+    "color": {
+     "bodyBg": "#f5ebd9",
+     "bodyBgHsl": {
+      "h": 39,
+      "s": 0.58,
+      "l": 0.91
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f5ebd9",
+       "top": 65,
+       "hsl": {
+        "h": 39,
+        "s": 0.58,
+        "l": 0.91
+       }
+      },
+      {
+       "color": "#e8d5bb",
+       "top": 65,
+       "hsl": {
+        "h": 35,
+        "s": 0.49,
+        "l": 0.82
+       }
+      },
+      {
+       "color": "#245056",
+       "top": 3364,
+       "hsl": {
+        "h": 187,
+        "s": 0.41,
+        "l": 0.24
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#245056",
+       "share": 0.46
+      },
+      {
+       "color": "#3d6366",
+       "share": 0.38
+      },
+      {
+       "color": "#f5ebd9",
+       "share": 0.07
+      },
+      {
+       "color": "#e9b248",
+       "share": 0.05
+      },
+      {
+       "color": "#bac1b5",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#e9b248",
+      "hsl": {
+       "h": 40,
+       "s": 0.79,
+       "l": 0.6
+      },
+      "fg": "#245056"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 1,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Démarrer un projet"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "header.tone-cream.sticky 1440px"
+     ],
+     "outlinedBoxes": 6,
+     "dashed": 2,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 7,
+     "fixed": true,
+     "height": 65,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "inter tight"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 4893,
+    "margins": {
+     "left": 57,
+     "right": 136
+    },
+    "sections": [
+     {
+      "sel": "section.tone-cream",
+      "tag": "section",
+      "top": 65,
+      "height": 805,
+      "words": 24,
+      "media": 0,
+      "middle": 217,
+      "heading": null,
+      "left": 57,
+      "right": 57,
+      "textLeft": 57,
+      "textRight": 57,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-sand.relative",
+      "tag": "section",
+      "top": 870,
+      "height": 616,
+      "words": 32,
+      "media": 0,
+      "middle": 245,
+      "heading": {
+       "text": "Le besoin",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 277,
+      "textLeft": 136,
+      "textRight": 277,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 1486,
+      "height": 1878,
+      "words": 30,
+      "media": 0,
+      "middle": 330,
+      "heading": {
+       "text": "En images",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 149,
+      "textLeft": 136,
+      "textRight": 149,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 3364,
+      "height": 536,
+      "words": 22,
+      "media": 0,
+      "middle": 161,
+      "heading": {
+       "text": "Le résultat",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 191,
+      "textLeft": 136,
+      "textRight": 191,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 3900,
+      "height": 740,
+      "words": 14,
+      "media": 0,
+      "middle": 496,
+      "heading": {
+       "text": "[Nom du client]",
+       "size": 56,
+       "tag": "span"
+      },
+      "left": 136,
+      "right": 149,
+      "textLeft": 136,
+      "textRight": 149,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.tone-cream.py-16",
+      "tag": "footer",
+      "top": 4640,
+      "height": 253,
+      "words": 16,
+      "media": 0,
+      "middle": 476,
+      "heading": null,
+      "left": 136,
+      "right": 136,
+      "textLeft": 136,
+      "textRight": 136,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "[Titre du projet]",
+      "size": 76,
+      "top": 670,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 136,
+      "n": 5
+     },
+     {
+      "x": 633,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 7,
+    "bodySize": 18,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.42,
+    "voidBox": {
+     "x": 300,
+     "y": 120,
+     "w": 1140,
+     "h": 480
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.63,
+    0.7,
+    0.73,
+    0.49,
+    0.43
+   ],
+   "motion": {
+    "elements": 9,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 8,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 4293,
+     "screens": 4.2,
+     "words": 148,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 4,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "[Titre du projet]",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 42.2,
+     "vw": 5.5,
+     "font": "Poppins",
+     "weight": 700,
+     "tracking": -0.035,
+     "leading": 0.95,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.5,
+     "top": 531,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "[Titre du projet]",
+     "words": 3,
+     "lines": 1,
+     "size": 42.2,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "[Titre du projet]",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 42.2,
+      "vw": 5.5,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.5,
+      "top": 531,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Le besoin",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 921,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Notre réponse",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1133,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "En images",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1472,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Le résultat",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2662,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3274,
+      "tag": "span",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 6,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter Tight",
+       "share": 0.61,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.39,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      24,
+      32,
+      42
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter Tight",
+      "size": 18,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 6.2
+     },
+     "measureChars": 69,
+     "max": {
+      "size": 42.2,
+      "vw": 5.5,
+      "font": "Poppins",
+      "text": "[Titre du projet]"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 19,
+     "microLabelShare": 0.278,
+     "microSamples": [
+      "(01)",
+      "Façade & enseigne",
+      "Image à venir",
+      "Client",
+      "Service",
+      "Année"
+     ],
+     "upperShare": 0.39,
+     "centerShare": 0.01,
+     "smallText": 13
+    },
+    "eyebrows": [
+     {
+      "text": "(01)",
+      "above": "[Titre du projet]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 498
+     }
+    ],
+    "numbered": [
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 78
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 498
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 1565
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 1565
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 2004
+     },
+     {
+      "text": "(04)",
+      "size": 12,
+      "top": 2004
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 3456
+     }
+    ],
+    "color": {
+     "bodyBg": "#f5ebd9",
+     "bodyBgHsl": {
+      "h": 39,
+      "s": 0.58,
+      "l": 0.91
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f5ebd9",
+       "top": 65,
+       "hsl": {
+        "h": 39,
+        "s": 0.58,
+        "l": 0.91
+       }
+      },
+      {
+       "color": "#e8d5bb",
+       "top": 65,
+       "hsl": {
+        "h": 35,
+        "s": 0.49,
+        "l": 0.82
+       }
+      },
+      {
+       "color": "#245056",
+       "top": 2534,
+       "hsl": {
+        "h": 187,
+        "s": 0.41,
+        "l": 0.24
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#245056",
+       "share": 0.45
+      },
+      {
+       "color": "#3d6366",
+       "share": 0.4
+      },
+      {
+       "color": "#f5ebd9",
+       "share": 0.07
+      },
+      {
+       "color": "#e9b248",
+       "share": 0.05
+      },
+      {
+       "color": "#bac1b5",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#e9b248",
+      "hsl": {
+       "h": 40,
+       "s": 0.79,
+       "l": 0.6
+      },
+      "fg": "#245056"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 1,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Démarrer un projet"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "header.tone-cream.sticky 768px"
+     ],
+     "outlinedBoxes": 6,
+     "dashed": 2,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.13
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 65,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "inter tight"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 4293,
+    "margins": {
+     "left": 40,
+     "right": 41
+    },
+    "sections": [
+     {
+      "sel": "section.tone-cream",
+      "tag": "section",
+      "top": 65,
+      "height": 728,
+      "words": 24,
+      "media": 0,
+      "middle": 82,
+      "heading": {
+       "text": "[Titre du projet]",
+       "size": 42,
+       "tag": "h1"
+      },
+      "left": 40,
+      "right": 41,
+      "textLeft": 40,
+      "textRight": 41,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-sand.relative",
+      "tag": "section",
+      "top": 793,
+      "height": 552,
+      "words": 32,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Le besoin",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 198,
+      "textLeft": 40,
+      "textRight": 198,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 1344,
+      "height": 1190,
+      "words": 30,
+      "media": 0,
+      "middle": 90,
+      "heading": {
+       "text": "En images",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 53,
+      "textLeft": 40,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 2534,
+      "height": 612,
+      "words": 22,
+      "media": 0,
+      "middle": 42,
+      "heading": {
+       "text": "Le résultat",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 86,
+      "textLeft": 40,
+      "textRight": 86,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 3146,
+      "height": 855,
+      "words": 14,
+      "media": 0,
+      "middle": 371,
+      "heading": {
+       "text": "[Nom du client]",
+       "size": 32,
+       "tag": "span"
+      },
+      "left": 40,
+      "right": 53,
+      "textLeft": 40,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.tone-cream.py-16",
+      "tag": "footer",
+      "top": 4001,
+      "height": 292,
+      "words": 16,
+      "media": 0,
+      "middle": 32,
+      "heading": null,
+      "left": 40,
+      "right": 178,
+      "textLeft": 40,
+      "textRight": 178,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "[Titre du projet]",
+      "size": 42,
+      "top": 531,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 40,
+      "n": 7
+     }
+    ],
+    "leftBlocks": 7,
+    "bodySize": 18,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 360,
+   "height": 225,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.64,
+    0.51,
+    0.69,
+    0.94,
+    0.42,
+    0.78,
+    0.69,
+    0.78,
+    0.63,
+    0.75,
+    0.79,
+    0.63
+   ],
+   "motion": {
+    "elements": 8,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 8,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 360,
+     "h": 225
+    },
+    "page": {
+     "height": 4289,
+     "screens": 19.1,
+     "words": 145,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 4,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": null,
+    "h1": {
+     "text": "[Titre du projet]",
+     "words": 3,
+     "lines": 1,
+     "size": 40,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "[Titre du projet]",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 40,
+      "vw": 11.1,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 303,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Le besoin",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 619,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Notre réponse",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 811,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "En images",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 1083,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Le résultat",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 2835,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "[CHIFFRE À CONFIRMER]",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 2967,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "[CHIFFRE À CONFIRMER]",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 3059,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "Un projet du même genre ?",
+      "words": 6,
+      "chars": 25,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 3183,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "[Nom du client]",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 3443,
+      "tag": "span",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 3,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter Tight",
+       "share": 0.62,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.38,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      24,
+      32,
+      40
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter Tight",
+      "size": 18,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 6.2
+     },
+     "measureChars": 36,
+     "max": {
+      "size": 40,
+      "vw": 11.1,
+      "font": "Poppins",
+      "text": "[Titre du projet]"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 19,
+     "microLabelShare": 0.285,
+     "microSamples": [
+      "(01)",
+      "Façade & enseigne",
+      "Image à venir",
+      "Client",
+      "Service",
+      "Année"
+     ],
+     "upperShare": 0.4,
+     "centerShare": 0.01,
+     "smallText": 13
+    },
+    "eyebrows": [
+     {
+      "text": "(01)",
+      "above": "[Titre du projet]",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 270
+     }
+    ],
+    "numbered": [
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 78
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 270
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 1176
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 1600
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 1944
+     },
+     {
+      "text": "(04)",
+      "size": 12,
+      "top": 2288
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 3625
+     }
+    ],
+    "color": {
+     "bodyBg": "#f5ebd9",
+     "bodyBgHsl": {
+      "h": 39,
+      "s": 0.58,
+      "l": 0.91
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f5ebd9",
+       "top": 65,
+       "hsl": {
+        "h": 39,
+        "s": 0.58,
+        "l": 0.91
+       }
+      },
+      {
+       "color": "#e8d5bb",
+       "top": 65,
+       "hsl": {
+        "h": 35,
+        "s": 0.49,
+        "l": 0.82
+       }
+      },
+      {
+       "color": "#245056",
+       "top": 2755,
+       "hsl": {
+        "h": 187,
+        "s": 0.41,
+        "l": 0.24
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#245056",
+       "share": 0.43
+      },
+      {
+       "color": "#3d6366",
+       "share": 0.41
+      },
+      {
+       "color": "#f5ebd9",
+       "share": 0.08
+      },
+      {
+       "color": "#e9b248",
+       "share": 0.05
+      },
+      {
+       "color": "#bac1b5",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#e9b248",
+      "hsl": {
+       "h": 40,
+       "s": 0.79,
+       "l": 0.6
+      },
+      "fg": "#245056"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 0,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "header.tone-cream.sticky 360px"
+     ],
+     "outlinedBoxes": 6,
+     "dashed": 2,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 65,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "inter tight"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 360,
+     "h": 225
+    },
+    "pageH": 4289,
+    "margins": {
+     "left": 20,
+     "right": 21
+    },
+    "sections": [
+     {
+      "sel": "section.tone-cream",
+      "tag": "section",
+      "top": 65,
+      "height": 474,
+      "words": 24,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "[Titre du projet]",
+       "size": 40,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 21,
+      "textLeft": 20,
+      "textRight": 21,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 539,
+      "height": 464,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 619,
+      "height": 304,
+      "words": 30,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Notre réponse",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 30,
+      "textLeft": 20,
+      "textRight": 30,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 1003,
+      "height": 1752,
+      "words": 30,
+      "media": 0,
+      "middle": 21,
+      "heading": {
+       "text": "En images",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 33,
+      "textLeft": 20,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 2755,
+      "height": 608,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Le résultat",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 22,
+      "textLeft": 20,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 3363,
+      "height": 529,
+      "words": 14,
+      "media": 0,
+      "middle": 3,
+      "heading": {
+       "text": "[Nom du client]",
+       "size": 32,
+       "tag": "span"
+      },
+      "left": 20,
+      "right": 33,
+      "textLeft": 20,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.tone-cream.py-16",
+      "tag": "footer",
+      "top": 3892,
+      "height": 397,
+      "words": 16,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 79,
+      "textLeft": 20,
+      "textRight": 79,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "[Titre du projet]",
+      "size": 40,
+      "top": 303,
+      "firstScreen": false
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 7
+     }
+    ],
+    "leftBlocks": 7,
+    "bodySize": 18,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 1440,
+   "message": "The running text is a soft grey on its ground (6.2:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.",
+   "alsoAt": [
+    768,
+    360
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The page sits off-centre: its content comes to 57px from the left edge but only to 136px from the right, at 1440px.",
+   "fix": "Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure)."
+  },
+  {
+   "level": "WARN",
+   "id": "name-only-title",
+   "width": 1440,
+   "message": "The h1 is a bare name (\"[Titre du projet]\") and nothing else on the first screen says what this is.",
+   "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "hero-void",
+   "width": 1440,
+   "message": "42% of the first screen is one empty block (1140×480px at 300,120).",
+   "fix": "Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 9 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  },
+  {
+   "level": "WARN",
+   "id": "empty-middle",
+   "width": 768,
+   "message": "1 section(s) have content at both edges and 371px of nothing between: \"[Nom du client]\"",
+   "fix": "Bring the two parts together on the grid, or put the picture or figure of the section in the middle. An empty middle third reads as a hole, the same as an empty half."
+  },
+  {
+   "level": "WARN",
+   "id": "first-action",
+   "width": 360,
+   "message": "No visible button in the first phone screen.",
+   "fix": "On a phone the first screen still holds the headline, the supporting sentence and the action; move navigation into one row or a menu so it does not push them down."
+  },
+  {
+   "level": "WARN",
+   "id": "no-hero",
+   "width": 360,
+   "message": "No headline found in the first viewport.",
+   "fix": "The first screen needs a clear focal statement or image."
+  },
+  {
+   "level": "FAIL",
+   "id": "no-title",
+   "width": 360,
+   "message": "The h1 (\"[Titre du projet]\") is not on the first screen (it starts 303px down).",
+   "fix": "The title belongs on the first screen, where a visitor decides whether to stay."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/riadh/Desktop/signature-portfolio/.taste-skill/finalprojetsprojet-01/desktop-fold.jpg",
+   "pages": [
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/finalprojetsprojet-01/desktop-page-01.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/finalprojetsprojet-01/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/riadh/Desktop/signature-portfolio/.taste-skill/finalprojetsprojet-01/tablet-fold.jpg",
+   "pages": [
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/finalprojetsprojet-01/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 360,
+   "fold": "/Users/riadh/Desktop/signature-portfolio/.taste-skill/finalprojetsprojet-01/mobile-fold.jpg",
+   "pages": [
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/finalprojetsprojet-01/mobile-page-01.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/finalprojetsprojet-01/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

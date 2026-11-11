@@ -1,0 +1,3787 @@
+{
+ "url": "http://localhost:3123/styleguide",
+ "at": "2026-11-09T16:07:37.218Z",
+ "allow": [
+  "numbering",
+  "micro-label",
+  "palette-cream",
+  "few-pictures",
+  "no-footage",
+  "small-text",
+  "dashed"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.36,
+    0.75,
+    0.33,
+    0.53,
+    0.89,
+    0.97,
+    0.86,
+    0.15,
+    0.91,
+    0.63,
+    0.35,
+    0.56
+   ],
+   "motion": {
+    "elements": 17,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 17,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 13912,
+     "screens": 15.5,
+     "words": 1298,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 133,
+     "sections": 12,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "On construit. On construit.",
+     "words": 4,
+     "chars": 27,
+     "lines": 2,
+     "size": 129.6,
+     "vw": 9,
+     "font": "Poppins",
+     "weight": 800,
+     "tracking": -0.045,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.47,
+     "top": 201,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "On construit. On construit.",
+     "words": 4,
+     "lines": 2,
+     "size": 129.6,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "On construit. On construit.",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 129.6,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 201,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Trois couleurs, 60 · 30 · 10",
+      "words": 7,
+      "chars": 28,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 906,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Tons, pas de nouvelles teintes",
+      "words": 5,
+      "chars": 30,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 1784,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Typographie",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 3351,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "On construit.",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 129.6,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 3610,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Façade & enseigne",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 3791,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Stands & événements",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 3927,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Sur teal",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 4946,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Nos murs.",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 129.6,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 5098,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Façade & enseigne",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 5279,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Stands & événements",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 5415,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Espacement",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 6434,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Les motifs des posts",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 7281,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "On Recrute! On Recrute!",
+      "words": 4,
+      "chars": 23,
+      "lines": 2,
+      "size": 76,
+      "vw": 5.3,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.4,
+      "top": 7674,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Boutons",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 8966,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Sur teal",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 9804,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Le puzzle",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 10534,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Les 81 combinaisons",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 12254,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Système à valider avant les pages.",
+      "words": 6,
+      "chars": 34,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 13588,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 19,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter Tight",
+       "share": 0.83,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      22,
+      24,
+      56,
+      76,
+      130
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter Tight",
+      "size": 18,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.5
+     },
+     "measureChars": 69,
+     "max": {
+      "size": 129.6,
+      "vw": 9,
+      "font": "Poppins",
+      "text": "On"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 20,
+     "microLabelShare": 0.035,
+     "microSamples": [
+      "Fichier à fournir · public/brand",
+      "(01)",
+      "(02)",
+      "--color-cream · #F5EBD9",
+      "--color-teal · #245056",
+      "--color-ochre · #E9B248"
+     ],
+     "upperShare": 0.04,
+     "centerShare": 0.01,
+     "smallText": 8
+    },
+    "eyebrows": [],
+    "numbered": [
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 384
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 384
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 7563
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 7563
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 7958
+     },
+     {
+      "text": "(04)",
+      "size": 12,
+      "top": 7958
+     },
+     {
+      "text": "(05)",
+      "size": 12,
+      "top": 8311
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 8432
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 8472
+     },
+     {
+      "text": "(06)",
+      "size": 12,
+      "top": 8311
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 10960
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 10960
+     }
+    ],
+    "color": {
+     "bodyBg": "#f4ebd8",
+     "bodyBgHsl": {
+      "h": 41,
+      "s": 0.56,
+      "l": 0.9
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4ebd8",
+       "top": 0,
+       "hsl": {
+        "h": 41,
+        "s": 0.56,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#245056",
+       "top": 746,
+       "hsl": {
+        "h": 187,
+        "s": 0.41,
+        "l": 0.24
+       }
+      },
+      {
+       "color": "#e8d4ba",
+       "top": 3191,
+       "hsl": {
+        "h": 34,
+        "s": 0.5,
+        "l": 0.82
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#245056",
+       "share": 0.4
+      },
+      {
+       "color": "#3c6266",
+       "share": 0.34
+      },
+      {
+       "color": "#f4ebd8",
+       "share": 0.15
+      },
+      {
+       "color": "#bbc1b4",
+       "share": 0.12
+      },
+      {
+       "color": "#e9b349",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#e9b349",
+      "hsl": {
+       "h": 40,
+       "s": 0.78,
+       "l": 0.6
+      },
+      "fg": "#245056"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 11,
+     "inHero": 1,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Voir nos réalisations"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 1,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.32
+     },
+     {
+      "type": "svg",
+      "ratio": 0.12
+     },
+     {
+      "type": "svg",
+      "ratio": 0.12
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 65,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "inter tight"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 13912,
+    "margins": {
+     "left": 136,
+     "right": 145
+    },
+    "sections": [
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 0,
+      "height": 746,
+      "words": 55,
+      "media": 3,
+      "middle": 0,
+      "heading": {
+       "text": "On",
+       "size": 130,
+       "tag": "h1"
+      },
+      "left": 136,
+      "right": 67,
+      "textLeft": 136,
+      "textRight": 136,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#couleurs.tone-teal.relative",
+      "tag": "section",
+      "top": 746,
+      "height": 878,
+      "words": 89,
+      "media": 0,
+      "middle": 49,
+      "heading": {
+       "text": "Trois couleurs, 60 · 30 · 10",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 161,
+      "textLeft": 136,
+      "textRight": 161,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 1624,
+      "height": 1567,
+      "words": 213,
+      "media": 0,
+      "middle": 43,
+      "heading": {
+       "text": "Tons, pas de nouvelles teintes",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 138,
+      "textLeft": 136,
+      "textRight": 138,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 3191,
+      "height": 1595,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 3351,
+      "height": 1275,
+      "words": 181,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "On construit.",
+       "size": 130,
+       "tag": "p"
+      },
+      "left": 136,
+      "right": 208,
+      "textLeft": 136,
+      "textRight": 208,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 4786,
+      "height": 1488,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 4946,
+      "height": 1168,
+      "words": 150,
+      "media": 0,
+      "middle": 37,
+      "heading": {
+       "text": "Nos murs.",
+       "size": 130,
+       "tag": "p"
+      },
+      "left": 136,
+      "right": 310,
+      "textLeft": 136,
+      "textRight": 310,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#espacement.tone-cream.relative",
+      "tag": "section",
+      "top": 6274,
+      "height": 847,
+      "words": 77,
+      "media": 0,
+      "middle": 134,
+      "heading": {
+       "text": "Espacement",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 150,
+      "textLeft": 136,
+      "textRight": 150,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#motifs.tone-sand.relative",
+      "tag": "section",
+      "top": 7121,
+      "height": 1686,
+      "words": 184,
+      "media": 3,
+      "middle": 0,
+      "heading": {
+       "text": "On",
+       "size": 76,
+       "tag": "span"
+      },
+      "left": 136,
+      "right": 155,
+      "textLeft": 136,
+      "textRight": 155,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#boutons.tone-cream.relative",
+      "tag": "section",
+      "top": 8806,
+      "height": 838,
+      "words": 55,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Boutons",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 588,
+      "textLeft": 136,
+      "textRight": 636,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 9644,
+      "height": 730,
+      "words": 24,
+      "media": 0,
+      "middle": 29,
+      "heading": {
+       "text": "Sur teal",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 588,
+      "textLeft": 136,
+      "textRight": 636,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 10374,
+      "height": 1720,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 10534,
+      "height": 1400,
+      "words": 138,
+      "media": 7,
+      "middle": 0,
+      "heading": {
+       "text": "Services",
+       "size": 24,
+       "tag": "h2"
+      },
+      "left": 74,
+      "right": 212,
+      "textLeft": 136,
+      "textRight": 212,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-sand.relative",
+      "tag": "section",
+      "top": 12094,
+      "height": 1334,
+      "words": 101,
+      "media": 0,
+      "middle": 35,
+      "heading": {
+       "text": "Les 81 combinaisons",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 145,
+      "textLeft": 136,
+      "textRight": 160,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 13428,
+      "height": 484,
+      "words": 18,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Système à valider avant les pages.",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 136,
+      "right": 737,
+      "textLeft": 136,
+      "textRight": 737,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 6960,
+      "height": 308
+     },
+     {
+      "top": 9488,
+      "height": 304
+     },
+     {
+      "top": 13268,
+      "height": 308
+     }
+    ],
+    "h1s": [
+     {
+      "text": "On construit. On construit.",
+      "size": 130,
+      "top": 201,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 136,
+      "n": 37
+     },
+     {
+      "x": 434,
+      "n": 4
+     },
+     {
+      "x": 177,
+      "n": 3
+     },
+     {
+      "x": 773,
+      "n": 3
+     },
+     {
+      "x": 732,
+      "n": 2
+     },
+     {
+      "x": 831,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 51,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.1,
+    "voidBox": {
+     "x": 0,
+     "y": 660,
+     "w": 720,
+     "h": 180
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.33,
+    0.66,
+    0.28,
+    0.68,
+    0.98,
+    0.84,
+    0.54,
+    0.51,
+    0.91,
+    0.68,
+    0.28,
+    0.66
+   ],
+   "motion": {
+    "elements": 17,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 17,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 15751,
+     "screens": 15.4,
+     "words": 1260,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 133,
+     "sections": 12,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "On construit. On construit.",
+     "words": 4,
+     "chars": 27,
+     "lines": 2,
+     "size": 69.1,
+     "vw": 9,
+     "font": "Poppins",
+     "weight": 800,
+     "tracking": -0.045,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.59,
+     "top": 201,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "On construit. On construit.",
+     "words": 4,
+     "lines": 2,
+     "size": 69.1,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "On construit. On construit.",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.59,
+      "top": 201,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Trois couleurs, 60 · 30 · 10",
+      "words": 7,
+      "chars": 28,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 959,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Tons, pas de nouvelles teintes",
+      "words": 5,
+      "chars": 30,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 1750,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Typographie",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 3692,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "On construit.",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.66,
+      "top": 3927,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Façade & enseigne",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 42.2,
+      "vw": 5.5,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.66,
+      "top": 4081,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Stands & événements",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.66,
+      "top": 4235,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Sur teal",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 5264,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Nos murs.",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.66,
+      "top": 5392,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Façade & enseigne",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 42.2,
+      "vw": 5.5,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.66,
+      "top": 5546,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Stands & événements",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.66,
+      "top": 5700,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Espacement",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 6729,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Les motifs des posts",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 7956,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "On Recrute! On Recrute!",
+      "words": 4,
+      "chars": 23,
+      "lines": 2,
+      "size": 42.2,
+      "vw": 5.5,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 8301,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Boutons",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 10378,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Sur teal",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 11240,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Le puzzle",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 11995,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Les 81 combinaisons",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 13746,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Système à valider avant les pages.",
+      "words": 6,
+      "chars": 34,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 15507,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 19,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter Tight",
+       "share": 0.83,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      21,
+      24,
+      32,
+      42,
+      69
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter Tight",
+      "size": 18,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.5
+     },
+     "measureChars": 69,
+     "max": {
+      "size": 69.1,
+      "vw": 9,
+      "font": "Poppins",
+      "text": "On"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 20,
+     "microLabelShare": 0.036,
+     "microSamples": [
+      "Fichier à fournir · public/brand",
+      "(01)",
+      "(02)",
+      "--color-cream · #F5EBD9",
+      "--color-teal · #245056",
+      "--color-ochre · #E9B248"
+     ],
+     "upperShare": 0.04,
+     "centerShare": 0.02,
+     "smallText": 8
+    },
+    "eyebrows": [],
+    "numbered": [
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 575
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 575
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 8189
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 8487
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 8882
+     },
+     {
+      "text": "(04)",
+      "size": 12,
+      "top": 9138
+     },
+     {
+      "text": "(05)",
+      "size": 12,
+      "top": 9474
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 9595
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 9635
+     },
+     {
+      "text": "(06)",
+      "size": 12,
+      "top": 9787
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 12394
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 12394
+     }
+    ],
+    "color": {
+     "bodyBg": "#f4ebd8",
+     "bodyBgHsl": {
+      "h": 41,
+      "s": 0.56,
+      "l": 0.9
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4ebd8",
+       "top": 0,
+       "hsl": {
+        "h": 41,
+        "s": 0.56,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#245056",
+       "top": 831,
+       "hsl": {
+        "h": 187,
+        "s": 0.41,
+        "l": 0.24
+       }
+      },
+      {
+       "color": "#e8d4ba",
+       "top": 3564,
+       "hsl": {
+        "h": 34,
+        "s": 0.5,
+        "l": 0.82
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#245056",
+       "share": 0.4
+      },
+      {
+       "color": "#3c6266",
+       "share": 0.35
+      },
+      {
+       "color": "#f4ebd8",
+       "share": 0.13
+      },
+      {
+       "color": "#bbc1b4",
+       "share": 0.12
+      },
+      {
+       "color": "#e9b349",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#e9b349",
+      "hsl": {
+       "h": 40,
+       "s": 0.78,
+       "l": 0.6
+      },
+      "fg": "#245056"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 11,
+     "inHero": 1,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Voir nos réalisations"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 1,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.74
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 65,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "inter tight"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 15751,
+    "margins": {
+     "left": 40,
+     "right": 48
+    },
+    "sections": [
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 0,
+      "height": 831,
+      "words": 49,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "On",
+       "size": 69,
+       "tag": "h1"
+      },
+      "left": 0,
+      "right": 115,
+      "textLeft": 40,
+      "textRight": 115,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#couleurs.tone-teal.relative",
+      "tag": "section",
+      "top": 831,
+      "height": 791,
+      "words": 89,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Trois couleurs, 60 · 30 · 10",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 50,
+      "textLeft": 40,
+      "textRight": 50,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 1622,
+      "height": 1942,
+      "words": 213,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Tons, pas de nouvelles teintes",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 48,
+      "textLeft": 40,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#typo.tone-sand.relative",
+      "tag": "section",
+      "top": 3564,
+      "height": 1572,
+      "words": 182,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "On construit.",
+       "size": 69,
+       "tag": "p"
+      },
+      "left": 40,
+      "right": 45,
+      "textLeft": 40,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 5136,
+      "height": 1465,
+      "words": 152,
+      "media": 0,
+      "middle": 29,
+      "heading": {
+       "text": "Nos murs.",
+       "size": 69,
+       "tag": "p"
+      },
+      "left": 40,
+      "right": 45,
+      "textLeft": 40,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#espacement.tone-cream.relative",
+      "tag": "section",
+      "top": 6601,
+      "height": 1227,
+      "words": 77,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Espacement",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 114,
+      "textLeft": 40,
+      "textRight": 114,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#motifs.tone-sand.relative",
+      "tag": "section",
+      "top": 7828,
+      "height": 2423,
+      "words": 184,
+      "media": 3,
+      "middle": 0,
+      "heading": {
+       "text": "On",
+       "size": 42,
+       "tag": "span"
+      },
+      "left": 40,
+      "right": 129,
+      "textLeft": 40,
+      "textRight": 129,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#boutons.tone-cream.relative",
+      "tag": "section",
+      "top": 10250,
+      "height": 862,
+      "words": 55,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Boutons",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 119,
+      "textLeft": 40,
+      "textRight": 119,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 11112,
+      "height": 754,
+      "words": 24,
+      "media": 0,
+      "middle": 5,
+      "heading": {
+       "text": "Sur teal",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 152,
+      "textLeft": 40,
+      "textRight": 172,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 11867,
+      "height": 1751,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 11995,
+      "height": 1495,
+      "words": 104,
+      "media": 7,
+      "middle": 0,
+      "heading": {
+       "text": "Services",
+       "size": 21,
+       "tag": "h2"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 40,
+      "textRight": 89,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-sand.relative",
+      "tag": "section",
+      "top": 13618,
+      "height": 1762,
+      "words": 101,
+      "media": 0,
+      "middle": 32,
+      "heading": {
+       "text": "Les 81 combinaisons",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 48,
+      "textLeft": 40,
+      "textRight": 63,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 15379,
+      "height": 372,
+      "words": 18,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Système à valider avant les pages.",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 161,
+      "textLeft": 40,
+      "textRight": 161,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "On construit. On construit.",
+      "size": 69,
+      "top": 201,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 40,
+      "n": 41
+     },
+     {
+      "x": 81,
+      "n": 6
+     },
+     {
+      "x": 218,
+      "n": 4
+     }
+    ],
+    "leftBlocks": 51,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 360,
+   "height": 225,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.28,
+    0.66,
+    0.24,
+    0.31,
+    1,
+    0.78,
+    1,
+    1,
+    0.6,
+    0.46,
+    0.6,
+    0.6
+   ],
+   "motion": {
+    "elements": 11,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 11,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 360,
+     "h": 225
+    },
+    "page": {
+     "height": 19764,
+     "screens": 87.8,
+     "words": 1249,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 133,
+     "sections": 12,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "On construit. On construit.",
+     "words": 4,
+     "chars": 27,
+     "lines": 2,
+     "size": 56,
+     "vw": 15.6,
+     "font": "Poppins",
+     "weight": 800,
+     "tracking": -0.045,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.89,
+     "top": 161,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "On construit. On construit.",
+     "words": 4,
+     "lines": 2,
+     "size": 56,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "On construit. On construit.",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 56,
+      "vw": 15.6,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 161,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Trois couleurs, 60 · 30 · 10",
+      "words": 7,
+      "chars": 28,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 937,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Crème 60 %",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 1345,
+      "tag": "div",
+      "kind": "statement"
+     },
+     {
+      "text": "Teal 30 %",
+      "words": 3,
+      "chars": 9,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 1494,
+      "tag": "div",
+      "kind": "statement"
+     },
+     {
+      "text": "Ocre 10 %",
+      "words": 3,
+      "chars": 9,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 1668,
+      "tag": "div",
+      "kind": "statement"
+     },
+     {
+      "text": "Tons, pas de nouvelles teintes",
+      "words": 5,
+      "chars": 30,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 1954,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Contrastes",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 3162,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Typographie",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 3824,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "On construit.",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 56,
+      "vw": 15.6,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 4108,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Façade & enseigne",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 40,
+      "vw": 11.1,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 4318,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Stands & événements",
+      "words": 3,
+      "chars": 19,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 4523,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Identité & logo",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 4696,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Sur teal",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 5664,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Nos murs.",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 56,
+      "vw": 15.6,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": -0.045,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 5784,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Façade & enseigne",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 40,
+      "vw": 11.1,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 5943,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Stands & événements",
+      "words": 3,
+      "chars": 19,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 6149,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Identité & logo",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 6322,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Espacement",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 7289,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Angles",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 7912,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Les motifs des posts",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 8423,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Contour ocre décalé",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.67,
+      "top": 8682,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "On Recrute! On Recrute!",
+      "words": 4,
+      "chars": 23,
+      "lines": 2,
+      "size": 40,
+      "vw": 11.1,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 8804,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Ligne pointillée en boucle",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 8976,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Filet ocre sous un libellé",
+      "words": 5,
+      "chars": 26,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 9424,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Puces ocre",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.36,
+      "top": 9731,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Index et méta",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.45,
+      "top": 10088,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Site web",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 10210,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Identité & logo",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.48,
+      "top": 10249,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Tracé script en fond",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.65,
+      "top": 10402,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Boutons",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 10948,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Sur teal",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 12107,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Le puzzle",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 13103,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Les 81 combinaisons",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 15789,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Système à valider avant les pages.",
+      "words": 6,
+      "chars": 34,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 19540,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 34,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 12,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter Tight",
+       "share": 0.83,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      20,
+      24,
+      32,
+      40,
+      56
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter Tight",
+      "size": 18,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.5
+     },
+     "measureChars": 36,
+     "max": {
+      "size": 56,
+      "vw": 15.6,
+      "font": "Poppins",
+      "text": "On"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 19,
+     "microLabelShare": 0.036,
+     "microSamples": [
+      "Fichier à fournir · public/brand",
+      "(01)",
+      "(02)",
+      "--color-cream · #F5EBD9",
+      "--color-teal · #245056",
+      "--color-ochre · #E9B248"
+     ],
+     "upperShare": 0.04,
+     "centerShare": 0.02,
+     "smallText": 8
+    },
+    "eyebrows": [],
+    "numbered": [
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 645
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 645
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 8692
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 8986
+     },
+     {
+      "text": "(03)",
+      "size": 12,
+      "top": 9434
+     },
+     {
+      "text": "(04)",
+      "size": 12,
+      "top": 9741
+     },
+     {
+      "text": "(05)",
+      "size": 12,
+      "top": 10098
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 10220
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 10259
+     },
+     {
+      "text": "(06)",
+      "size": 12,
+      "top": 10412
+     },
+     {
+      "text": "(01)",
+      "size": 12,
+      "top": 13601
+     },
+     {
+      "text": "(02)",
+      "size": 12,
+      "top": 13601
+     }
+    ],
+    "color": {
+     "bodyBg": "#f4ebd8",
+     "bodyBgHsl": {
+      "h": 41,
+      "s": 0.56,
+      "l": 0.9
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4ebd8",
+       "top": 0,
+       "hsl": {
+        "h": 41,
+        "s": 0.56,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#245056",
+       "top": 857,
+       "hsl": {
+        "h": 187,
+        "s": 0.41,
+        "l": 0.24
+       }
+      },
+      {
+       "color": "#e8d4ba",
+       "top": 3744,
+       "hsl": {
+        "h": 34,
+        "s": 0.5,
+        "l": 0.82
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#245056",
+       "share": 0.41
+      },
+      {
+       "color": "#3c6266",
+       "share": 0.31
+      },
+      {
+       "color": "#f4ebd8",
+       "share": 0.15
+      },
+      {
+       "color": "#bbc1b4",
+       "share": 0.12
+      },
+      {
+       "color": "#e9b349",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#e9b349",
+      "hsl": {
+       "h": 40,
+       "s": 0.78,
+       "l": 0.6
+      },
+      "fg": "#245056"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 11,
+     "inHero": 0,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 1,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 65,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "inter tight"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 360,
+     "h": 225
+    },
+    "pageH": 19764,
+    "margins": {
+     "left": 20,
+     "right": 27
+    },
+    "sections": [
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 0,
+      "height": 857,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 32,
+      "height": 729,
+      "words": 49,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "On",
+       "size": 56,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 40,
+      "textLeft": 20,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#couleurs.tone-teal.relative",
+      "tag": "section",
+      "top": 857,
+      "height": 1017,
+      "words": 89,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Trois couleurs, 60 · 30 · 10",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 23,
+      "textLeft": 20,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-cream.relative",
+      "tag": "section",
+      "top": 1874,
+      "height": 1870,
+      "words": 169,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Tons, pas de nouvelles teintes",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 23,
+      "textLeft": 20,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 3744,
+      "height": 1839,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 3824,
+      "height": 1679,
+      "words": 181,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "On construit.",
+       "size": 56,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 22,
+      "textLeft": 20,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 5584,
+      "height": 1625,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 5664,
+      "height": 1465,
+      "words": 150,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Nos murs.",
+       "size": 56,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 22,
+      "textLeft": 20,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#espacement.tone-cream.relative",
+      "tag": "section",
+      "top": 7209,
+      "height": 1134,
+      "words": 77,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Espacement",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 25,
+      "textLeft": 20,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#motifs.tone-sand.relative",
+      "tag": "section",
+      "top": 8343,
+      "height": 2526,
+      "words": 19,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Les motifs des posts",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 39,
+      "textLeft": 20,
+      "textRight": 39,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#boutons.tone-cream.relative",
+      "tag": "section",
+      "top": 10868,
+      "height": 1159,
+      "words": 55,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Boutons",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 27,
+      "textLeft": 20,
+      "textRight": 27,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 12027,
+      "height": 995,
+      "words": 24,
+      "media": 0,
+      "middle": 5,
+      "heading": {
+       "text": "Sur teal",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 77,
+      "textLeft": 20,
+      "textRight": 125,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.pointer-events-none.absolute",
+      "tag": "div",
+      "top": 13023,
+      "height": 2687,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.relative",
+      "tag": "div",
+      "top": 13103,
+      "height": 2527,
+      "words": 138,
+      "media": 10,
+      "middle": 0,
+      "heading": {
+       "text": "Services",
+       "size": 20,
+       "tag": "h2"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 20,
+      "textRight": 26,
+      "fullBleed": true,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-sand.relative",
+      "tag": "section",
+      "top": 15709,
+      "height": 3751,
+      "words": 101,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Les 81 combinaisons",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 24,
+      "textLeft": 20,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.tone-teal.relative",
+      "tag": "section",
+      "top": 19460,
+      "height": 304,
+      "words": 18,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Système à valider avant les pages.",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 23,
+      "textLeft": 20,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 1136,
+      "height": 204
+     },
+     {
+      "top": 1792,
+      "height": 80
+     },
+     {
+      "top": 2152,
+      "height": 188
+     },
+     {
+      "top": 2488,
+      "height": 160
+     },
+     {
+      "top": 2776,
+      "height": 160
+     },
+     {
+      "top": 3064,
+      "height": 92
+     },
+     {
+      "top": 8080,
+      "height": 140
+     },
+     {
+      "top": 8264,
+      "height": 148
+     },
+     {
+      "top": 8592,
+      "height": 2348
+     },
+     {
+      "top": 11948,
+      "height": 152
+     },
+     {
+      "top": 19380,
+      "height": 152
+     }
+    ],
+    "h1s": [
+     {
+      "text": "On construit. On construit.",
+      "size": 56,
+      "top": 161,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 40
+     }
+    ],
+    "leftBlocks": 40,
+    "bodySize": 18,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "first-action",
+   "width": 360,
+   "message": "No visible button in the first phone screen.",
+   "fix": "On a phone the first screen still holds the headline, the supporting sentence and the action; move navigation into one row or a menu so it does not push them down."
+  },
+  {
+   "level": "FAIL",
+   "id": "blank-gap",
+   "width": 360,
+   "message": "9 stretch(es) of the page hold nothing at all: 204px at 1136px; 188px at 2152px; 160px at 2488px; 160px at 2776px (the screen is 225px tall).",
+   "fix": "Close the gap: a section gap is 120–240px on desktop and 72–112px on a phone. Look for a min-height: 100vh on a short section, an empty grid row, a hidden element still holding its space, or a reveal that never fired. A deliberate rest is a placed picture or colour field, not nothing."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/desktop-fold.jpg",
+   "pages": [
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/desktop-page-01.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/desktop-page-02.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/tablet-fold.jpg",
+   "pages": [
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/tablet-page-01.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 360,
+   "fold": "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/mobile-fold.jpg",
+   "pages": [
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/mobile-page-01.jpg",
+    "/Users/riadh/Desktop/signature-portfolio/.taste-skill/review/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
