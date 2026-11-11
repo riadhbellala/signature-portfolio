@@ -119,3 +119,64 @@ export function gridEdges(row: number, col: number, rows: number, cols: number, 
     left: exists(row, col - 1) ? opposite(hJoint(row, col - 1)) : "flat",
   };
 }
+
+/**
+ * A rectangular piece several cells wide: `top` and `bottom` give one edge per cell (left to
+ * right), so it locks under or over a row of square pieces. Sides are flat. `height` is in the
+ * same units as a cell side (UNIT = one cell). Body: (0,0)–(cells × size, height × size / UNIT).
+ */
+export function stripPath(size: number, top: Edge[], bottom: Edge[], height: number): string {
+  const k = size / UNIT;
+  const W = top.length * size;
+  const H = height * k;
+  const segs = (from: Vec, dir: Vec, out: Vec, edges: Edge[]) =>
+    edges
+      .map((edge, i) => {
+        const o: Vec = [from[0] + dir[0] * i * size, from[1] + dir[1] * i * size];
+        const p = (along: number, outward: number) => {
+          const sign = edge === "blank" ? -1 : 1;
+          return `${round(o[0] + dir[0] * along * k + out[0] * outward * sign * k)} ${round(o[1] + dir[1] * along * k + out[1] * outward * sign * k)}`;
+        };
+        const end = `L${p(UNIT, 0)}`;
+        if (edge === "flat") return end;
+        const curves = PROFILE.map((seg) => `C${seg.map(([a, ou]) => p(a, ou)).join(" ")}`);
+        return [`L${p(KNOB_FROM * UNIT, 0)}`, ...curves, end].join(" ");
+      })
+      .join(" ");
+  return [
+    "M0 0",
+    segs([0, 0], [1, 0], [0, -1], top),
+    `L${round(W)} ${round(H)}`,
+    segs([W, H], [-1, 0], [0, 1], [...bottom].reverse()),
+    "L0 0 Z",
+  ].join(" ");
+}
+
+/**
+ * A rectangular piece w × h (units), one knob centred on each non-flat side. The knob keeps the
+ * size it has on a square piece of side min(w, h), so a portrait piece reads as the same family.
+ * For w = h = UNIT this is exactly `puzzlePath`.
+ */
+export function rectPiecePath(w: number, h: number, edges: Edges): string {
+  const s = Math.min(w, h);
+  const k = s / UNIT;
+  const side = (from: Vec, dir: Vec, out: Vec, len: number, edge: Edge) => {
+    const end: Vec = [from[0] + dir[0] * len, from[1] + dir[1] * len];
+    const line = `L${round(end[0])} ${round(end[1])}`;
+    if (edge === "flat") return line;
+    const sign = edge === "blank" ? -1 : 1;
+    const start = (len - s) / 2; // knob segment of length s, centred
+    const p = (along: number, outward: number) =>
+      `${round(from[0] + dir[0] * (start + along * k) + out[0] * outward * sign * k)} ${round(from[1] + dir[1] * (start + along * k) + out[1] * outward * sign * k)}`;
+    const curves = PROFILE.map((seg) => `C${seg.map(([a, o]) => p(a, o)).join(" ")}`);
+    return [`L${p(KNOB_FROM * UNIT, 0)}`, ...curves, line].join(" ");
+  };
+  return [
+    "M0 0",
+    side([0, 0], [1, 0], [0, -1], w, edges.top),
+    side([w, 0], [0, 1], [1, 0], h, edges.right),
+    side([w, h], [-1, 0], [0, 1], w, edges.bottom),
+    side([0, h], [0, -1], [-1, 0], h, edges.left),
+    "Z",
+  ].join(" ");
+}

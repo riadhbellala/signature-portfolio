@@ -1,92 +1,92 @@
-/** Interface copy: navigation, section titles, buttons. All French. */
+/** Interface copy (labels, buttons, titles). Content lives in the other files. */
 
 export const nav = {
   links: [
-    { label: "Projets", href: "/#projets" },
+    { label: "Projets", href: "/#dossiers" },
     { label: "Services", href: "/#services" },
-    { label: "L’agence", href: "/#agence" },
+    { label: "Clients", href: "/#clients" },
     { label: "Contact", href: "/#contact" },
   ],
-  cta: { label: "Démarrer un projet", href: "/#contact" },
+  projectsMenu: "Types de projets",
+  projectsAll: "Voir les projets choisis",
+  external: "signature-alg.com",
+  externalLabel: "Site de l’agence Signature (nouvel onglet)",
+  cta: { label: "Nous contacter", href: "/#contact" },
   menuOpen: "Menu",
   menuClose: "Fermer",
   homeLabel: "Signature, accueil",
   skip: "Aller au contenu",
   mainLabel: "Principale",
   mobileLabel: "Mobile",
-  footerLabel: "Pied de page",
+  categoriesLabel: "Types de projets",
 };
 
 export const home = {
   meta: {
-    title: "Signature creative co. — Agence 360° à Oran",
-    description:
-      "Agence de publicité et de marketing 360° à Oran : branding, design, sites web et applications, contenu, community management, signalétique et stands.",
+    title: "Signature creative co. — Portfolio",
+    description: "Les projets de Signature, agence 360° à Oran : sites web, identités, murs, tableaux, façades, stands et réseaux sociaux.",
   },
   hero: {
-    title: ["Votre marque,", "on la construit."],
-    sentence:
-      "Agence 360° à Oran. Branding, sites et applications, contenu, signalétique et stands : chaque pièce de votre image, posée par la même équipe.",
-    primary: { label: "Voir nos projets", href: "#projets" },
-    secondary: { label: "Démarrer un projet", href: "#contact" },
-    puzzle: { a: "votre marque", b: "nos solutions", groupLabel: "Votre marque, plus nos solutions : la pièce qui manquait." },
-    peek: "Derniers projets",
+    title: ["Nos projets,", "pièce par pièce."],
+    line: "Agence 360° à Oran — sites web, identité, murs, façades, stands, réseaux sociaux.",
+    puzzle: { a: "votre marque", b: "nos solutions", groupLabel: "Votre marque, plus nos solutions" },
+    primary: { label: "Démarrer un projet", href: "#contact" },
+    secondary: { label: "Voir les projets", href: "#projets" },
+    /** Showreel. Put the file in /public (e.g. "/video/showreel.mp4"); null shows the placeholder. */
+    video: { src: null as string | null, poster: null as string | null, label: "Showreel Signature", pending: "Vidéo à venir" },
+    indexLabel: "Types de projets",
   },
-  selected: {
-    title: "Projets choisis",
-    lead: "Quatre réalisations, une par métier.",
-    open: "Voir le projet",
-    next: { label: "Ils nous font confiance", href: "#clients" },
+  work: {
+    title: "Projets choisis.",
+    lead: "Un projet par type, assemblé pièce par pièce. Il en manque un : le vôtre.",
+    label: "Projets choisis",
+    invite: { label: "Votre projet ici ?", action: "Nous contacter", href: "#contact" },
   },
-  clients: {
-    title: "Ils nous ont confié leur image.",
-    lead: "Chaque client est une pièce du mur. Il en reste une.",
-    logoPending: "Logo à venir",
-    invite: { label: "Votre marque ici ?", action: "Démarrer un projet", href: "#contact" },
-    next: { label: "Ce que l’on fait", href: "#services" },
+  folders: {
+    title: "Tous les projets, par type.",
+    lead: "Ouvrez un dossier : chaque type a sa définition et ses réalisations.",
+    tabsLabel: "Types de projets",
+  },
+  category: {
+    count: (n: number) => `${n} projet${n > 1 ? "s" : ""}`,
+    more: (n: number) => `Voir les ${n} autre${n > 1 ? "s" : ""} projet${n > 1 ? "s" : ""}`,
   },
   services: {
-    title: "Chaque pièce de votre image",
-    lead: "Dix métiers, quatre pôles, une seule équipe. Choisissez une pièce.",
+    title: "Ce qu’on peut faire pour vous.",
+    lead: "Prenez ce qu’il vous faut : chaque languette ouvre les projets du métier.",
+    flyerTitle: "Nos services",
+    flyerSub: "Prenez ce qu’il vous faut",
     action: "Voir les projets",
-    listLabel: "Nos services",
-    next: { label: "Tous les projets", href: "#tous-les-projets" },
   },
-  all: {
-    title: "Tous les projets",
-    lead: "Filtrez par pôle pour trouver le projet qui ressemble au vôtre.",
-    filterLabel: "Filtrer par pôle",
-    all: "Tous",
-    more: "Voir plus",
-    empty: "Pas encore de projet publié dans ce pôle.",
-    emptyAction: "Voir tous les projets",
-    count: (shown: number, total: number) => `${shown} sur ${total}`,
-    next: { label: "Qui sommes-nous", href: "#agence" },
+  clients: {
+    title: "Ils nous ont fait confiance.",
+    lead: "Chaque marque est une pièce du puzzle Signature.",
+    logoPending: "Logo à venir",
+    banner: { title: "Vous voulez devenir l’un de nos clients ?", action: "Démarrer un projet", href: "#contact" },
   },
-  agency: { statsLabel: "Signature en chiffres", next: { label: "Parlons de votre projet", href: "#contact" } },
-  testimonials: { title: "Ce qu’en disent nos clients" },
-  cta: {
+  contact: {
     title: ["Un projet en tête ?", "On en parle."],
-    intro: "Écrivez-nous ou appelez, on vous répond.",
+    lead: "Il manque une pièce à votre projet : la conversation. Choisissez la vôtre.",
+    whatsappSub: "Message direct",
+    piecesLabel: "Nous contacter",
     whatsapp: "Écrire sur WhatsApp",
     phone: "Téléphone",
     email: "E-mail",
-    address: "Adresse",
     instagram: "Instagram",
+    address: "Adresse",
+    map: "Voir sur la carte",
+    website: "L’agence",
   },
-  footer: { rights: "© 2026 Signature Consulting", tagline: "Agence 360° · Oran" },
+  footer: "© 2026 Signature Consulting — Oran",
 };
 
 export const projectPage = {
   back: "Tous les projets",
-  backHref: "/#tous-les-projets",
-  labels: { client: "Client", category: "Service", year: "Année" },
-  need: "Le besoin",
-  response: "Notre réponse",
-  gallery: "En images",
-  result: "Le résultat",
-  cta: { title: "Un projet du même genre ?", label: "Démarrer un projet", href: "/#contact" },
+  labels: { client: "Client", category: "Type", year: "Année" },
+  brief: "Le brief",
+  gallery: "Galerie",
   next: "Projet suivant",
+  cta: { label: "Nous contacter", href: "/#contact" },
 };
 
 export const placeholderImage = { pending: "Image à venir" };

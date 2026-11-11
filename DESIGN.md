@@ -31,6 +31,7 @@ Sampling (Pillow, cluster medians): teal confirmed exactly. Ochre corrected from
 | `--color-teal-deep` | `#18363A` | Teal at 68 % light | Side (thickness) of teal pieces; shadow of cream pieces on teal |
 | `--color-ochre-deep` | `#9E7931` | Ochre at 68 % light | Side of ochre pieces and their shadow |
 | `--color-cream-deep` | `#A7A094` | Cream at 68 % light | Side of cream pieces |
+| `--color-sand-deep` | `#BFAE99` | Sand at 82 % | Side and shadow of sand (placeholder) pieces |
 
 `teal-muted` was briefed at 72 %; that measures 3.90:1 on cream (fails AA). 88 % is the lowest step that passes on both cream and sand.
 
@@ -101,9 +102,9 @@ Inside a puzzle piece: teal piece → cream ink; ochre piece → teal ink (muted
 ## 3. Space and layout
 
 - 4px base. Scale: **4 8 12 16 24 32 48 64 96 128 160** (Tailwind `1 2 3 4 6 8 12 16 24 32 40`). No other values.
-- Container `max-w-[1280px]`, gutters `--gutter`: 20px mobile, 40px from 768px, 56px from 1024px.
+- Container `max-w-[var(--page-max)]` (1680px), gutters `--gutter`: 20px mobile, 40px from 768px, 56px from 1024px, 80px from 1536px.
 - 12-column grid (4 on phones), 24px column gap (`<Grid>`).
-- Section padding: 80px mobile, 128px tablet, 160px desktop (`<Section spacing="full">`).
+- Section padding: `full` 80 / 96 / 128px, `compact` 64 / 80 / 96px (project sections, services, clients). Mobile / tablet / desktop.
 - Left-aligned on the grid, like the poster: headline top-left, list bottom-left. Centre at most one moment per page.
 - One idea per screen. Big open paper around the headline.
 - Rhythm: mostly cream, sand for inset bands, full teal sections to break the page. Never two teal sections in a row.
@@ -169,7 +170,8 @@ Where pieces are used (only here):
 1. **Hero** (`HeroSnap`): the teal piece "votre marque" waits; a hand brings the ochre piece "nos solutions" from the right and locks it.
 2. **Clients wall** (`Clients`): cream pieces on a teal section, one per client, plus a last ochre piece, "Votre marque ici ?", linking to contact. 4 columns, 2 on phones.
 3. **Services** (`ServicePicker`): one large ochre piece carries the selected service; its shape changes with the pole.
-4. **Section joints** (`<Section tone="teal" joint>`): one flat teal knob, same profile, from a teal section into the lighter one next to it. Two per page.
+4. **Wide strips** (`PuzzleStrip`): a piece several cells wide locking under a row (the clients banner).
+5. **The showreel** (`VideoPiece`): the video cut to a piece shape with a CSS mask.
 
 Never as background decoration, icons next to list items, or floating shapes.
 
@@ -233,21 +235,31 @@ The brand brief requires some devices the generic taste rules ban. They are allo
 
 ---
 
-## 11. Page structure (home)
+## 11. Page structure
 
-Order follows the visitor's questions: what is it, is the work good, who trusts them, what can they do for me, show me more, who are they, how do I reach them.
+A portfolio, not the agency site (signature-alg.com is linked from the header and contact). One page, then one template.
 
-| # | Section | Tone | Notes |
-|---|---|---|---|
-| 0 | Header | cream | Sticky, 64px, hairline. Four links, one action (steps down to the underlined style while another ochre button is on screen) |
-| 1 | Hero | cream + trace | Display title on two lines, one sentence, two actions, the hand and the pieces, three project tops cut by the fold |
-| 2 | Projets choisis | cream | Four cases, image 8 columns, text 4, alternating sides |
-| 3 | Clients | teal + joint | The puzzle wall |
-| 4 | Services | cream | Ten services in four poles (Marque, Digital, Contenu, Espace) |
-| 5 | Tous les projets | sand | Grid, four pole filters, "Voir plus" by six |
-| 6 | L'agence | cream + trace | Photos, text, figures, hiring line. Replaces the former process section |
-| 7 | Témoignages | sand | Only when real ones exist |
-| 8 | Contact | teal + joint | Outlined title, WhatsApp button, phone, e-mail, Instagram, address |
-| 9 | Footer | cream | |
+**One page, no cuts.** Sections do not paint their own background once script runs (`FlowBackground`): the page colour fades (700ms) to the tone of the section crossing the middle of the screen, and every section takes the ink of that colour, so text stays readable during the fade. Pieces, the folder panel and the flyer keep their own colours. Without script, each section keeps its own background. No hairlines between sections; the footer continues the contact's teal.
 
-Content lives in `src/content/*.ts` only. Projects carry a service; filters use that service's pole.
+| Section | Tone | What it does |
+|---|---|---|
+| Header | cream | Sticky 64px; hides while scrolling down, returns on the way up. "Projets" opens the seven types (number, name, count, definition), each opening its folder; Services, Clients, Contact with an ochre underline that slides to the section in view; "signature-alg.com ↗"; "Nous contacter" in ochre with a puzzle knob on its left edge (steps down to the underlined style, without knob, while another ochre button is on screen) |
+| Hero | cream + trace | Display title, one line, "Démarrer un projet" + "Voir les projets", and the **showreel cut as a puzzle piece** (CSS mask of the same path, base side and shadow), brought in by the hand |
+| Projets choisis | cream | One project per type as a jigsaw (pictures printed on the pieces), the last piece ochre "Votre projet ici ?". Pieces fly in and lock on first view |
+| Tous les projets, par type | cream | The filing cabinet: folder tabs stagger in; the open folder is a teal panel with the type's definition and its projects in the layout of the medium. `#dossier-<type>` opens a folder |
+| Services | sand | The tear-off flyer drops in and its tabs fall into line; the pulled tab's description prints under the flyer |
+| Clients | cream | One sand piece per client (placeholders until real logos), flying in and locking; then a full-width ochre strip (`PuzzleStrip`) rises and locks under the group: "Vous voulez devenir l’un de nos clients ?". Hidden when `clients.ts` is empty |
+| Contact | teal | Outlined title, then the ways to reach the studio as four interlocking pieces that assemble on view: WhatsApp (ochre, primary), phone, e-mail, Instagram. Address, map, agency site below |
+| Footer | teal | One line |
+
+**Motion vocabulary** (all ease-out-quint, once, reduced motion keeps only the fades): section titles rise word by word out of a mask (`RiseText`, 700ms, 60ms stagger); groups of pieces assemble from scattered positions (`Assemble`, 700ms, 70ms stagger); the hand and the showreel slide in on load (800ms); the flyer drops (800ms); folder content cross-fades 280ms on tab change; header hide/show 300ms. Hover: pieces rise 6px; flyer tabs pull down 8px.
+
+Physical objects may carry a soft shadow, because they lie on the paper: puzzle pieces, the showreel piece and the flyer. Nothing else does.
+
+Container: full width up to 1680px; gutters 20 / 40 / 56 / 80px.
+
+Layouts per type inside a folder (`CategoryGrid`): screens 16:10 two per row · boards 1:1 three per row · murals 3:2, one full width then two · gallery 4:5 three per row · landscape 3:2 two per row · feature 3:2, one large and two stacked · posts 4:5, four per row (two on phones).
+
+Project page `/projets/[slug]`: cover at the type's ratio, title, brief, client / type / year, gallery stacked at the type's ratio, next project of the same type, "Nous contacter".
+
+Content: `src/content/categories.ts`, `projects.ts` (`featured`: in Projets choisis), `services.ts`, `clients.ts`, `contact.ts`, plus `site.ts` (interface labels, hero video path). Counts are computed, never typed.

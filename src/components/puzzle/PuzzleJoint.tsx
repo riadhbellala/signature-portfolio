@@ -41,3 +41,28 @@ export function PuzzleJoint({ edge = "bottom", at = "50%", size = 180, className
     </svg>
   );
 }
+
+/**
+ * A flat knob sticking out of the left edge of a button, so the action reads as the piece that
+ * completes the page. `size` is the imaginary piece side; fill follows `className`.
+ */
+export function PuzzleKnobLeft({ size = 80, className }: { size?: number; className?: string }) {
+  const w = (KNOB_TO - KNOB_FROM) * size;
+  const h = REACH * size;
+  const pad = 0.05 * size;
+  // knobPath hangs below a flat edge; rotated 90° it points left out of the button's edge.
+  return (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      width={h + 1}
+      height={w + 2 * pad}
+      viewBox={`${-h} ${-pad} ${h + 1} ${w + 2 * pad}`}
+      className={clsx("pointer-events-none absolute right-full top-1/2 -translate-y-1/2 overflow-visible", className)}
+    >
+      <g transform="rotate(90)">
+        <path d={knobPath(size)} transform={`translate(0 ${-0})`} />
+      </g>
+    </svg>
+  );
+}

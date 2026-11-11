@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import type { ElementType, ReactNode } from "react";
 import { ScriptTrace } from "../devices/ScriptTrace";
+import { RiseText } from "../motion/RiseText";
 import { PuzzleJoint, type PuzzleJointProps } from "../puzzle/PuzzleJoint";
 
 export interface SectionProps {
@@ -10,13 +11,16 @@ export interface SectionProps {
   id?: string;
   /** Draw the hairline script trace behind this section, like the posts. */
   trace?: "left" | "right";
-  /** Section padding: full (128–160 desktop, 72–96 mobile) or none for custom bands. */
-  spacing?: "full" | "none";
+  /** Section padding: full (96–128), compact (64–96, the project sections) or none. */
+  spacing?: "full" | "compact" | "none";
   /** Teal sections only: the single knob pushing into the neighbouring cream section. */
   joint?: PuzzleJointProps;
   className?: string;
   children: ReactNode;
   "aria-labelledby"?: string;
+  "data-category"?: string;
+  /** Tone this section hands to the page background in the one-page flow (FlowBackground). */
+  "data-flow"?: "cream" | "sand" | "teal";
 }
 
 /**
@@ -27,10 +31,12 @@ export function Section({ tone = "cream", as: Tag = "section", id, trace, spacin
   return (
     <Tag
       id={id}
+      data-flow={tone}
       className={clsx(
         `tone-${tone}`,
         "relative [overflow-x:clip]",
-        spacing === "full" && "py-20 md:py-32 lg:py-40",
+        spacing === "full" && "py-20 md:py-24 lg:py-32",
+        spacing === "compact" && "py-16 md:py-20 lg:py-24",
         className,
       )}
       {...rest}
@@ -49,9 +55,9 @@ export function Section({ tone = "cream", as: Tag = "section", id, trace, spacin
   );
 }
 
-/** The 1280px container with the 20 / 40 / 56px gutters. */
+/** The page container: full width up to 1680px, gutters 20 / 40 / 56 / 80px. */
 export function Container({ className, children }: { className?: string; children: ReactNode }) {
-  return <div className={clsx("mx-auto w-full max-w-[1280px] px-[var(--gutter)]", className)}>{children}</div>;
+  return <div className={clsx("mx-auto w-full max-w-[var(--page-max)] px-[var(--gutter)]", className)}>{children}</div>;
 }
 
 /** 12-column grid, 24px gap. */
@@ -66,9 +72,7 @@ export function Grid({ className, children }: { className?: string; children: Re
 export function SectionHead({ id, title, lead, className }: { id: string; title: string; lead?: string; className?: string }) {
   return (
     <div className={clsx("grid gap-6 lg:grid-cols-12 lg:items-end", className)}>
-      <h2 id={id} className="text-h2 lg:col-span-7">
-        {title}
-      </h2>
+      <RiseText id={id} text={title} className="text-h2 lg:col-span-7" />
       {lead ? <p className="measure text-lead lg:col-span-4 lg:col-start-9">{lead}</p> : null}
     </div>
   );

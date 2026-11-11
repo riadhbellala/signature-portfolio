@@ -1,80 +1,54 @@
 /**
- * Projects. Edit this file only to replace placeholders with real projects:
- * set `cover` / `gallery` to image paths in /public (e.g. "/projets/branding-01/cover.jpg"),
- * fill the bracketed text, and set `isPlaceholder: false`. No component changes needed.
- *
- * Image ratios the layout reserves: cover 16:10; gallery alternates 4:5 and 1:1.
+ * Projects. To publish a real project, edit its entry here only:
+ * - `cover` / `gallery`: paths in /public (e.g. "/projets/murs-01/cover.jpg"); null = placeholder.
+ *   Images are shown at their category's ratio (see categories.ts).
+ * - fill the bracketed text and set `isPlaceholder: false`.
+ * Counts on the page are computed from this list.
  */
 
-import type { ServiceId } from "./services";
-
-/** A project belongs to one service; the grid filters by that service's pole. */
-export type CategoryId = ServiceId;
-
-export interface ProjectFigure {
-  value: string; // "[CHIFFRE À CONFIRMER]" until real
-  label: string;
-}
+import { categories, type CategoryId } from "./categories";
 
 export interface Project {
   slug: string;
-  index: string;
+  category: CategoryId;
   client: string;
   title: string;
-  category: CategoryId;
   year: string;
-  /** One line on the result, shown on cards. */
-  result: string;
-  /** null = placeholder block at the same ratio. */
+  /** 2–3 lines for the project page. */
+  brief: string;
   cover: string | null;
   gallery: (string | null)[];
+  /** Shown in the "selected work" puzzle at the top of the page (7 at most). */
   featured: boolean;
   isPlaceholder: boolean;
-  /** Project page: the client's problem, 2–3 sentences. */
-  need: string;
-  /** Project page: what Signature did, 2–4 sentences. */
-  response: string;
-  /** Project page: real figures only. Leave empty to hide the figures row. */
-  figures: ProjectFigure[];
 }
 
-const placeholder = (index: string, category: CategoryId, featured: boolean, galleryCount = 4): Project => ({
-  slug: `projet-${index}`,
-  index,
+const placeholder = (category: CategoryId, n: number): Project => ({
+  slug: `${category}-${String(n).padStart(2, "0")}`,
+  category,
   client: "[Nom du client]",
   title: "[Titre du projet]",
-  category,
   year: "[Année]",
-  result: "[Résultat à confirmer]",
+  brief: "[Brief à venir]",
   cover: null,
-  gallery: Array.from({ length: galleryCount }, () => null),
-  featured,
+  gallery: [null, null, null],
+  // The first project of every type is featured until real projects arrive.
+  featured: n === 1,
   isPlaceholder: true,
-  need: "[Le besoin du client : la situation de départ, en 2 ou 3 phrases.]",
-  response: "[Notre réponse : ce que l’équipe a conçu et réalisé, en 2 à 4 phrases.]",
-  figures: [
-    { value: "[CHIFFRE À CONFIRMER]", label: "[Indicateur]" },
-    { value: "[CHIFFRE À CONFIRMER]", label: "[Indicateur]" },
-  ],
 });
 
-/** Ten placeholders: one per service, four featured (one per pole). */
-export const projects: Project[] = [
-  placeholder("01", "branding", true),
-  placeholder("02", "web-apps", true),
-  placeholder("03", "signaletique", true),
-  placeholder("04", "contenu", true),
-  placeholder("05", "stands", false),
-  placeholder("06", "community", false),
-  placeholder("07", "design", false),
-  placeholder("08", "supports", false),
-  placeholder("09", "montage", false),
-  placeholder("10", "marketing", false),
-];
+/** Three placeholders per category (21), so every section layout can be checked. */
+export const projects: Project[] = categories.flatMap((c) => [1, 2, 3].map((n) => placeholder(c.id, n)));
 
-export const featuredProjects = () => projects.filter((p) => p.featured);
+export const featuredProjects = () => projects.filter((p) => p.featured).slice(0, 7);
+export const projectsIn = (id: CategoryId) => projects.filter((p) => p.category === id);
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
-export const nextProject = (slug: string) => {
-  const i = projects.findIndex((p) => p.slug === slug);
-  return projects[(i + 1) % projects.length];
+
+/** Next project in the same category, wrapping round. */
+export const nextInCategory = (p: Project) => {
+  const list = projectsIn(p.category);
+  return list[(list.indexOf(p) + 1) % list.length];
 };
+
+/** Position of a project inside its category, as "01". */
+export const projectNumber = (p: Project) => String(projectsIn(p.category).indexOf(p) + 1).padStart(2, "0");

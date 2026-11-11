@@ -12,6 +12,15 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Agent skill folders installed into the project (vendored scripts, not app code).
+    ".agent/**",
+    ".agents/**",
+    ".claude/**",
+    ".cursor/**",
+    ".gemini/**",
+    ".codex/**",
+    ".taste-skill/**",
+    ".impeccable/**",
   ]),
 ]);
 

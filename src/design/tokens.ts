@@ -41,6 +41,7 @@ export const TONAL = [
   { token: "--color-teal-deep", hex: "#18363A", swatch: "bg-teal-deep", from: "Teal à 68 % de lumière", use: "Tranche des pièces teal, ombre des pièces crème" },
   { token: "--color-ochre-deep", hex: "#9E7931", swatch: "bg-ochre-deep", from: "Ocre à 68 % de lumière", use: "Tranche et ombre des pièces ocre" },
   { token: "--color-cream-deep", hex: "#A7A094", swatch: "bg-cream-deep", from: "Crème à 68 % de lumière", use: "Tranche des pièces crème" },
+  { token: "--color-sand-deep", hex: "#BFAE99", swatch: "bg-sand-deep", from: "Sable à 82 %", use: "Tranche des pièces sable (projets en attente d’image)" },
 ] as const;
 
 /** WCAG 2.x contrast ratios, computed from the hex values above. */

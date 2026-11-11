@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { gridEdges, knobPoints, opposite, puzzlePath, REACH, type Edge, type Edges, type Side } from "./geometry";
+import { gridEdges, knobPoints, opposite, puzzlePath, REACH, rectPiecePath, stripPath, type Edge, type Edges, type Side } from "./geometry";
 
 const S = 1000;
 const sides: Side[] = ["top", "right", "bottom", "left"];
@@ -96,5 +96,41 @@ describe("gridEdges", () => {
     expect(gridEdges(2, 0, 3, 3, { row: 2, cols: 1 }).right).toBe("flat");
     expect(gridEdges(1, 1, 3, 3, { row: 2, cols: 1 }).bottom).toBe("flat");
     expect(gridEdges(1, 0, 3, 3, { row: 2, cols: 1 }).bottom).not.toBe("flat");
+  });
+});
+
+describe("stripPath", () => {
+  it("one cell wide and one cell tall is the same shape as a square piece", () => {
+    for (const top of ["flat", "tab", "blank"] as Edge[]) {
+      for (const bottom of ["flat", "tab", "blank"] as Edge[]) {
+        const strip = stripPath(S, [top], [bottom], 1000).replace(/\s+/g, " ");
+        const piece = puzzlePath(S, { top, right: "flat", bottom, left: "flat" }).replace(/\s+/g, " ");
+        expect(strip).toBe(piece);
+      }
+    }
+  });
+
+  it("a strip under a row locks into every piece above it", () => {
+    // Row of 3 squares whose bottoms are tab/blank/tab: the strip's top must be the opposite.
+    const row: Edge[] = ["tab", "blank", "tab"];
+    const d = stripPath(S, row.map(opposite), ["flat", "flat", "flat"], 600);
+    expect(d.startsWith("M0 0")).toBe(true);
+    expect(d).toContain(`L${3 * S} 600`);
+  });
+});
+
+describe("rectPiecePath", () => {
+  it("is exactly puzzlePath on a square body", () => {
+    const all: Edge[] = ["flat", "tab", "blank"];
+    for (const top of all) for (const right of all) for (const bottom of all) for (const left of all) {
+      const e = { top, right, bottom, left };
+      expect(rectPiecePath(S, S, e)).toBe(puzzlePath(S, e));
+    }
+  });
+
+  it("centres the knob on a long side", () => {
+    const d = rectPiecePath(1000, 1500, { top: "flat", right: "flat", bottom: "flat", left: "tab" });
+    // left side walks up from y=1500; the knob starts at (1500 - 1000)/2 + 350 = 600 from the bottom
+    expect(d).toContain("L0 900");
   });
 });

@@ -30,3 +30,19 @@ export function ArrowDownIcon({ size = 16, className }: IconProps) {
     </svg>
   );
 }
+
+export function ArrowUpRightIcon({ size = 14, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" className={className} {...base}>
+      <path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6" />
+    </svg>
+  );
+}
+
+export function ChevronDownIcon({ size = 12, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" className={className} {...base}>
+      <path d="M3.5 6 8 10.5 12.5 6" />
+    </svg>
+  );
+}

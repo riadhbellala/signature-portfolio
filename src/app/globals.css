@@ -35,6 +35,7 @@
   --color-teal-deep: #18363a;
   --color-ochre-deep: #9e7931;
   --color-cream-deep: #a7a094;
+  --color-sand-deep: #bfae99; /* sand at 82%: side of placeholder pieces */
 
   /* Radius: square everything. Only knobs and dots are round (rounded-full is static). */
   --radius-xs: 2px;
@@ -43,22 +44,22 @@
   --font-display: var(--font-poppins), ui-sans-serif, sans-serif;
   --font-sans: var(--font-inter-tight), ui-sans-serif, sans-serif;
 
-  --text-display: clamp(3.5rem, 9vw, 8.75rem);
+  --text-display: clamp(3.5rem, 10.5vw, 11rem);
   --text-display--line-height: 0.9;
   --text-display--letter-spacing: -0.045em;
   --text-display--font-weight: 800;
 
-  --text-h1: clamp(2.5rem, 5.5vw, 4.75rem);
+  --text-h1: clamp(2.75rem, 6.4vw, 6rem);
   --text-h1--line-height: 0.95;
   --text-h1--letter-spacing: -0.035em;
   --text-h1--font-weight: 700;
 
-  --text-h2: clamp(2rem, 4vw, 3.5rem);
-  --text-h2--line-height: 1;
+  --text-h2: clamp(2.5rem, 5.6vw, 6rem);
+  --text-h2--line-height: 0.95;
   --text-h2--letter-spacing: -0.03em;
   --text-h2--font-weight: 700;
 
-  --text-h3: 1.5rem;
+  --text-h3: clamp(1.375rem, 1rem + 0.8vw, 1.875rem);
   --text-h3--line-height: 1.15;
   --text-h3--letter-spacing: -0.02em;
   --text-h3--font-weight: 700;
@@ -153,14 +154,19 @@
   --dur-snap: 560ms;
   --dur-draw: 800ms;
   --gutter: 20px;
-  /* Left edge of the 1280px container's content, for things placed on the section. */
-  --page-edge: max(var(--gutter), calc((100% - 1280px) / 2 + var(--gutter)));
+  /* Content width: fills large screens, stops at 1680px so lines and images stay readable. */
+  --page-max: 1680px;
+  /* Left edge of the container's content, for things placed on the section. */
+  --page-edge: max(var(--gutter), calc((100% - var(--page-max)) / 2 + var(--gutter)));
 }
 @media (min-width: 48rem) {
   :root { --gutter: 40px; }
 }
 @media (min-width: 64rem) {
   :root { --gutter: 56px; }
+}
+@media (min-width: 96rem) {
+  :root { --gutter: 80px; }
 }
 
 @layer base {
@@ -341,4 +347,45 @@
   --ink: var(--color-teal);
   --ink-muted: var(--color-teal);
   --focus: var(--color-teal);
+}
+
+/* One-page flow (FlowBackground): sections hand their background to <main>, which fades. */
+main {
+  transition: background-color 700ms var(--ease-out-quint);
+}
+.flow-on [data-flow] {
+  background-color: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  main {
+    transition-duration: 0.01ms;
+  }
+}
+
+/* While the flow runs, every section takes the ink of the page's current colour, so text stays
+   readable while the background fades. Pieces, the folder panel and the flyer lock their own. */
+html[data-flow="teal"] .flow-on [data-flow] {
+  --surface: var(--color-teal);
+  --ink: var(--color-cream);
+  --ink-muted: var(--color-cream-muted);
+  --line: var(--color-rule-on-teal);
+  --trace: var(--color-trace-on-teal);
+  --focus: var(--color-cream);
+  --secondary-ink: var(--color-cream);
+  color: var(--ink);
+}
+html[data-flow="cream"] .flow-on [data-flow],
+html[data-flow="sand"] .flow-on [data-flow] {
+  --surface: var(--color-cream);
+  --ink: var(--color-teal);
+  --ink-muted: var(--color-teal-muted);
+  --line: var(--color-rule);
+  --trace: var(--color-sand);
+  --focus: var(--color-teal);
+  --secondary-ink: var(--color-teal);
+  color: var(--ink);
+}
+html[data-flow="sand"] .flow-on [data-flow] {
+  --surface: var(--color-sand);
+  --trace: var(--color-cream);
 }
