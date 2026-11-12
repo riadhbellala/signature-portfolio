@@ -32,6 +32,7 @@ export const home = {
     puzzle: { a: "votre marque", b: "nos solutions", groupLabel: "Votre marque, plus nos solutions" },
     primary: { label: "Démarrer un projet", href: "#contact" },
     secondary: { label: "Voir les projets", href: "#projets" },
+    reelTag: "Showreel — Signature creative co. — Oran",
     /** Showreel. Put the file in /public (e.g. "/video/showreel.mp4"); null shows the placeholder. */
     video: {
       src: null as string | null,
@@ -69,7 +70,7 @@ export const home = {
     title: "Ils nous ont fait confiance.",
     lead: "Chaque marque est une pièce du puzzle Signature.",
     logoPending: "Logo à venir",
-    banner: { title: "Vous voulez devenir l’un de nos clients ?", action: "Démarrer un projet", href: "#contact" },
+    banner: { image: "/brand/banner-strip.webp", label: "Découvrez notre univers et nos réalisations sur signature-alg.com" },
   },
   contact: {
     title: ["Un projet en tête ?", "On en parle."],

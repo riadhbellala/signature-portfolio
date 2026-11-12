@@ -38,14 +38,15 @@ export function Services() {
 }
 
 const CLIENT_LAYOUTS = [
-  { cols: 2, className: "md:hidden", banner: 1.25 },
-  { cols: 4, className: "hidden md:block", banner: 0.78 },
+  // Banner height = cols / 4.44, the ratio of the Signature banner image.
+  { cols: 2, className: "md:hidden", banner: 2 / 4.44 },
+  { cols: 5, className: "hidden md:block", banner: 5 / 4.44 },
 ];
 
 /**
- * Clients: one sand piece per client, flying in and locking together as the section enters,
- * then a full-width ochre piece rises and locks under the whole group: "Vous voulez devenir
- * l'un de nos clients ?". Hidden while clients.ts is empty.
+ * Clients: one piece per client logo, flying in and locking together as the section enters,
+ * then the long Signature banner piece rises and locks under the whole group (links to the site).
+ * Hidden while clients.ts is empty.
  */
 export function Clients() {
   if (clients.length === 0) return null;
@@ -59,37 +60,39 @@ export function Clients() {
           const last = { row: rows - 1, cols: clients.length - (rows - 1) * cols };
           // Lay the grid out as if one more full row followed, so the bottom row has knobs and
           // sockets for the banner to lock into.
-          const edgesAt = (i: number) => gridEdges(Math.floor(i / cols), i % cols, rows + 1, cols, last.cols === cols ? undefined : last);
-          const bannerTop: Edge[] = Array.from({ length: cols }, (_, c) => gridEdges(rows, c, rows + 1, cols).top);
+          // Joint with the banner: every banner knob points up into the logos (the pieces above have
+          // sockets), so no logo knob ever cuts into the banner's text.
+          const edgesAt = (i: number) => {
+            const e = gridEdges(Math.floor(i / cols), i % cols, rows + 1, cols, last.cols === cols ? undefined : last);
+            // Last row: sockets for the banner's knobs. A piece over an empty slot: flat bottom.
+            if (Math.floor(i / cols) === rows - 1) return { ...e, bottom: "blank" as Edge };
+            return i + cols >= clients.length ? { ...e, bottom: "flat" as Edge } : e;
+          };
+          const bannerTop: Edge[] = Array(cols).fill("tab");
           return (
             <Assemble key={cols} as="div" className={className}>
               <ul className="mt-10 grid md:mt-14" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
                 {clients.map((c, i) => (
                   <AssemblePiece key={i} i={i}>
-                    <PuzzlePiece fluid tone="sand" edges={edgesAt(i)} label={c.logo ? undefined : `${c.name}, ${t.logoPending}`}>
-                      <span className="font-sans text-meta text-teal-muted tabular">({pad(i + 1)})</span>
-                      {c.logo ? (
-                        <Image src={c.logo} alt={c.name} width={240} height={96} className="h-auto max-h-[40%] w-4/5 object-contain object-left" />
-                      ) : (
+                    {c.logo ? (
+                      <PuzzlePiece fluid tone="sand" edges={edgesAt(i)} image={{ src: c.logo }} label={c.name} />
+                    ) : (
+                      <PuzzlePiece fluid tone="sand" edges={edgesAt(i)} label={`${c.name}, ${t.logoPending}`}>
+                        <span className="font-sans text-meta text-teal-muted tabular">({pad(i + 1)})</span>
                         <span className="flex min-w-0 flex-col gap-0.5">
                           <span className="line-clamp-2 font-display text-piece">{c.name}</span>
                           <span className="truncate font-sans text-meta uppercase text-teal-muted">{t.logoPending}</span>
                         </span>
-                      )}
-                    </PuzzlePiece>
+                      </PuzzlePiece>
+                    )}
                   </AssemblePiece>
                 ))}
               </ul>
               <AssembleLast delay={0.07 * clients.length + 0.3}>
-                <a href={t.banner.href} className="group block no-underline outline-offset-[-12px]">
-                  <PuzzleStrip top={bannerTop} bottom={Array(cols).fill("flat")} height={banner} tone="ochre">
-                    <span className="flex h-full flex-col justify-end gap-3 px-[8%] pb-[8%] md:flex-row md:items-end md:justify-between md:px-[4%] md:pb-[4%]">
-                      <span className="max-w-[24ch] font-display text-h3">{t.banner.title}</span>
-                      <span className="inline-flex shrink-0 items-center gap-2 font-display text-body font-semibold underline decoration-2 underline-offset-8 group-hover:decoration-4">
-                        {t.banner.action}
-                        <ArrowIcon />
-                      </span>
-                    </span>
+                <a href={contact.website.href} target="_blank" rel="noreferrer" aria-label={t.banner.label} className="group block no-underline outline-offset-[-12px]">
+                  <PuzzleStrip top={bannerTop} bottom={Array(cols).fill("flat")} height={banner} tone="cream">
+                    {/* The agency's own banner, its background recoloured to the cream of the piece. */}
+                    <Image src={t.banner.image} alt="" fill sizes="(min-width: 1680px) 1520px, 92vw" className="object-cover" />
                   </PuzzleStrip>
                 </a>
               </AssembleLast>
