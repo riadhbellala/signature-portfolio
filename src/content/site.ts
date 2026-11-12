@@ -33,28 +33,35 @@ export const home = {
     primary: { label: "Démarrer un projet", href: "#contact" },
     secondary: { label: "Voir les projets", href: "#projets" },
     /** Showreel. Put the file in /public (e.g. "/video/showreel.mp4"); null shows the placeholder. */
-    video: { src: null as string | null, poster: null as string | null, label: "Showreel Signature", pending: "Vidéo à venir" },
+    video: {
+      src: null as string | null,
+      vimeoId: "1245835203" as string | null,
+      poster: "https://i.vimeocdn.com/video/2225079737-6983ed37747a3a4f9c93e8576bfb652114a6c893840b3c9e6aa7c75700349a84-d_720x1280" as string | null,
+      label: "Showreel Signature",
+      pending: "Vidéo à venir",
+    },
     indexLabel: "Types de projets",
   },
-  work: {
-    title: "Projets choisis.",
-    lead: "Un projet par type, assemblé pièce par pièce. Il en manque un : le vôtre.",
-    label: "Projets choisis",
-    invite: { label: "Votre projet ici ?", action: "Nous contacter", href: "#contact" },
+  showcase: {
+    title: "Nos projets, client par client.",
+    lead: "Pour chaque marque, trois pièces : la 3D, le résultat, la vidéo.",
+    open: "Voir le projet",
   },
   folders: {
-    title: "Tous les projets, par type.",
-    lead: "Ouvrez un dossier : chaque type a sa définition et ses réalisations.",
-    tabsLabel: "Types de projets",
+    title: "Tous les projets, par service.",
+    lead: "Un dossier par service. Ouvrez-en un pour voir tous ses projets.",
   },
   category: {
     count: (n: number) => `${n} projet${n > 1 ? "s" : ""}`,
+    soon: "Bientôt",
+    empty: "Les projets de ce service arrivent bientôt. En attendant, parlons du vôtre.",
     more: (n: number) => `Voir les ${n} autre${n > 1 ? "s" : ""} projet${n > 1 ? "s" : ""}`,
   },
   services: {
     title: "Ce qu’on peut faire pour vous.",
     lead: "Prenez ce qu’il vous faut : chaque languette ouvre les projets du métier.",
     flyerTitle: "Nos services",
+    videosLabel: "Nos vidéos de promotion, présentées par Zahra, commerciale de l’agence.",
     flyerSub: "Prenez ce qu’il vous faut",
     action: "Voir les projets",
   },
@@ -82,11 +89,10 @@ export const home = {
 
 export const projectPage = {
   back: "Tous les projets",
-  labels: { client: "Client", category: "Type", year: "Année" },
-  brief: "Le brief",
   gallery: "Galerie",
+  more: (client: string) => `Aussi pour ${client}`,
   next: "Projet suivant",
-  cta: { label: "Nous contacter", href: "/#contact" },
+  cta: { title: "Un projet du même genre ?", label: "Nous contacter", href: "/#contact" },
 };
 
 export const placeholderImage = { pending: "Image à venir" };

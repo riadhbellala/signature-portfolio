@@ -157,8 +157,10 @@ export function stripPath(size: number, top: Edge[], bottom: Edge[], height: num
  * size it has on a square piece of side min(w, h), so a portrait piece reads as the same family.
  * For w = h = UNIT this is exactly `puzzlePath`.
  */
-export function rectPiecePath(w: number, h: number, edges: Edges): string {
-  const s = Math.min(w, h);
+export function rectPiecePath(w: number, h: number, edges: Edges, knob?: number): string {
+  // `knob`: the square-piece side the knob is sized from. Pass the same value to every piece
+  // of a chain so their knobs and sockets match whatever their widths.
+  const s = knob ?? Math.min(w, h);
   const k = s / UNIT;
   const side = (from: Vec, dir: Vec, out: Vec, len: number, edge: Edge) => {
     const end: Vec = [from[0] + dir[0] * len, from[1] + dir[1] * len];

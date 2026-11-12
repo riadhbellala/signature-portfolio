@@ -12,6 +12,7 @@ import { DisplayTitle } from "../type/DisplayTitle";
 import { MetaLabel } from "../type/Labels";
 import { ArrowIcon, ArrowUpRightIcon } from "../ui/icons";
 import { ServicesFlyer } from "./ServicesFlyer";
+import { AgencyVideos } from "../work/AgencyVideos";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -21,11 +22,14 @@ export function Services() {
   return (
     <Section id="services" tone="sand" spacing="compact" aria-labelledby="services-title" className="scroll-mt-16">
       <Container className="grid gap-x-6 gap-y-12 lg:grid-cols-12 lg:items-center">
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-5">
           <RiseText id="services-title" text={t.title} className="text-h2" />
           <p className="measure mt-6 text-lead">{t.lead}</p>
+          <div className="mt-10 max-w-[520px]">
+            <AgencyVideos label={t.videosLabel} />
+          </div>
         </div>
-        <div className="lg:col-span-7 lg:col-start-6">
+        <div className="lg:col-span-7 lg:col-start-6 lg:self-start">
           <ServicesFlyer services={services} title={t.flyerTitle} sub={t.flyerSub} action={t.action} />
         </div>
       </Container>

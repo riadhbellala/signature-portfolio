@@ -1,24 +1,31 @@
 import { describe, expect, it } from "vitest";
 import { categories } from "./categories";
-import { projects, projectsIn } from "./projects";
+import { clients, getProject, projects, showcase } from "./projects";
 import { services } from "./services";
 
 describe("content", () => {
-  it("has at most two teal project sections, never two in a row", () => {
+  it("has at most two teal types, never two in a row", () => {
     expect(categories.filter((c) => c.tone === "teal").length).toBeLessThanOrEqual(2);
-    categories.forEach((c, i) => {
-      if (i > 0) expect(c.tone === "teal" && categories[i - 1].tone === "teal").toBe(false);
+    categories.forEach((c, i) => i > 0 && expect(c.tone === "teal" && categories[i - 1].tone === "teal").toBe(false));
+  });
+
+  it("has unique slugs, known clients and types, and media on every project", () => {
+    expect(new Set(projects.map((p) => p.slug)).size).toBe(projects.length);
+    projects.forEach((p) => {
+      expect(clients.map((c) => c.id)).toContain(p.client);
+      expect(categories.map((c) => c.id)).toContain(p.category);
+      expect(p.media.length).toBeGreaterThan(0);
     });
   });
 
-  it("has unique slugs and every project in a known category", () => {
-    expect(new Set(projects.map((p) => p.slug)).size).toBe(projects.length);
-    const ids = categories.map((c) => c.id);
-    projects.forEach((p) => expect(ids).toContain(p.category));
+  it("points every showcase piece at a real media", () => {
+    showcase.forEach((b) => {
+      expect(b.pieces).toHaveLength(3);
+      b.pieces.forEach(([slug, i]) => expect(getProject(slug)?.media[i]).toBeDefined());
+    });
   });
 
-  it("gives every category at least one project and every service a real section", () => {
-    categories.forEach((c) => expect(projectsIn(c.id).length).toBeGreaterThan(0));
+  it("points every service at a real type", () => {
     services.forEach((s) => expect(categories.map((c) => c.id)).toContain(s.category));
   });
 });

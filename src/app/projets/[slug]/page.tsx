@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container, Section } from "@/components/layout/Section";
 import { MotionRoot, Reveal, RevealItem } from "@/components/motion/Reveal";
-import { ProjectImage } from "@/components/project/ProjectImage";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { MetaLabel } from "@/components/type/Labels";
 import { Button } from "@/components/ui/Button";
 import { ArrowIcon } from "@/components/ui/icons";
-import { categoryNumber, getCategory } from "@/content/categories";
-import { getProject, nextInCategory, projectNumber, projects } from "@/content/projects";
+import { MediaPiece } from "@/components/work/MediaPiece";
+import { vimeoSrc } from "@/lib/vimeo";
+import { getCategory } from "@/content/categories";
+import { cover, getClient, getProject, nextInCategory, projects, projectsOf, type Media } from "@/content/projects";
 import { projectPage as t } from "@/content/site";
 
 export function generateStaticParams() {
@@ -21,88 +23,68 @@ export async function generateMetadata({ params }: PageProps<"/projets/[slug]">)
   const { slug } = await params;
   const p = getProject(slug);
   if (!p) return {};
-  return {
-    title: `${p.title}, ${p.client}`,
-    description: p.brief,
-    robots: p.isPlaceholder ? { index: false } : undefined,
-  };
+  return { title: `${getClient(p.client).name}, ${p.title}`, description: p.brief };
+}
+
+function MediaBlock({ m, priority }: { m: Media; priority?: boolean }) {
+  if (m.kind === "image") {
+    return <Image src={m.src} alt={m.alt} width={1800} height={1200} priority={priority} sizes="(min-width: 1280px) 1200px, 100vw" className="h-auto w-full bg-sand" />;
+  }
+  return (
+    <div className={m.portrait ? "mx-auto w-full max-w-[420px]" : "w-full"}>
+      <div className="relative w-full bg-teal" style={{ aspectRatio: m.portrait ? "9 / 16" : "16 / 9" }}>
+        <iframe src={vimeoSrc(m.vimeo, false)} title={m.title} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen className="absolute inset-0 size-full border-0" />
+      </div>
+    </div>
+  );
 }
 
 /**
- * Project page: the images lead. Cover, the facts, two or three lines of brief, the gallery
- * stacked at the category's ratio, the next project of the same type, then the one action.
+ * Project page: the work leads. Client and type, two lines of brief, every picture and video
+ * of the project, then the client's other projects and the next project of the same type.
  */
 export default async function ProjectPage({ params }: PageProps<"/projets/[slug]">) {
   const { slug } = await params;
   const p = getProject(slug);
   if (!p) notFound();
+  const client = getClient(p.client);
   const category = getCategory(p.category);
   const next = nextInCategory(p);
-  const n = projectNumber(p);
+  const others = projectsOf(p.client).filter((x) => x.slug !== p.slug);
+  const [first, ...rest] = p.media;
 
   return (
     <MotionRoot>
       <Header />
       <main id="contenu">
-        <Section spacing="none" aria-labelledby="projet-title" className="pt-6 md:pt-10">
+        <Section spacing="none" aria-labelledby="projet-title" className="pb-12 pt-6 md:pb-16 md:pt-10">
           <Container>
             <Link href={`/#dossier-${category.id}`} className="inline-flex min-h-12 items-center font-display text-body font-semibold underline decoration-2 underline-offset-8">
               {t.back} · {category.name}
             </Link>
-            <ProjectImage
-              src={p.cover}
-              alt={`${p.title}, ${p.client}`}
-              ratio={category.ratio}
-              sizes="(min-width: 1280px) 1168px, 100vw"
-              index={n}
-              category={category.name}
-              priority
-              className={category.ratio === "4/5" || category.ratio === "1/1" ? "mt-6 w-full md:mx-auto md:max-w-[640px]" : "mt-6 w-full"}
-            />
-
-            <div className="grid gap-x-6 gap-y-8 py-12 md:py-16 lg:grid-cols-12">
-              <div className="lg:col-span-7">
-                <span className="font-sans text-meta text-ink-muted tabular">
-                  ({String(categoryNumber(category.id)).padStart(2, "0")}.{n})
-                </span>
+            <div className="mt-6 grid gap-x-6 gap-y-6 lg:grid-cols-12 lg:items-end">
+              <div className="lg:col-span-8">
+                <MetaLabel>{category.name}</MetaLabel>
                 <h1 id="projet-title" className="mt-2 text-h1">
-                  {p.title}
+                  {client.name}
                 </h1>
-                <p className="measure mt-6 text-lead">{p.brief}</p>
+                <p className="mt-2 font-display text-h3">{p.title}</p>
               </div>
-              <dl className="grid grid-cols-3 gap-6 self-end border-t border-line pt-6 lg:col-span-4 lg:col-start-9">
-                {[
-                  [t.labels.client, p.client],
-                  [t.labels.category, category.name],
-                  [t.labels.year, p.year],
-                ].map(([k, v]) => (
-                  <div key={k} className="flex flex-col gap-1">
-                    <dt>
-                      <MetaLabel>{k}</MetaLabel>
-                    </dt>
-                    <dd className="break-words font-display text-body font-semibold">{v}</dd>
-                  </div>
-                ))}
-              </dl>
+              <p className="measure text-lead lg:col-span-4">{p.brief}</p>
+            </div>
+            <div className="mt-10 md:mt-14">
+              <MediaBlock m={first} priority />
             </div>
           </Container>
         </Section>
 
-        {p.gallery.length > 0 ? (
+        {rest.length > 0 ? (
           <Section spacing="none" aria-label={t.gallery} className="pb-16 md:pb-24">
             <Container>
-              <Reveal as="ul" className="flex flex-col gap-6 md:gap-8">
-                {p.gallery.map((src, i) => (
-                  <RevealItem as="li" key={i}>
-                    <ProjectImage
-                      src={src}
-                      alt={`${p.title}, image ${i + 1}`}
-                      ratio={category.ratio}
-                      sizes="(min-width: 1280px) 1168px, 100vw"
-                      index={String(i + 1).padStart(2, "0")}
-                      category={category.name}
-                      className={category.ratio === "4/5" || category.ratio === "1/1" ? "w-full md:mx-auto md:max-w-[640px]" : "w-full"}
-                    />
+              <Reveal as="ul" className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+                {rest.map((m, i) => (
+                  <RevealItem as="li" key={i} className={m.kind === "video" && !m.portrait ? "md:col-span-2" : undefined}>
+                    <MediaBlock m={m} />
                   </RevealItem>
                 ))}
               </Reveal>
@@ -110,46 +92,60 @@ export default async function ProjectPage({ params }: PageProps<"/projets/[slug]
           </Section>
         ) : null}
 
-        {next.slug !== p.slug ? (
-          <Section tone="sand" spacing="compact" aria-labelledby="suivant-title">
+        {others.length > 0 ? (
+          <Section tone="sand" spacing="compact" aria-labelledby="autres-title">
             <Container>
-              <Link href={`/projets/${next.slug}`} className="group grid items-end gap-6 no-underline lg:grid-cols-12">
-                <span className="flex flex-col gap-2 lg:col-span-4">
+              <h2 id="autres-title" className="text-h2">
+                {t.more(client.name)}
+              </h2>
+              <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
+                {others.map((o) => (
+                  <li key={o.slug}>
+                    <Link href={`/projets/${o.slug}`} className="group flex flex-col gap-4 no-underline">
+                      <div className="transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
+                        <MediaPiece media={cover(o)} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="300px" className="w-[80%]" />
+                      </div>
+                      <span className="font-display text-list decoration-ochre decoration-2 underline-offset-4 group-hover:underline">{o.title}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Container>
+          </Section>
+        ) : null}
+
+        {next.slug !== p.slug ? (
+          <Section spacing="compact" aria-labelledby="suivant-title">
+            <Container>
+              <Link href={`/projets/${next.slug}`} className="group grid items-center gap-8 no-underline md:grid-cols-12">
+                <div className="md:col-span-4">
+                  <div className="transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
+                    <MediaPiece media={cover(next)} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="400px" className="w-[80%]" />
+                  </div>
+                </div>
+                <span className="flex flex-col gap-2 md:col-span-7 md:col-start-6">
                   <MetaLabel>{t.next}</MetaLabel>
                   <span id="suivant-title" className="inline-flex items-center gap-3 font-display text-h2 decoration-ochre decoration-2 underline-offset-8 group-hover:underline">
-                    {next.client}
+                    {getClient(next.client).name}
                     <ArrowIcon size={24} />
                   </span>
-                  <span className="font-sans text-small text-ink-muted">
-                    {next.title} · {next.year}
-                  </span>
-                </span>
-                <span className="lg:col-span-7 lg:col-start-6">
-                  <ProjectImage
-                    src={next.cover}
-                    alt={`${next.title}, ${next.client}`}
-                    ratio={category.ratio}
-                    sizes="(min-width: 1024px) 680px, 100vw"
-                    index={projectNumber(next)}
-                    category={category.name}
-                    zoom
-                    className={category.ratio === "4/5" || category.ratio === "1/1" ? "max-w-[360px]" : undefined}
-                  />
+                  <span className="text-body text-ink-muted">{next.title}</span>
                 </span>
               </Link>
             </Container>
           </Section>
         ) : null}
 
-        <Section spacing="compact" aria-label={t.cta.label}>
-          <Container className="flex justify-start">
+        <Section tone="teal" spacing="compact" aria-label={t.cta.label}>
+          <Container className="flex flex-wrap items-center justify-between gap-6">
+            <p className="font-display text-h2">{t.cta.title}</p>
             <Button href={t.cta.href} arrow data-primary-cta="">
               {t.cta.label}
             </Button>
           </Container>
         </Section>
       </main>
-      <Footer />
+      <Footer tone="teal" />
     </MotionRoot>
   );
 }

@@ -27,7 +27,7 @@ export function Hero() {
           </div>
         </HeroFade>
         {/* Room above the piece for the hand that holds it. */}
-        <div className="flex justify-start pt-[24vw] lg:col-span-7 lg:col-start-6 lg:justify-center lg:pt-[120px]">
+        <div className="flex justify-center pt-6 sm:pt-10 lg:col-span-7 lg:col-start-6 lg:pt-6">
           <VideoPiece {...hero.video} />
         </div>
       </Container>

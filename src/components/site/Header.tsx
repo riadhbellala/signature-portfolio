@@ -3,15 +3,14 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { categories, categoryNumber } from "@/content/categories";
+import { categoryNumber } from "@/content/categories";
 import { contact } from "@/content/contact";
-import { projectsIn } from "@/content/projects";
+import { folders, projectsIn } from "@/content/projects";
 import { nav } from "@/content/site";
 import { Logo } from "../brand/Logo";
 import { Container } from "../layout/Section";
 import { Button } from "../ui/Button";
 import { ArrowUpRightIcon, ChevronDownIcon } from "../ui/icons";
-import { PuzzleKnobLeft } from "../puzzle/PuzzleJoint";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -124,7 +123,7 @@ export function Header() {
   };
 
   const typeLinks = (compact: boolean) =>
-    categories.map((c) => (
+    folders().map((c) => (
       <li key={c.id}>
         <a
           href={`/#dossier-${c.id}`}
@@ -203,8 +202,7 @@ export function Header() {
               {nav.external}
               <ArrowUpRightIcon size={12} />
             </a>
-            <Button href={nav.cta.href} variant={othersVisible ? "secondary" : "primary"} className="ml-6 max-sm:hidden">
-              {othersVisible ? null : <PuzzleKnobLeft size={72} className="mr-[19px] fill-ochre" />}
+            <Button href={nav.cta.href} variant={othersVisible ? "secondary" : "primary"} className="max-sm:hidden">
               {nav.cta.label}
             </Button>
             <button type="button" className="btn btn-secondary lg:hidden" aria-expanded={menu} aria-controls="menu-mobile" onClick={() => setMenu((o) => !o)}>

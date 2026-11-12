@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -31,10 +31,10 @@ export function Assemble({ children, className, as = "ul", label }: { children: 
   );
 }
 
-export function AssemblePiece({ i, children, className, as = "li" }: { i: number; children: ReactNode; className?: string; as?: "li" | "div" }) {
+export function AssemblePiece({ i, children, className, style, as = "li" }: { i: number; children: ReactNode; className?: string; style?: CSSProperties; as?: "li" | "div" }) {
   const Tag = motion[as];
   return (
-    <Tag custom={i} variants={piece} className={className}>
+    <Tag custom={i} variants={piece} className={className} style={style}>
       {children}
     </Tag>
   );
