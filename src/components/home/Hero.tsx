@@ -73,8 +73,8 @@ export function Hero() {
           </div>
           {/* Shortcut for visitors in a hurry: a folder of the work, with the hint to open it.
               Goes to the page with every project. */}
-          <div className="flex max-w-[420px] flex-col gap-3 md:border-t md:border-line md:pt-6">
-            <p className="flex items-baseline gap-2 text-small">
+          <div className="flex max-w-[420px] flex-col gap-3 max-md:mx-auto max-md:w-full max-md:items-center md:border-t md:border-line md:pt-6">
+            <p className="flex items-baseline gap-2 text-small max-md:flex-col max-md:items-center max-md:gap-1.5 max-md:text-center">
               <span className="shrink-0 whitespace-nowrap bg-ochre px-2 py-0.5 font-display font-semibold text-teal">
                 {hero.rush.kicker}
               </span>
@@ -87,7 +87,7 @@ export function Hero() {
               items={peek}
               href={hero.rush.href}
               compact
-              className="!h-[230px]"
+              className="!h-[230px] max-md:w-[78%] max-md:origin-top max-md:scale-[0.82] max-md:!-mb-10"
             />
           </div>
         </HeroFade>
