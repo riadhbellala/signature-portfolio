@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { SoundOn } from "../work/MediaPiece";
-import { useSoundWaiting } from "@/lib/sound";
+import { sound, useSoundWaiting } from "@/lib/sound";
 
 /**
  * Browsers refuse video sound until the visitor clicks or taps once; scrolling does not count.
@@ -16,6 +16,7 @@ export function SoundPrompt() {
       {waiting ? (
         <motion.button
           type="button"
+          onClick={() => sound.unlock()}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 16 }}

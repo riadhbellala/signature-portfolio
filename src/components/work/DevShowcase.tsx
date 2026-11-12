@@ -185,7 +185,7 @@ export function DevShowcase() {
           <p className="font-sans text-meta uppercase tracking-[0.2em] text-ochre">
             {devCopy.eyebrow}
           </p>
-          <h2 id="dev-title" className="font-display text-h2">
+          <h2 id="dev-title" className="font-display text-h2 max-md:text-center">
             {devCopy.title.map((l) => (
               <span key={l} className="block">
                 {l}

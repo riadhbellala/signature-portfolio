@@ -72,7 +72,7 @@ export function Grid({ className, children }: { className?: string; children: Re
 export function SectionHead({ id, title, lead, className }: { id: string; title: string; lead?: string; className?: string }) {
   return (
     <div className={clsx("grid gap-6 lg:grid-cols-12 lg:items-end", className)}>
-      <RiseText id={id} text={title} className="text-h2 lg:col-span-7" />
+      <RiseText id={id} text={title} className="text-h2 max-md:text-center lg:col-span-7" />
       {lead ? <p className="measure text-lead lg:col-span-4 lg:col-start-9">{lead}</p> : null}
     </div>
   );

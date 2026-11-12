@@ -356,14 +356,23 @@
 }
 
 /* One-page flow (FlowBackground): sections hand their background to <main>, which fades. */
-main {
+.flow-layer {
+  /* Taller than the screen: no gap when the phone's address bar slides away. */
+  height: 120lvh;
   transition: background-color 700ms var(--ease-out-quint);
+  will-change: background-color;
+}
+.flow-on {
+  background-color: transparent;
+  /* Own stacking context: the fixed colour layer sits behind the sections, above the body. */
+  position: relative;
+  isolation: isolate;
 }
 .flow-on [data-flow] {
   background-color: transparent;
 }
 @media (prefers-reduced-motion: reduce) {
-  main {
+  .flow-layer {
     transition-duration: 0.01ms;
   }
 }

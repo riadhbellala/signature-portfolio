@@ -31,17 +31,15 @@ function pickActive() {
   if (best !== state.active) emit({ active: best });
 }
 
-if (typeof window !== "undefined") {
-  const first = () => {
-    emit({ interacted: true });
-    window.removeEventListener("pointerdown", first);
-    window.removeEventListener("keydown", first);
-    window.removeEventListener("touchend", first);
-  };
-  window.addEventListener("pointerdown", first);
-  window.addEventListener("keydown", first);
-  window.addEventListener("touchend", first);
+const EVENTS = ["pointerdown", "keydown", "touchend"] as const;
+function first() {
+  emit({ interacted: true });
+  EVENTS.forEach((e) => window.removeEventListener(e, first));
 }
+function listen() {
+  EVENTS.forEach((e) => window.addEventListener(e, first));
+}
+if (typeof window !== "undefined") listen();
 
 export const sound = {
   report(id: string, ratio: number) {
@@ -52,10 +50,16 @@ export const sound = {
   /** The browser refused sound before any interaction: wait for the first one. */
   blocked() {
     if (state.interacted) emit({ interacted: false });
+    listen(); // the next click or tap, anywhere, turns sound on
+  },
+  /** The visitor asked for sound (this runs inside their click, so the browser allows it). */
+  unlock() {
+    emit({ enabled: true, interacted: true });
   },
   toggle(id: string) {
     // Unmuting from a video's button also makes it the one that speaks.
-    if (!state.enabled || state.active !== id) emit({ enabled: true, interacted: true, active: id });
+    if (!state.enabled || state.active !== id)
+      emit({ enabled: true, interacted: true, active: id });
     else emit({ enabled: false });
   },
 };
@@ -68,17 +72,35 @@ const server: State = { enabled: true, interacted: true, active: null };
 
 /** Sound waits for the visitor's first interaction (the browser refused it on open). */
 export function useSoundWaiting() {
-  const s = useSyncExternalStore(subscribe, () => state, () => server);
+  const s = useSyncExternalStore(
+    subscribe,
+    () => state,
+    () => server,
+  );
   return s.enabled && !s.interacted && s.active !== null;
 }
 
 /** True when this video should currently play with sound. */
 export function useSound(id: string) {
-  const s = useSyncExternalStore(subscribe, () => state, () => server);
-  return { audible: s.enabled && s.interacted && s.active === id, enabled: s.enabled && s.interacted };
+  const s = useSyncExternalStore(
+    subscribe,
+    () => state,
+    () => server,
+  );
+  return {
+    audible: s.enabled && s.interacted && s.active === id,
+    enabled: s.enabled && s.interacted,
+  };
 }
 
 /** Send a command to a Vimeo player iframe. */
-export function vimeoCommand(frame: HTMLIFrameElement | null, method: string, value?: unknown) {
-  frame?.contentWindow?.postMessage(JSON.stringify(value === undefined ? { method } : { method, value }), "https://player.vimeo.com");
+export function vimeoCommand(
+  frame: HTMLIFrameElement | null,
+  method: string,
+  value?: unknown,
+) {
+  frame?.contentWindow?.postMessage(
+    JSON.stringify(value === undefined ? { method } : { method, value }),
+    "https://player.vimeo.com",
+  );
 }

@@ -23,7 +23,7 @@ export function Services() {
     <Section id="services" tone="sand" spacing="compact" aria-labelledby="services-title" className="scroll-mt-16">
       <Container className="grid gap-x-6 gap-y-12 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-5">
-          <RiseText id="services-title" text={t.title} className="text-h2" />
+          <RiseText id="services-title" text={t.title} className="text-h2 max-md:text-center" />
           <p className="measure mt-6 text-lead">{t.lead}</p>
           <div className="mt-10 max-w-[520px]">
             <AgencyVideos label={t.videosLabel} />
@@ -124,7 +124,7 @@ export function Contact() {
     <Section id="contact" tone="teal" trace="right" aria-labelledby="contact-title" className="scroll-mt-16">
       <Container>
         <div className="grid gap-x-6 gap-y-6 lg:grid-cols-12 lg:items-end">
-          <DisplayTitle as="h2" id="contact-title" size="h1" lines={t.title} className="lg:col-span-8" />
+          <DisplayTitle as="h2" id="contact-title" size="h1" lines={t.title} className="max-md:text-center lg:col-span-8" />
           <p className="measure text-lead lg:col-span-4">{t.lead}</p>
         </div>
 

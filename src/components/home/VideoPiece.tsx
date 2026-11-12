@@ -243,6 +243,7 @@ export function VideoPiece({
             "https://player.vimeo.com",
           );
           vimeoCommand(frame.current, "addEventListener", "timeupdate");
+          vimeoCommand(frame.current, "addEventListener", "ended");
           vimeoCommand(frame.current, "getDuration");
         }
         // Stop just before the end (Vimeo's "more videos" end screen never shows), split, replay.
@@ -274,6 +275,8 @@ export function VideoPiece({
         // Only a visitor's pause stops the clock (the browser's sound-block pause must not).
         if (data?.event === "pause" && userPaused.current && !splitting.current)
           window.clearTimeout(endTimer.current);
+        // Plays once: at the end it stops for good (no loop, no replay).
+        if (data?.event === "ended") doSplit();
         const t = data?.event === "timeupdate" ? data.data : null;
         if (t && t.duration > 1 && t.seconds >= t.duration - 0.3) doSplit();
         if (data?.event === "play") setLive(true);
@@ -406,7 +409,7 @@ export function VideoPiece({
                 >
                   <iframe
                     ref={endFrame}
-                    src={`${vimeoSrc(vimeoId, true)}&api=1`}
+                    src={`${vimeoSrc(vimeoId, true).replace("loop=1", "loop=0")}&api=1`}
                     title=""
                     aria-hidden="true"
                     tabIndex={-1}
@@ -445,7 +448,7 @@ export function VideoPiece({
               {vimeoId ? (
                 <iframe
                   ref={frame}
-                  src={`${vimeoSrc(vimeoId, !reduce)}&api=1`}
+                  src={`${vimeoSrc(vimeoId, !reduce).replace("loop=1", "loop=0")}&api=1`}
                   title={label}
                   allow="autoplay; fullscreen; picture-in-picture"
                   loading="eager"

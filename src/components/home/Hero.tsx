@@ -51,30 +51,31 @@ export function Hero() {
         <HeroTitle
           id="hero-title"
           lines={hero.title}
-          className="relative z-10 lg:col-span-12 lg:col-start-1 lg:row-start-1 lg:-ml-[calc(var(--gutter)-0.5rem)] lg:text-[min(8.8vw,10rem)]"
+          className="relative z-10 max-md:text-center lg:col-span-12 lg:col-start-1 lg:row-start-1 lg:-ml-[calc(var(--gutter)-0.5rem)] lg:text-[min(8.8vw,10rem)]"
         />
         <HeroFade
           delay={0.45}
           className="flex flex-col gap-8 lg:col-span-5 lg:col-start-1 lg:row-start-2 lg:self-start lg:pt-4"
         >
           <p className="measure text-lead">{hero.line}</p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+          {/* Phones: the folder shortcut comes right under the main button (no second button). */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 max-md:-mb-4 max-md:justify-center">
             <Button href={hero.primary.href} arrow data-primary-cta="">
               {hero.primary.label}
             </Button>
             <Button
               href={hero.secondary.href}
               variant="secondary"
-              className="max-[479px]:-ml-5"
+              className="max-md:hidden"
             >
               {hero.secondary.label}
             </Button>
           </div>
           {/* Shortcut for visitors in a hurry: a folder of the work, with the hint to open it.
               Goes to the page with every project. */}
-          <div className="flex max-w-[420px] flex-col gap-3 border-t border-line pt-6">
+          <div className="flex max-w-[420px] flex-col gap-3 md:border-t md:border-line md:pt-6">
             <p className="flex items-baseline gap-2 text-small">
-              <span className="bg-ochre px-2 py-0.5 font-display font-semibold text-teal">
+              <span className="shrink-0 whitespace-nowrap bg-ochre px-2 py-0.5 font-display font-semibold text-teal">
                 {hero.rush.kicker}
               </span>
               <span className="text-ink-muted">{hero.rush.hint}</span>
