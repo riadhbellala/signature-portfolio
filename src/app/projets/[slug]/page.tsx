@@ -8,7 +8,7 @@ import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { MetaLabel } from "@/components/type/Labels";
 import { Button } from "@/components/ui/Button";
-import { ArrowIcon } from "@/components/ui/icons";
+import { ArrowIcon, ArrowUpRightIcon } from "@/components/ui/icons";
 import { MediaPiece } from "@/components/work/MediaPiece";
 import { vimeoSrc } from "@/lib/vimeo";
 import { getCategory } from "@/content/categories";
@@ -70,7 +70,15 @@ export default async function ProjectPage({ params }: PageProps<"/projets/[slug]
                 </h1>
                 <p className="mt-2 font-display text-h3">{p.title}</p>
               </div>
-              <p className="measure text-lead lg:col-span-4">{p.brief}</p>
+              <div className="flex flex-col gap-4 lg:col-span-4">
+                <p className="measure text-lead">{p.brief}</p>
+                {p.url ? (
+                  <a href={p.url} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 self-start font-display text-body font-semibold underline decoration-ochre decoration-2 underline-offset-8 hover:decoration-4">
+                    {p.url.replace("https://", "")}
+                    <ArrowUpRightIcon size={12} />
+                  </a>
+                ) : null}
+              </div>
             </div>
             <div className="mt-10 md:mt-14">
               <MediaBlock m={first} priority />

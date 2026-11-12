@@ -103,6 +103,7 @@ export interface VideoPieceProps {
 export function VideoPiece({ src, vimeoId, poster, label, pending }: VideoPieceProps) {
   const reduce = useReducedMotion();
   const frame = useRef<HTMLIFrameElement>(null);
+  const userPaused = useRef(false);
   // null = not touched yet: plays unless reduced motion; after a click the visitor decides.
   const [choice, setPlaying] = useState<boolean | null>(null);
   const playing = choice ?? !reduce;
@@ -145,8 +146,16 @@ export function VideoPiece({ src, vimeoId, poster, label, pending }: VideoPieceP
         if (data?.event === "ready") {
           setReady(true);
           frame.current?.contentWindow?.postMessage(JSON.stringify({ method: "addEventListener", value: "play" }), "https://player.vimeo.com");
+          frame.current?.contentWindow?.postMessage(JSON.stringify({ method: "addEventListener", value: "pause" }), "https://player.vimeo.com");
         }
         if (data?.event === "play") setLive(true);
+        // Paused without the visitor asking: the browser refused sound on open. Play on muted;
+        // sound comes on at the first click or tap.
+        if (data?.event === "pause" && !userPaused.current) {
+          sound.blocked();
+          vimeoCommand(frame.current, "setMuted", true);
+          vimeoCommand(frame.current, "play");
+        }
       } catch {}
     };
     window.addEventListener("message", onMsg);
@@ -155,6 +164,7 @@ export function VideoPiece({ src, vimeoId, poster, label, pending }: VideoPieceP
 
 
   const togglePlay = () => {
+    userPaused.current = playing;
     send(playing ? "pause" : "play");
     setPlaying(!playing);
   };

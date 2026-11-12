@@ -21,9 +21,11 @@ export interface Project {
   /** 2–3 lines for the project page. */
   brief: string;
   media: Media[];
+  /** Live site, for web work: linked from the project page. */
+  url?: string;
 }
 
-export type ClientId = "island-petroleum" | "logis" | "montazah" | "royaume-blanc" | "souipanel" | "riff" | "louiz" | "hasena" | "altusplast";
+export type ClientId = "island-petroleum" | "logis" | "montazah" | "royaume-blanc" | "souipanel" | "riff" | "louiz" | "hasena" | "altusplast" | "pharma-express" | "yas-home" | "batioil" | "signature" | "etinia" | "kayaki" | "riadh-moulins" | "la-lionne" | "kinkers" | "madi-sushi" | "ya-hala" | "palais-dor" | "sour-khaled" | "el-bayrak" | "btp-mebarki" | "belgaid" | "broderie-royale" | "geo-medica" | "naps" | "ndwi";
 
 export interface Client {
   id: ClientId;
@@ -44,6 +46,26 @@ export const clients: Client[] = [
   { id: "louiz", name: "Louiz", logo: null, line: "Vidéos des journées de salon." },
   { id: "hasena", name: "Hasena", logo: null, line: "Vidéo de présentation." },
   { id: "altusplast", name: "Altusplast", logo: null, line: "Film de présentation de l’entreprise." },
+  { id: "pharma-express", name: "Pharma Express", logo: null, line: "Le site de l’application." },
+  { id: "yas-home", name: "Yas Home", logo: null, line: "La plateforme immobilière." },
+  { id: "batioil", name: "Batioil", logo: null, line: "Le site de la marque de lubrifiants." },
+  { id: "signature", name: "Signature creative co.", logo: null, line: "Notre propre site." },
+  { id: "etinia", name: "Etinia", logo: null, line: "Le packaging de la gamme de gels douche." },
+  { id: "kayaki", name: "Kayaki", logo: null, line: "Logo et cartes de visite." },
+  { id: "riadh-moulins", name: "Riadh Moulins", logo: null, line: "Le packaging de la farine." },
+  { id: "la-lionne", name: "La Lionne", logo: null, line: "Les sacs de farine, du 1 kg au 50 kg." },
+  { id: "kinkers", name: "Kinker’s", logo: null, line: "L’emballage de la barre au nougat." },
+  { id: "madi-sushi", name: "Madi Sushi", logo: null, line: "Les boîtes à emporter." },
+  { id: "ya-hala", name: "Ya Hala", logo: null, line: "Les emballages du restaurant." },
+  { id: "palais-dor", name: "Palais d’Or Construction", logo: null, line: "Cartes de visite." },
+  { id: "sour-khaled", name: "Sour Khaled", logo: null, line: "L’habillage du véhicule de livraison." },
+  { id: "el-bayrak", name: "El Bayrak Construction", logo: null, line: "Le calendrier 2025." },
+  { id: "btp-mebarki", name: "BTP Mebarki", logo: null, line: "Les beach flags." },
+  { id: "belgaid", name: "Promotion Belgaid", logo: null, line: "La brochure du programme immobilier." },
+  { id: "broderie-royale", name: "Broderie Royale Algérie", logo: null, line: "Cartes de visite." },
+  { id: "geo-medica", name: "Geo Medica", logo: null, line: "La brochure Via Care." },
+  { id: "naps", name: "Nap’s", logo: null, line: "Le menu." },
+  { id: "ndwi", name: "NDWi", logo: null, line: "L’habillage du camion." },
 ];
 
 const img = (dir: string, n: number, alt: string): Media => {
@@ -76,7 +98,36 @@ const V = {
   altusplast: vimeo("1246213185", "2225545685-767cd3fe413f2b1257a1819a072bbca4291350083646cfadaf2cb568c42e324c", "Altusplast, film", false),
 };
 
+/** A site the agency built, shown in device mockups (public/dev, built from retina screenshots). */
+const site = (id: string, name: string): Media[] => [
+  { kind: "image", src: `/dev/${id}-mockup-laptop.webp`, alt: `${name}, le site sur ordinateur`, ratio: 4 / 3 },
+  { kind: "image", src: `/dev/${id}-mockup-trio.webp`, alt: `${name}, le site sur ordinateur, tablette et téléphone`, ratio: 4 / 3 },
+  { kind: "image", src: `/dev/${id}-mockup-mobile.webp`, alt: `${name}, le site sur tablette et téléphone`, ratio: 4 / 3 },
+];
+
 export const projects: Project[] = [
+  { slug: "etinia-packaging", client: "etinia", category: "identite", title: "Packaging", brief: "Les flacons de gel douche Etinia : quatre parfums, quatre couleurs, une même gamme.", media: [{ kind: "image", src: "/projets/creations/etinia-packaging.webp", alt: "Les quatre flacons de gel douche Etinia", ratio: 1.4004 }] },
+  { slug: "kayaki-identite", client: "kayaki", category: "identite", title: "Identité visuelle", brief: "Le logo de Kayaki, décliné sur ses cartes de visite.", media: [{ kind: "image", src: "/projets/creations/kayaki-identite.webp", alt: "Logo et cartes de visite Kayaki", ratio: 0.8166 }] },
+  { slug: "riadh-moulins-farine", client: "riadh-moulins", category: "identite", title: "Packaging", brief: "Le paquet de farine Riadh Moulins, en français et en arabe.", media: [{ kind: "image", src: "/projets/creations/riadh-moulins-farine.webp", alt: "Paquets de farine Riadh Moulins", ratio: 1.3845 }] },
+  { slug: "la-lionne-farine", client: "la-lionne", category: "identite", title: "Packaging", brief: "Toute la gamme de farine La Lionne : paquets et sacs de 25 et 50 kg.", media: [{ kind: "image", src: "/projets/creations/la-lionne-farine.webp", alt: "Paquets de farine La Lionne", ratio: 1.5094 }, { kind: "image", src: "/projets/creations/la-lionne-25kg.webp", alt: "Sac de farine La Lionne, 25 kg", ratio: 1.1497 }, { kind: "image", src: "/projets/creations/la-lionne-50kg.webp", alt: "Sac de farine La Lionne, 50 kg", ratio: 1.1497 }] },
+  { slug: "kinkers-packaging", client: "kinkers", category: "identite", title: "Packaging", brief: "L’emballage de la barre au nougat Kinker’s.", media: [{ kind: "image", src: "/projets/creations/kinkers-packaging.webp", alt: "Barre au nougat Kinker’s", ratio: 1.2075 }] },
+  { slug: "madi-sushi-packaging", client: "madi-sushi", category: "identite", title: "Packaging", brief: "Les boîtes à sushis de Madi Sushi, à emporter.", media: [{ kind: "image", src: "/projets/creations/madi-sushi-packaging.webp", alt: "Boîtes à sushis Madi Sushi", ratio: 1.4942 }] },
+  { slug: "ya-hala-packaging", client: "ya-hala", category: "identite", title: "Packaging", brief: "Les emballages du restaurant Ya Hala pour son poulet croustillant.", media: [{ kind: "image", src: "/projets/creations/ya-hala-packaging.webp", alt: "Emballages Ya Hala", ratio: 1.0 }] },
+  { slug: "palais-dor-cartes", client: "palais-dor", category: "supports", title: "Cartes de visite", brief: "Les cartes de visite de Palais d’Or Construction, en doré sur blanc.", media: [{ kind: "image", src: "/projets/creations/palais-dor-cartes.webp", alt: "Cartes de visite Palais d’Or Construction", ratio: 1.3333 }] },
+  { slug: "sour-khaled-vehicule", client: "sour-khaled", category: "supports", title: "Habillage de véhicule", brief: "Le véhicule de livraison de Sour Khaled habillé aux couleurs de ses produits.", media: [{ kind: "image", src: "/projets/creations/sour-khaled-vehicule.webp", alt: "Fourgon habillé Sour Khaled", ratio: 1.8165 }] },
+  { slug: "el-bayrak-calendrier", client: "el-bayrak", category: "supports", title: "Calendrier 2025", brief: "Le calendrier de bureau 2025 d’El Bayrak Construction.", media: [{ kind: "image", src: "/projets/creations/el-bayrak-calendrier.webp", alt: "Calendrier 2025 El Bayrak", ratio: 1.4667 }] },
+  { slug: "btp-mebarki-flags", client: "btp-mebarki", category: "supports", title: "Beach flags", brief: "Les beach flags de BTP Mebarki, pour être vu de loin.", media: [{ kind: "image", src: "/projets/creations/btp-mebarki-flags.webp", alt: "Beach flags BTP Mebarki", ratio: 1.3333 }] },
+  { slug: "belgaid-brochure", client: "belgaid", category: "supports", title: "Brochure", brief: "La brochure du programme immobilier Belgaid : plans des appartements et contacts.", media: [{ kind: "image", src: "/projets/creations/belgaid-brochure.webp", alt: "Brochure Promotion Belgaid", ratio: 1.1463 }] },
+  { slug: "broderie-royale-cartes", client: "broderie-royale", category: "supports", title: "Cartes de visite", brief: "Les cartes de visite de Broderie Royale Algérie, Maison du Drapeau.", media: [{ kind: "image", src: "/projets/creations/broderie-royale-cartes.webp", alt: "Cartes de visite Broderie Royale", ratio: 1.0081 }] },
+  { slug: "geo-medica-brochure", client: "geo-medica", category: "supports", title: "Brochure", brief: "La brochure Via Care de Geo Medica.", media: [{ kind: "image", src: "/projets/creations/geo-medica-brochure.webp", alt: "Brochure Via Care", ratio: 1.5 }] },
+  { slug: "island-petroleum-iso", client: "island-petroleum", category: "supports", title: "Brochure", brief: "Le dossier des certifications d’Island Petroleum.", media: [{ kind: "image", src: "/projets/creations/island-petroleum-iso.webp", alt: "Brochure des certifications Island Petroleum", ratio: 1.5 }] },
+  { slug: "naps-menu", client: "naps", category: "supports", title: "Menu", brief: "Le menu de Nap’s.", media: [{ kind: "image", src: "/projets/creations/naps-menu.webp", alt: "Menu Nap’s", ratio: 1.8713 }] },
+  { slug: "ndwi-camion", client: "ndwi", category: "supports", title: "Habillage de camion", brief: "Le camion de NDWi habillé de sa campagne « More than a door ».", media: [{ kind: "image", src: "/projets/creations/ndwi-camion.webp", alt: "Camion habillé NDWi", ratio: 1.786 }] },
+  { slug: "riff-site", client: "riff", category: "site-web", title: "Site web", brief: "Le site de RIFF Promotion : ses programmes immobiliers, ses projets et sa galerie.", media: site("riff", "RIFF Promotion"), url: "https://riffpromotion.com" },
+  { slug: "pharma-express-site", client: "pharma-express", category: "site-web", title: "Site web", brief: "Le site de l’application Pharma Express : ce qu’elle fait, comment l’utiliser, où la télécharger.", media: site("pharma", "Pharma Express"), url: "https://pharmaexpress.app" },
+  { slug: "yas-home-site", client: "yas-home", category: "site-web", title: "Site web", brief: "La plateforme immobilière Yas Home : recherche de biens, nouveaux projets et annonces.", media: site("yas", "Yas Home"), url: "https://yas-home.com" },
+  { slug: "batioil-site", client: "batioil", category: "site-web", title: "Site web", brief: "Le site de Batioil : les catégories de produits, les meilleures ventes et la marque.", media: site("batioil", "Batioil"), url: "https://batioil.com" },
+  { slug: "signature-site", client: "signature", category: "site-web", title: "Site web", brief: "Le site de l’agence Signature creative co. : nos services, nos réalisations et nos partenaires.", media: site("signature", "Signature creative co."), url: "https://signature-alg.com" },
   {
     slug: "island-petroleum-stands",
     client: "island-petroleum",

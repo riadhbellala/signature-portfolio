@@ -148,9 +148,16 @@ export function MediaPiece({
         const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
         if (data?.event === "ready") {
           vimeoCommand(player.current, "addEventListener", "play");
+          vimeoCommand(player.current, "addEventListener", "pause");
           setReady(true);
         }
         if (data?.event === "play") setLive(true);
+        // Background players never pause on their own: the browser refused sound. Play on muted.
+        if (data?.event === "pause") {
+          sound.blocked();
+          vimeoCommand(player.current, "setMuted", true);
+          vimeoCommand(player.current, "play");
+        }
       } catch {}
     };
     window.addEventListener("message", onMsg);

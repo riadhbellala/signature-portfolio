@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Clients, Contact, Services } from "@/components/home/Closing";
 import { Hero } from "@/components/home/Hero";
 import { ClientShowcase } from "@/components/work/ClientShowcase";
+import { DevShowcase } from "@/components/work/DevShowcase";
 import { ServiceFolders } from "@/components/work/ServiceFolders";
 import { Container, Section, SectionHead } from "@/components/layout/Section";
 import { FlowBackground } from "@/components/motion/FlowBackground";
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 
 /**
  * One page, no cuts: the background fades from section to section (FlowBackground).
- * Hero with the showreel piece; selected work as a jigsaw; every project by type in folders;
+ * Hero with the showreel piece; selected work as a jigsaw; the sites we built, live on three screens; every project by type in folders;
  * services as a tear-off flyer; clients assembling; contact as pieces.
  */
 export default function HomePage() {
@@ -33,6 +34,11 @@ export default function HomePage() {
             <div className="mt-10 md:mt-14">
               <ClientShowcase />
             </div>
+          </Container>
+        </Section>
+        <Section id="developpement" tone="teal" spacing="compact" aria-labelledby="dev-title" className="scroll-mt-16 pb-28 [overflow-y:clip] md:pb-36">
+          <Container>
+            <DevShowcase />
           </Container>
         </Section>
         <Section id="dossiers" spacing="compact" aria-labelledby="dossiers-title" className="scroll-mt-16">

@@ -13,10 +13,14 @@ import { MediaPiece } from "./MediaPiece";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
-/** Edges for piece k of a chain of n: each piece's tab locks into the next one's socket. */
+/**
+ * Edges for piece k of a chain of n. Knobs alternate: odd pieces (the middle one of three) push a
+ * knob out on both sides, into sockets of their neighbours, so the two joints face opposite ways.
+ */
 function chainEdges(k: number, n: number, vertical: boolean): Edges {
-  const out = k < n - 1 ? "tab" : "flat";
-  const inn = k > 0 ? "blank" : "flat";
+  const knobs = k % 2 === 1 ? "tab" : "blank";
+  const out = k < n - 1 ? knobs : "flat";
+  const inn = k > 0 ? knobs : "flat";
   return vertical ? { top: inn, right: "flat", bottom: out, left: "flat" } : { top: "flat", right: out, bottom: "flat", left: inn };
 }
 

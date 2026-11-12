@@ -3,12 +3,14 @@
 import { useSyncExternalStore } from "react";
 
 /**
- * Page-wide video sound. Browsers only allow sound after the visitor's first click, tap or key;
- * from then on, the video most visible on screen plays with sound and every other one is muted.
+ * Page-wide video sound. The page tries sound at once on open (the hero reel speaks). Browsers
+ * may refuse sound before the visitor's first click, tap or key: a player that gets paused for
+ * that reports `sound.blocked()`, plays on muted, and sound comes on at the first interaction.
+ * The video most visible on screen plays with sound; every other one is muted.
  * The mute button on any video turns sound off (or back on) for the whole page.
  */
 type State = { enabled: boolean; interacted: boolean; active: string | null };
-let state: State = { enabled: true, interacted: false, active: null };
+let state: State = { enabled: true, interacted: true, active: null };
 const ratios = new Map<string, number>();
 const subs = new Set<() => void>();
 
@@ -34,9 +36,11 @@ if (typeof window !== "undefined") {
     emit({ interacted: true });
     window.removeEventListener("pointerdown", first);
     window.removeEventListener("keydown", first);
+    window.removeEventListener("touchend", first);
   };
   window.addEventListener("pointerdown", first);
   window.addEventListener("keydown", first);
+  window.addEventListener("touchend", first);
 }
 
 export const sound = {
@@ -44,6 +48,10 @@ export const sound = {
     if (ratio <= 0) ratios.delete(id);
     else ratios.set(id, ratio);
     pickActive();
+  },
+  /** The browser refused sound before any interaction: wait for the first one. */
+  blocked() {
+    if (state.interacted) emit({ interacted: false });
   },
   toggle(id: string) {
     // Unmuting from a video's button also makes it the one that speaks.

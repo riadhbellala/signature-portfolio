@@ -395,3 +395,18 @@ html[data-flow="sand"] .flow-on [data-flow] {
   --surface: var(--color-sand);
   --trace: var(--color-cream);
 }
+
+/* Développement: the active domain slides past behind the devices. */
+@keyframes dev-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.dev-marquee {
+  animation: dev-marquee 38s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dev-marquee {
+    animation: none;
+  }
+}
