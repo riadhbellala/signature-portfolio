@@ -176,7 +176,9 @@ export function PuzzlePiece({ size = 240, edges, tone, children, fluid, shadow =
   const onlyShadow = layer === "shadow";
   return (
     <div
-      className={clsx("relative", className)}
+      // Own compositor layer: the blurred shadow and bevel filters are drawn once, not again on
+      // every frame while the page colour fades behind them (smooth on phones).
+      className={clsx("relative [transform:translateZ(0)]", className)}
       style={style}
       role={label && !onlyShadow ? "img" : undefined}
       aria-label={onlyShadow ? undefined : label}
@@ -203,7 +205,7 @@ export function PuzzleStrip({ top, bottom, height, tone, children, className }: 
   const w = top.length * UNIT;
   const h = height * UNIT;
   return (
-    <div className={clsx("relative", className)} style={{ width: "100%", aspectRatio: `${w} / ${h}` }}>
+    <div className={clsx("relative [transform:translateZ(0)]", className)} style={{ width: "100%", aspectRatio: `${w} / ${h}` }}>
       <PieceSurface d={stripPath(UNIT, top, bottom, h)} w={w} h={h} tone={tone} />
       {children ? <div className={clsx("relative z-[2] h-full", INK[tone])}>{children}</div> : null}
     </div>
