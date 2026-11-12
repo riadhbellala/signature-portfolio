@@ -72,18 +72,24 @@ export function ServiceFolders() {
             {list.length === 0 ? (
               <p className="mt-10 max-w-[48ch] text-lead text-ink-muted">{home.category.empty}</p>
             ) : null}
-            <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3 lg:grid-cols-4">
+            <ul className="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((p) => (
-                <li key={p.slug}>
-                  <Link href={`/projets/${p.slug}`} className="group flex flex-col gap-4 no-underline">
-                    <div className="transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
-                      <MediaPiece media={cover(p)} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="(min-width: 1024px) 300px, 45vw" className="w-[80%]" />
-                    </div>
-                    <span className="flex flex-col gap-0.5">
-                      <span className="font-display text-list decoration-ochre decoration-2 underline-offset-4 group-hover:underline">{getClient(p.client).name}</span>
-                      <span className="text-small text-ink-muted">
-                        {p.title} · {p.media.length} {p.media.length > 1 ? "médias" : "média"}
-                      </span>
+                <li key={p.slug} className="group flex flex-col gap-4">
+                  {/* Every card the same shape (4:3), so the grid lines up whatever the media. */}
+                  <div className="pr-[10%] transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
+                    <MediaPiece
+                      media={cover(p)}
+                      shape={4 / 3}
+                      href={`/projets/${p.slug}`}
+                      label={`${getClient(p.client).name}, ${p.title}`}
+                      edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }}
+                      sizes="(min-width: 1024px) 380px, 45vw"
+                    />
+                  </div>
+                  <Link href={`/projets/${p.slug}`} tabIndex={-1} className="flex flex-col gap-0.5 no-underline">
+                    <span className="font-display text-list decoration-ochre decoration-2 underline-offset-4 group-hover:underline">{getClient(p.client).name}</span>
+                    <span className="text-small text-ink-muted">
+                      {p.title} · {p.media.length} {p.media.length > 1 ? "médias" : "média"}
                     </span>
                   </Link>
                 </li>

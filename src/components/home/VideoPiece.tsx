@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import { frameStyle, frameViewBox, PieceSurface } from "../puzzle/PuzzlePiece";
 import { rectPiecePath, UNIT, type Edges } from "../puzzle/geometry";
+import { sound, useSound, vimeoCommand } from "@/lib/sound";
 import { vimeoSrc } from "@/lib/vimeo";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -79,8 +80,27 @@ export function VideoPiece({ src, vimeoId, poster, label, pending }: VideoPieceP
   // null = not touched yet: plays unless reduced motion; after a click the visitor decides.
   const [choice, setPlaying] = useState<boolean | null>(null);
   const playing = choice ?? !reduce;
-  const [muted, setMuted] = useState(true);
+  // Page-wide sound: the hero reel speaks when it is the video most on screen (after a first click).
+  const { audible } = useSound("hero");
+  const muted = !audible;
+  const box = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    if (!box.current) return;
+    const io = new IntersectionObserver(([e]) => sound.report("hero", e.intersectionRatio), { threshold: [0, 0.25, 0.5, 0.75, 1] });
+    io.observe(box.current);
+    return () => {
+      io.disconnect();
+      sound.report("hero", 0);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!ready) return;
+    vimeoCommand(frame.current, "setMuted", muted);
+    if (!muted) vimeoCommand(frame.current, "setVolume", 1);
+  }, [muted, ready]);
   const [live, setLive] = useState(false);
 
   // Vimeo player API over postMessage: play / pause / mute / unmute.
@@ -109,9 +129,7 @@ export function VideoPiece({ src, vimeoId, poster, label, pending }: VideoPieceP
     setPlaying(!playing);
   };
   const toggleMute = () => {
-    send("setMuted", !muted);
-    if (muted) send("setVolume", 1);
-    setMuted(!muted);
+    sound.toggle("hero");
   };
 
   const hasVideo = Boolean(vimeoId || src);
@@ -119,6 +137,7 @@ export function VideoPiece({ src, vimeoId, poster, label, pending }: VideoPieceP
 
   return (
     <motion.div
+      ref={box}
       className="relative ml-[17vw] w-[min(56vw,360px)] [container-type:inline-size] lg:ml-0"
       initial={{ x: 70, y: -50, opacity: 0 }}
       animate={{ x: 0, y: 0, opacity: 1 }}

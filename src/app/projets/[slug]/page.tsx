@@ -101,12 +101,14 @@ export default async function ProjectPage({ params }: PageProps<"/projets/[slug]
               <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
                 {others.map((o) => (
                   <li key={o.slug}>
-                    <Link href={`/projets/${o.slug}`} className="group flex flex-col gap-4 no-underline">
-                      <div className="transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
-                        <MediaPiece media={cover(o)} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="300px" className="w-[80%]" />
+                    <div className="group flex flex-col gap-4">
+                      <div className="pr-[10%] transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
+                        <MediaPiece media={cover(o)} shape={4 / 3} href={`/projets/${o.slug}`} label={o.title} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="300px" />
                       </div>
-                      <span className="font-display text-list decoration-ochre decoration-2 underline-offset-4 group-hover:underline">{o.title}</span>
-                    </Link>
+                      <Link href={`/projets/${o.slug}`} tabIndex={-1} className="font-display text-list no-underline decoration-ochre decoration-2 underline-offset-4 group-hover:underline">
+                        {o.title}
+                      </Link>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -120,7 +122,7 @@ export default async function ProjectPage({ params }: PageProps<"/projets/[slug]
               <Link href={`/projets/${next.slug}`} className="group grid items-center gap-8 no-underline md:grid-cols-12">
                 <div className="md:col-span-4">
                   <div className="transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
-                    <MediaPiece media={cover(next)} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="400px" className="w-[80%]" />
+                    <MediaPiece media={cover(next)} still shape={4 / 3} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="400px" className="w-[88%]" />
                   </div>
                 </div>
                 <span className="flex flex-col gap-2 md:col-span-7 md:col-start-6">

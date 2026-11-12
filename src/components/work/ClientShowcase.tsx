@@ -67,13 +67,15 @@ export function ClientShowcase() {
             <Assemble as="div" className="mt-8 hidden md:flex">
               {ordered.map(({ p, m }, k) => (
                 <AssemblePiece key={k} i={k} as="div" className="relative min-w-0 hover:z-10 focus-within:z-10" style={{ flex: `${m.ratio} 1 0` }}>
-                  <Link
-                    href={`/projets/${p.slug}`}
-                    aria-label={`${c.name}, ${p.title}`}
-                    className="group block outline-offset-[-10px] transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1.5"
-                  >
-                    <MediaPiece media={m} edges={chainEdges(k, ordered.length, false)} sizes={`(min-width: 1440px) ${Math.round(m.ratio * 520)}px, ${Math.round(m.ratio * 36)}vw`} />
-                  </Link>
+                  <div className="transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1.5">
+                    <MediaPiece
+                      media={m}
+                      href={`/projets/${p.slug}`}
+                      label={`${c.name}, ${p.title}`}
+                      edges={chainEdges(k, ordered.length, false)}
+                      sizes={`(min-width: 1440px) ${Math.round(m.ratio * 520)}px, ${Math.round(m.ratio * 36)}vw`}
+                    />
+                  </div>
                 </AssemblePiece>
               ))}
             </Assemble>
@@ -82,9 +84,7 @@ export function ClientShowcase() {
             <Assemble as="div" className="mt-6 flex flex-col md:hidden">
               {pieces.map(({ p, m }, k) => (
                 <AssemblePiece key={k} i={k} as="div" className="relative">
-                  <Link href={`/projets/${p.slug}`} aria-label={`${c.name}, ${p.title}`} className="group block outline-offset-[-10px]">
-                    <MediaPiece media={m} vertical edges={chainEdges(k, pieces.length, true)} sizes="100vw" />
-                  </Link>
+                  <MediaPiece media={m} href={`/projets/${p.slug}`} label={`${c.name}, ${p.title}`} vertical edges={chainEdges(k, pieces.length, true)} sizes="100vw" />
                 </AssemblePiece>
               ))}
             </Assemble>
