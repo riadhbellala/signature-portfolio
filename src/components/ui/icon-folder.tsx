@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { useReducedMotion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 import * as React from "react";
 
 /* ------------------------------------------------------------------ */
@@ -27,6 +28,10 @@ export type IconFolderProps = {
   /** Horizontal distance between fanned pictures, px. */
   spread?: number;
   onSelect?: () => void;
+  /** Make the folder a link to this page instead of a toggle button. */
+  href?: string;
+  /** Shorter front pocket, for a small folder (hero shortcut). */
+  compact?: boolean;
   controls?: string;
   className?: string;
 };
@@ -41,12 +46,17 @@ const pathBack = (w: number, h: number, d: number, tw: number, s: number) => {
   return `M0 ${d}L${x - s} ${d}C${x - s * 0.45} ${d} ${x - s * 0.55} 0 ${x} 0L${w} 0L${w} ${h}L0 ${h}Z`;
 };
 
-function useShape(ref: React.RefObject<HTMLDivElement | null>, make: (w: number, h: number) => string) {
+function useShape(
+  ref: React.RefObject<HTMLDivElement | null>,
+  make: (w: number, h: number) => string,
+) {
   const [d, setD] = React.useState("");
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const ro = new ResizeObserver(() => setD(make(el.offsetWidth, el.offsetHeight)));
+    const ro = new ResizeObserver(() =>
+      setD(make(el.offsetWidth, el.offsetHeight)),
+    );
     ro.observe(el);
     return () => ro.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -54,8 +64,20 @@ function useShape(ref: React.RefObject<HTMLDivElement | null>, make: (w: number,
   return d;
 }
 
-export function IconFolder({ index, title, count, items, active = false, spread = 64, onSelect, controls, className }: IconFolderProps) {
-  const rootRef = React.useRef<HTMLButtonElement>(null);
+export function IconFolder({
+  index,
+  title,
+  count,
+  items,
+  active = false,
+  spread = 64,
+  onSelect,
+  href,
+  compact = false,
+  controls,
+  className,
+}: IconFolderProps) {
+  const rootRef = React.useRef<HTMLElement>(null);
   const frontRef = React.useRef<HTMLDivElement>(null);
   const backRef = React.useRef<HTMLDivElement>(null);
   const [shown, setShown] = React.useState(false);
@@ -66,13 +88,20 @@ export function IconFolder({ index, title, count, items, active = false, spread 
   React.useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => e.isIntersecting && setShown(true), { threshold: 0.3 });
+    const io = new IntersectionObserver(
+      ([e]) => e.isIntersecting && setShown(true),
+      { threshold: 0.3 },
+    );
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
-  const frontD = useShape(frontRef, (w, h) => pathFront(w, h, 22, Math.round(w * 0.42), 40));
-  const backD = useShape(backRef, (w, h) => pathBack(w, h, 22, Math.round(w * 0.4), 40));
+  const frontD = useShape(frontRef, (w, h) =>
+    pathFront(w, h, 22, Math.round(w * 0.42), 40),
+  );
+  const backD = useShape(backRef, (w, h) =>
+    pathBack(w, h, 22, Math.round(w * 0.4), 40),
+  );
 
   const fan = items.slice(0, 4);
   const n = fan.length;
@@ -80,34 +109,17 @@ export function IconFolder({ index, title, count, items, active = false, spread 
   const wide = active || hover;
   const on = shown || reduced;
 
-  return (
-    <button
-      ref={rootRef}
-      type="button"
-      aria-pressed={active}
-      aria-controls={controls}
-      aria-label={`${title}, ${count}`}
-      onClick={onSelect}
-      onFocus={() => setHover(true)}
-      onBlur={() => setHover(false)}
-      onPointerEnter={(e) => e.pointerType === "mouse" && setHover(true)}
-      onPointerLeave={() => {
-        setHover(false);
-        setHi(null);
-      }}
-      className={clsx(
-        "relative isolate block h-[280px] w-full cursor-pointer select-none text-left outline-none [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal",
-        className,
-      )}
-      style={{
-        zIndex: wide ? 2 : undefined,
-        opacity: on ? 1 : 0,
-        transform: on ? (wide ? "translateY(-6px)" : "none") : "translateY(34px) scale(.94)",
-        transition: reduced ? "none" : `transform .8s ${EASE}, opacity .5s ease`,
-      }}
-    >
+  const inner = (
+    <>
       {/* back plate */}
-      <div ref={backRef} className={clsx("absolute inset-x-0 bottom-0 top-[14px]", active ? "bg-ochre-deep" : "bg-teal-deep")} style={{ clipPath: backD ? `path('${backD}')` : undefined }} />
+      <div
+        ref={backRef}
+        className={clsx(
+          "absolute inset-x-0 bottom-0 top-[14px]",
+          active ? "bg-ochre-deep" : "bg-teal-deep",
+        )}
+        style={{ clipPath: backD ? `path('${backD}')` : undefined }}
+      />
 
       {/* fanned project pictures */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -123,9 +135,17 @@ export function IconFolder({ index, title, count, items, active = false, spread 
               style={{
                 zIndex: hi === i ? 5 : undefined,
                 opacity: on ? 1 : 0,
-                transform: on ? `translate3d(${k * gap}px, ${y}px, 0) rotate(${rot}deg)` : `translate3d(${k * spread * 0.5}px, 70px, 0)`,
-                transition: reduced ? "none" : `transform ${wide ? 0.5 : 0.8}s ${EASE}, opacity .4s`,
-                transitionDelay: reduced ? "0s" : wide ? `${i * 0.035}s` : `${0.3 + i * 0.07}s`,
+                transform: on
+                  ? `translate3d(${k * gap}px, ${y}px, 0) rotate(${rot}deg)`
+                  : `translate3d(${k * spread * 0.5}px, 70px, 0)`,
+                transition: reduced
+                  ? "none"
+                  : `transform ${wide ? 0.5 : 0.8}s ${EASE}, opacity .4s`,
+                transitionDelay: reduced
+                  ? "0s"
+                  : wide
+                    ? `${i * 0.035}s`
+                    : `${0.3 + i * 0.07}s`,
               }}
             >
               <div
@@ -133,17 +153,28 @@ export function IconFolder({ index, title, count, items, active = false, spread 
                 onPointerEnter={(e) => e.pointerType === "mouse" && setHi(i)}
                 onPointerLeave={() => setHi((h) => (h === i ? null : h))}
                 style={{
-                  transform: hi === i ? `translateY(-22px) rotate(${-rot}deg) scale(1.08)` : "none",
+                  transform:
+                    hi === i
+                      ? `translateY(-22px) rotate(${-rot}deg) scale(1.08)`
+                      : "none",
                   transition: reduced ? "none" : `transform .4s ${EASE}`,
                 }}
               >
-                <Image src={item.src} alt="" fill sizes="110px" className="object-cover" />
+                <Image
+                  src={item.src}
+                  alt=""
+                  fill
+                  sizes="110px"
+                  className="object-cover"
+                />
                 <span
                   className="pointer-events-none absolute bottom-full left-1/2 mb-2 whitespace-nowrap bg-teal px-2 py-1 font-sans text-meta text-cream"
                   style={{
                     opacity: hi === i ? 1 : 0,
                     transform: `translateX(-50%) translateY(${hi === i ? 0 : 6}px)`,
-                    transition: reduced ? "none" : `opacity .2s ease, transform .3s ${EASE}`,
+                    transition: reduced
+                      ? "none"
+                      : `opacity .2s ease, transform .3s ${EASE}`,
                   }}
                 >
                   {item.label}
@@ -158,7 +189,8 @@ export function IconFolder({ index, title, count, items, active = false, spread 
       <div
         ref={frontRef}
         className={clsx(
-          "absolute inset-x-0 bottom-0 h-[168px] transition-[background-color,color,transform] duration-300",
+          "absolute inset-x-0 bottom-0 transition-[background-color,color,transform] duration-300",
+          compact ? "h-[118px]" : "h-[168px]",
           active ? "bg-ochre text-teal" : "bg-teal text-cream",
         )}
         style={{
@@ -167,10 +199,91 @@ export function IconFolder({ index, title, count, items, active = false, spread 
           transitionTimingFunction: EASE,
         }}
       >
-        <span className={clsx("block px-5 pt-9 font-sans text-meta tabular", active ? "text-teal" : "text-cream-muted")}>({index})</span>
+        <span
+          className={clsx(
+            "block px-5 pt-9 font-sans text-meta tabular",
+            active ? "text-teal" : "text-cream-muted",
+          )}
+        >
+          ({index})
+        </span>
         <span className="mt-1 block px-5 font-display text-h3">{title}</span>
-        <span className={clsx("absolute bottom-4 right-5 font-sans text-small tabular", active ? "text-teal" : "text-cream-muted")}>{count}</span>
+        <span
+          className={clsx(
+            "absolute bottom-4 right-5 font-sans text-small tabular",
+            active ? "text-teal" : "text-cream-muted",
+          )}
+        >
+          {count}
+        </span>
       </div>
+    </>
+  );
+
+  return href ? (
+    <Link
+      ref={rootRef as React.Ref<HTMLAnchorElement>}
+      href={href}
+      aria-label={`${title}, ${count}`}
+      onFocus={() => setHover(true)}
+      onBlur={() => setHover(false)}
+      onPointerEnter={(e) => e.pointerType === "mouse" && setHover(true)}
+      onPointerLeave={() => {
+        setHover(false);
+        setHi(null);
+      }}
+      className={clsx(
+        "relative isolate block h-[280px] w-full cursor-pointer select-none text-left outline-none [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal",
+        className,
+      )}
+      style={{
+        zIndex: wide ? 2 : undefined,
+        opacity: on ? 1 : 0,
+        transform: on
+          ? wide
+            ? "translateY(-6px)"
+            : "none"
+          : "translateY(34px) scale(.94)",
+        transition: reduced
+          ? "none"
+          : `transform .8s ${EASE}, opacity .5s ease`,
+      }}
+    >
+      {inner}
+    </Link>
+  ) : (
+    <button
+      ref={rootRef as React.Ref<HTMLButtonElement>}
+      type="button"
+      aria-pressed={active}
+      aria-controls={controls}
+      onClick={onSelect}
+      aria-label={`${title}, ${count}`}
+      onFocus={() => setHover(true)}
+      onBlur={() => setHover(false)}
+      onPointerEnter={(e) => e.pointerType === "mouse" && setHover(true)}
+      onPointerLeave={() => {
+        setHover(false);
+        setHi(null);
+      }}
+      className={clsx(
+        "relative isolate block h-[280px] w-full cursor-pointer select-none text-left outline-none [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal",
+        className,
+      )}
+      style={{
+        zIndex: wide ? 2 : undefined,
+        opacity: on ? 1 : 0,
+        transform: on
+          ? wide
+            ? "translateY(-6px)"
+            : "none"
+          : "translateY(34px) scale(.94)",
+        transition: reduced
+          ? "none"
+          : `transform .8s ${EASE}, opacity .5s ease`,
+      }}
+    >
+      {inner}
     </button>
   );
 }

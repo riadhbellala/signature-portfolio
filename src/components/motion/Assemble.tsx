@@ -25,7 +25,7 @@ const piece: Variants = {
 export function Assemble({ children, className, as = "ul", label }: { children: ReactNode; className?: string; as?: "ul" | "div"; label?: string }) {
   const Tag = motion[as];
   return (
-    <Tag className={className} aria-label={label} variants={group} initial="hidden" whileInView="shown" viewport={{ once: true, amount: 0.25 }}>
+    <Tag className={className} aria-label={label} variants={group} initial="hidden" whileInView="shown" viewport={{ once: true, amount: 0.05, margin: "0px 0px -10% 0px" }}>
       {children}
     </Tag>
   );
@@ -34,7 +34,7 @@ export function Assemble({ children, className, as = "ul", label }: { children: 
 export function AssemblePiece({ i, children, className, style, as = "li" }: { i: number; children: ReactNode; className?: string; style?: CSSProperties; as?: "li" | "div" }) {
   const Tag = motion[as];
   return (
-    <Tag custom={i} variants={piece} className={className} style={style}>
+    <Tag custom={i} variants={piece} className={className} style={{ willChange: "transform, opacity", ...style }}>
       {children}
     </Tag>
   );

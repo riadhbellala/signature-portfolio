@@ -32,12 +32,16 @@ export const home = {
     puzzle: { a: "votre marque", b: "nos solutions", groupLabel: "Votre marque, plus nos solutions" },
     primary: { label: "Démarrer un projet", href: "#contact" },
     secondary: { label: "Voir les projets", href: "#projets" },
+    /** Shortcut for visitors in a hurry: straight to the page with every project. */
+    rush: { kicker: "Pressé ?", hint: "Ouvrez le dossier : tous nos projets, classés par service.", title: "Tous nos projets", count: (n: number) => `${n} projets`, href: "/projets" },
     reelTag: "Showreel — Signature creative co. — Oran",
     /** Showreel. Put the file in /public (e.g. "/video/showreel.mp4"); null shows the placeholder. */
     video: {
       src: null as string | null,
-      vimeoId: "1245835203" as string | null,
-      poster: "https://i.vimeocdn.com/video/2225079737-6983ed37747a3a4f9c93e8576bfb652114a6c893840b3c9e6aa7c75700349a84-d_720x1280" as string | null,
+      vimeoId: "1246303778" as string | null,
+      /** Length in seconds (Vimeo): the hero splits its puzzle just before the end. */
+      duration: 6,
+      poster: "https://i.vimeocdn.com/video/2225662275-a2e1c5273745ba045abd3d92c02a4cdda6144d226d27abb4b1a5878cdae08f04-d_720x1280" as string | null,
       label: "Showreel Signature",
       pending: "Vidéo à venir",
     },
@@ -47,6 +51,11 @@ export const home = {
     title: "Nos projets, client par client.",
     lead: "Pour chaque marque, trois pièces : la 3D, le résultat, la vidéo.",
     open: "Voir le projet",
+  },
+  projectsPage: {
+    metaTitle: "Tous nos projets",
+    metaDescription: "Tous les projets de Signature creative co., classés par service : stands, vidéo, développement, branding, supports.",
+    back: "Retour à l’accueil",
   },
   folders: {
     title: "Tous les projets, par service.",

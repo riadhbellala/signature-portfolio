@@ -128,7 +128,7 @@ export function MediaPiece({
           setReady(false);
         }
       },
-      { rootMargin: "100% 0px 100% 0px" },
+      { rootMargin: "35% 0px 35% 0px" },
     );
     // How much of it is on screen: the most visible video gets the sound.
     const seen = new IntersectionObserver(([e]) => sound.report(id, e.intersectionRatio), { threshold: [0, 0.25, 0.5, 0.75, 1] });

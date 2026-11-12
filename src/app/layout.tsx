@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Poppins } from "next/font/google";
 import "./globals.css";
+import { SoundPrompt } from "@/components/site/SoundPrompt";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -36,9 +37,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* Vimeo's video stream servers: the hero reel starts from these. */}
         <link rel="preconnect" href="https://vod-adaptive-ak.vimeocdn.com" />
         <link rel="preconnect" href="https://skyfire.vimeocdn.com" />
-        <link rel="preload" as="image" href="https://i.vimeocdn.com/video/2225079737-6983ed37747a3a4f9c93e8576bfb652114a6c893840b3c9e6aa7c75700349a84-d_720x1280" />
+        <link rel="preload" as="image" href="https://i.vimeocdn.com/video/2225662275-a2e1c5273745ba045abd3d92c02a4cdda6144d226d27abb4b1a5878cdae08f04-d_720x1280" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SoundPrompt />
+      </body>
     </html>
   );
 }
