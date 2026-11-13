@@ -35,6 +35,8 @@ export function ClientShowcase() {
           const p = getProject(slug)!;
           return { p, m: p.media[i] as Media };
         });
+        // A video, when the client has one, always comes first.
+        pieces.sort((x, y) => Number(y.m.kind === "video") - Number(x.m.kind === "video"));
         const lead = b === 0;
         return (
           <li key={c.id}>

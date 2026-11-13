@@ -29,7 +29,7 @@ export function AutoScroll({ className, children }: { className?: string; childr
       window.clearInterval(timer);
       timer = undefined;
     };
-    const io = new IntersectionObserver(([e]) => (e.intersectionRatio >= 0.6 ? start() : pause()), { threshold: [0, 0.6] });
+    const io = new IntersectionObserver(([e]) => (e.intersectionRatio >= 0.4 ? start() : pause()), { threshold: [0, 0.4] });
     io.observe(el);
     const takeOver = () => {
       stopped = true;
@@ -43,7 +43,8 @@ export function AutoScroll({ className, children }: { className?: string; childr
     };
   }, []);
   return (
-    <div ref={ref} className={className}>
+    // `relative`: children measure offsetLeft from this row, not from a far ancestor.
+    <div ref={ref} className={`relative ${className ?? ""}`}>
       {children}
     </div>
   );
