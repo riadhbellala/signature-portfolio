@@ -1,39 +1,32 @@
 "use client";
 
-import clsx from "clsx";
-import Image from "next/image";
 import Link from "next/link";
 import { getCategory } from "@/content/categories";
-import { getClient, getProject, projectsOf, showcase, type Media } from "@/content/projects";
+import {
+  getClient,
+  getProject,
+  projectsOf,
+  showcase,
+  type Media,
+} from "@/content/projects";
 import { home } from "@/content/site";
-import { Assemble, AssemblePiece } from "../motion/Assemble";
-import type { Edges } from "../puzzle/geometry";
+import { Reveal, RevealItem } from "../motion/Reveal";
 import { ArrowIcon } from "../ui/icons";
+import { AutoScroll } from "./AutoScroll";
 import { MediaPiece } from "./MediaPiece";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
- * Edges for piece k of a chain of n. Knobs alternate: odd pieces (the middle one of three) push a
- * knob out on both sides, into sockets of their neighbours, so the two joints face opposite ways.
- */
-function chainEdges(k: number, n: number, vertical: boolean): Edges {
-  const knobs = k % 2 === 1 ? "tab" : "blank";
-  const out = k < n - 1 ? knobs : "flat";
-  const inn = k > 0 ? knobs : "flat";
-  return vertical ? { top: inn, right: "flat", bottom: out, left: "flat" } : { top: "flat", right: out, bottom: "flat", left: inn };
-}
-
-/**
- * Work by client. Each client is one row: the name and what was done, then three interlocking
- * pieces across the full width, each in the real shape of its picture or video (a 3:2 render
- * stays 3:2, a vertical reel stays vertical). Widths follow the media, so the three pieces share
- * one height and fill the row: nothing is cropped to a square, no empty half-screen.
- * Phones: the same pieces in a vertical chain, full width.
+ * Work by client. Each client is one block: a header line (number, name, what was done, link)
+ * and its three pieces of work side by side, each in its real shape (a 3:2 render stays 3:2, a
+ * reel stays vertical), one shared height, a narrow gap. No puzzle cut here: the work is the
+ * subject, shown clean. The first client is the lead: its row is taller.
+ * Phones: the pieces scroll sideways (snap), so a block stays one screen tall.
  */
 export function ClientShowcase() {
   return (
-    <ol className="flex flex-col gap-20 md:gap-28">
+    <ol className="flex flex-col gap-16 md:gap-24">
       {showcase.map((block, b) => {
         const c = getClient(block.client);
         const ps = projectsOf(c.id);
@@ -42,56 +35,99 @@ export function ClientShowcase() {
           const p = getProject(slug)!;
           return { p, m: p.media[i] as Media };
         });
-        const ordered = b % 2 === 1 ? [...pieces].reverse() : pieces;
+        const lead = b === 0;
         return (
           <li key={c.id}>
-            <div className={clsx("grid gap-x-6 gap-y-4 md:grid-cols-12 md:items-end", b % 2 === 1 && "md:text-right")}>
-              <div className={clsx("flex flex-col gap-2 md:col-span-7", b % 2 === 1 && "md:order-2 md:col-start-6 md:items-end")}>
-                <span className="font-sans text-meta text-ink-muted tabular">({pad(b + 1)})</span>
-                {c.logo ? (
-                  <Image src={c.logo} alt={c.name} width={320} height={120} className="h-auto max-h-20 w-auto object-contain" />
-                ) : (
-                  <h3 className="font-display text-h2">{c.name}</h3>
-                )}
-                <p className="font-sans text-meta uppercase text-ink-muted">{types.join(" · ")}</p>
-              </div>
-              <div className={clsx("flex flex-col gap-3 md:col-span-4", b % 2 === 1 ? "md:order-1 md:col-start-1 md:items-start md:text-left" : "md:col-start-9")}>
-                <p className="measure text-body">{c.line}</p>
-                <Link
-                  href={`/projets/${ps[0].slug}`}
-                  className="inline-flex min-h-11 items-center gap-2 self-start font-display text-body font-semibold underline decoration-ochre decoration-2 underline-offset-8 hover:decoration-4"
-                >
-                  {home.showcase.open}
-                  <ArrowIcon />
-                </Link>
-              </div>
-            </div>
+            <Reveal>
+              <RevealItem className="flex flex-col gap-3 border-t border-line pt-5 md:flex-row md:items-baseline md:justify-between md:gap-8">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-sans text-small tabular text-ink-muted">
+                    {pad(b + 1)}
+                  </span>
+                  <h3
+                    className={
+                      lead
+                        ? "font-display text-h2 leading-[1]"
+                        : "font-display text-h3"
+                    }
+                  >
+                    {c.name}
+                  </h3>
+                </div>
+                <div className="flex flex-wrap items-baseline gap-x-6 gap-y-1 pl-9 md:pl-0">
+                  <p className="text-small text-ink-muted">
+                    {types.join(" · ")}
+                  </p>
+                  <Link
+                    href={`/projets/${ps[0].slug}`}
+                    className="group inline-flex min-h-11 items-center gap-2 font-display text-body font-semibold underline decoration-ochre decoration-2 underline-offset-8 hover:decoration-4"
+                  >
+                    {home.showcase.open}
+                    <ArrowIcon className="transition-transform duration-[var(--dur-ui)] group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </RevealItem>
 
-            {/* Tablet and desktop: horizontal chain, widths ∝ media ratio, one shared height. */}
-            <Assemble as="div" className="mt-8 hidden md:flex">
-              {ordered.map(({ p, m }, k) => (
-                <AssemblePiece key={k} i={k} as="div" className="relative min-w-0 hover:z-10 focus-within:z-10" style={{ flex: `${m.ratio} 1 0` }}>
-                  <div className="transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1.5">
+              {/* Tablet and desktop: one row, widths follow each picture's shape. */}
+              <RevealItem className="mt-5 hidden gap-2 md:flex">
+                {pieces.map(({ p, m }, k) => (
+                  <div
+                    key={k}
+                    className="min-w-0"
+                    style={{ flex: `${m.ratio} 1 0` }}
+                  >
                     <MediaPiece
+                      plain
                       media={m}
                       href={`/projets/${p.slug}`}
                       label={`${c.name}, ${p.title}`}
-                      edges={chainEdges(k, ordered.length, false)}
-                      sizes={`(min-width: 1440px) ${Math.round(m.ratio * 520)}px, ${Math.round(m.ratio * 36)}vw`}
+                      edges={{
+                        top: "flat",
+                        right: "flat",
+                        bottom: "flat",
+                        left: "flat",
+                      }}
+                      sizes={`(min-width: 1440px) ${Math.round(m.ratio * 560)}px, ${Math.round(m.ratio * 38)}vw`}
                     />
                   </div>
-                </AssemblePiece>
-              ))}
-            </Assemble>
+                ))}
+              </RevealItem>
 
-            {/* Phones: vertical chain, full width. */}
-            <Assemble as="div" className="mt-6 flex flex-col md:hidden">
-              {pieces.map(({ p, m }, k) => (
-                <AssemblePiece key={k} i={k} as="div" className="relative">
-                  <MediaPiece media={m} href={`/projets/${p.slug}`} label={`${c.name}, ${p.title}`} vertical edges={chainEdges(k, pieces.length, true)} sizes="100vw" />
-                </AssemblePiece>
-              ))}
-            </Assemble>
+              {/* Phones: swipe sideways, one shared height; slides on its own while on screen. */}
+              <RevealItem className="md:hidden">
+                <AutoScroll className="-mx-[var(--gutter)] mt-4 flex snap-x snap-mandatory scroll-px-[var(--gutter)] items-start gap-2 overflow-x-auto px-[var(--gutter)] pb-2 [scrollbar-width:none]">
+                  {pieces.map(({ p, m }, k) => (
+                    <div
+                      key={k}
+                      // Height fits the screen; a wide picture never fills the whole width, so the
+                      // next one peeks in and says "swipe".
+                      className="h-[260px] shrink-0 snap-start"
+                      style={
+                        {
+                          aspectRatio: `${m.ratio}`,
+                          "--r": m.ratio,
+                        } as React.CSSProperties
+                      }
+                    >
+                      <MediaPiece
+                        plain
+                        media={m}
+                        href={`/projets/${p.slug}`}
+                        label={`${c.name}, ${p.title}`}
+                        edges={{
+                          top: "flat",
+                          right: "flat",
+                          bottom: "flat",
+                          left: "flat",
+                        }}
+                        className="h-full"
+                        sizes={`${Math.round(m.ratio * 62)}vh`}
+                      />
+                    </div>
+                  ))}
+                </AutoScroll>
+              </RevealItem>
+            </Reveal>
           </li>
         );
       })}

@@ -17,11 +17,11 @@ export function SoundPrompt() {
         <motion.button
           type="button"
           onClick={() => sound.unlock()}
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 16 }}
+          exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-          className="fixed bottom-5 left-1/2 z-50 flex min-h-12 -translate-x-1/2 items-center gap-3 bg-teal px-5 font-display text-body font-semibold text-cream shadow-[0_12px_32px_color-mix(in_oklab,var(--color-teal-deep)_35%,transparent)]"
+          className="fixed inset-x-0 top-20 z-50 mx-auto w-fit md:bottom-6 md:top-auto flex min-h-12 items-center gap-3 rounded-full bg-teal px-5 font-display text-body font-semibold text-cream shadow-[0_12px_32px_color-mix(in_oklab,var(--color-teal-deep)_35%,transparent)]"
         >
           <SoundOn />
           Activer le son des vidéos

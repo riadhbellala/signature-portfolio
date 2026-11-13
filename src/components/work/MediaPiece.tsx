@@ -70,11 +70,14 @@ export function MediaPiece({
   tone = "sand",
   vertical = false,
   still = false,
+  plain = false,
   className,
   style,
 }: {
   /** Thumbnail only: no player, no button (for a piece inside a larger link). */
   still?: boolean;
+  /** A clean rectangle in the media's shape: no puzzle cut, no knobs, no bevel. */
+  plain?: boolean;
   media: Media;
   edges: Edges;
   sizes: string;
@@ -113,7 +116,7 @@ export function MediaPiece({
   const [near, setNear] = useState(false);
   const [live, setLive] = useState(false);
   const [ready, setReady] = useState(false);
-  const { audible } = useSound(id);
+  const { audible, active } = useSound(id);
   const isVideo = media.kind === "video" && !still;
 
   // Lazy: mount the player within one screen of the viewport, drop it when far.
@@ -171,9 +174,52 @@ export function MediaPiece({
     if (audible) vimeoCommand(player.current, "setVolume", 1);
   }, [audible, ready]);
 
-  const play = isVideo && near && !reduce;
+  // Performance: one Vimeo player at a time, for the video most on screen; others show the poster.
+  const play = isVideo && near && active && !reduce;
   const boxRatio = (w + ext.l + ext.r) / (h + ext.t + ext.b);
   const videoFill = isVideo && media.ratio < boxRatio ? "left-0 top-1/2 w-full -translate-y-1/2" : "left-1/2 top-0 h-full -translate-x-1/2";
+
+  if (plain) {
+    const pr = shape ?? media.ratio;
+    return (
+      <div ref={ref} className={clsx("group relative overflow-hidden rounded-[var(--radius-md)] bg-sand", className)} style={{ aspectRatio: `${pr}`, ...style }}>
+        <Image
+          src={media.kind === "image" ? media.src : media.thumb}
+          alt={media.kind === "image" ? media.alt : media.title}
+          fill
+          sizes={sizes}
+          className="object-cover transition-transform duration-[600ms] ease-[var(--ease-out-quint)] motion-safe:group-hover:scale-[1.03]"
+        />
+        {play ? (
+          <iframe
+            ref={player}
+            src={`${vimeoSrc(media.vimeo, true)}&api=1`}
+            title={media.title}
+            allow="autoplay; fullscreen; picture-in-picture"
+            tabIndex={-1}
+            className={clsx("pointer-events-none absolute border-0 transition-opacity duration-500", media.ratio < pr ? "left-0 top-1/2 w-full -translate-y-1/2" : "left-1/2 top-0 h-full -translate-x-1/2", live ? "opacity-100" : "opacity-0")}
+            style={{ aspectRatio: `${media.ratio}` }}
+          />
+        ) : null}
+        {href ? <Link href={href} aria-label={label} className="absolute inset-0 z-[2] outline-offset-[-4px]" /> : null}
+        {isVideo && live ? (
+          <button
+            type="button"
+            onClick={() => sound.toggle(id)}
+            aria-label={audible ? `Couper le son : ${media.title}` : `Activer le son : ${media.title}`}
+            aria-pressed={audible}
+            className="absolute bottom-3 right-3 z-[3] flex size-11 items-center justify-center bg-teal text-cream transition-transform duration-[var(--dur-press)] active:scale-[0.94]"
+          >
+            {audible ? <SoundOn /> : <SoundOff />}
+          </button>
+        ) : media.kind === "video" ? (
+          <span aria-hidden="true" className="pointer-events-none absolute bottom-3 right-3 z-[3] flex size-11 items-center justify-center bg-teal text-cream">
+            <Play />
+          </span>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <div ref={ref} className={clsx("group relative", className)} style={{ aspectRatio: `${w} / ${h}`, ...style }}>

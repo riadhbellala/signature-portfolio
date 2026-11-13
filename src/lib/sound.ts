@@ -90,6 +90,7 @@ export function useSound(id: string) {
   return {
     audible: s.enabled && s.interacted && s.active === id,
     enabled: s.enabled && s.interacted,
+    active: s.active === id,
   };
 }
 

@@ -263,3 +263,16 @@ Layouts per type inside a folder (`CategoryGrid`): screens 16:10 two per row · 
 Project page `/projets/[slug]`: cover at the type's ratio, title, brief, client / type / year, gallery stacked at the type's ratio, next project of the same type, "Nous contacter".
 
 Content: `src/content/categories.ts`, `projects.ts` (`featured`: in Projets choisis), `services.ts`, `clients.ts`, `contact.ts`, plus `site.ts` (interface labels, hero video path). Counts are computed, never typed.
+
+## 2026-11 — Bento system (supersedes the square, puzzle-everywhere rules above)
+
+Kept: colours, Poppins + Inter Tight, the hero title (Poppins 800, ochre outline offset).
+Changed:
+- **Radius scale** (`--radius-sm/md/lg/xl` = 12/20/28/40px). Nested shapes: inner = outer − padding (card 28 + 8 padding → media 20).
+- **Buttons are pills** (52px). Primary teal on light, ochre on teal. Secondary = 1.5px outline, fills on hover. Round arrow button (`CircleLink`) for "go there".
+- **Panels**: a section's key block sits in a rounded teal panel on cream (Développement), like the references' dark block.
+- **Cards**: cream cards on sand, number in a round chip, whole card is the link (Services). One ochre card = the exit (ask).
+- **Media**: clean rounded rectangles in the real ratio. Puzzle shapes only on the clients wall (each brand = a piece).
+- **Hero**: giant title right-aligned, line + one CTA under it, two figures; reel in a rounded card with a notch (sound) and a shortcut column on its left edge.
+- **Word band**: giant service words sliding between two blocks of work (decoration).
+- **No page-wide colour flow**: each section keeps its ground. Reveals: fade-up only where content arrives (client blocks).

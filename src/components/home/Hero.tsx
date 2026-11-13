@@ -1,100 +1,158 @@
-import { getCategory } from "@/content/categories";
-import { IconFolder } from "../ui/icon-folder";
+import Image from "next/image";
+import Link from "next/link";
 import {
   cover,
   folders,
-  projectsIn,
   projects,
+  projectsIn,
   thumbOf,
 } from "@/content/projects";
+import { clients } from "@/content/clients";
 import { home } from "@/content/site";
 import { Container, Section } from "../layout/Section";
 import { Button } from "../ui/Button";
+import { CircleLink } from "../ui/CircleLink";
 import { HeroFade, HeroTitle } from "./HeroIntro";
-import { VideoPiece } from "./VideoPiece";
+import { HeroReel } from "./HeroReel";
 
 /**
- * (01) Hero. The title from the left edge, the offer and actions under it. On the right a teal
- * slab bleeds off the screen; the hand reaches out of it and the showreel piece sits across the
- * cream/teal seam, framed by the title's ochre outline.
- * Entrance on load: title lines, the ochre outline, the text, then the hand and the piece.
+ * (01) Hero. Focal order: the giant title, the one line that says what we do, the main action;
+ * then the reel. The shortcut for visitors in a hurry sits on the reel: three covers of real
+ * work, "Tous nos projets", the count, a round arrow. Two figures from the agency's own
+ * banner close the text column.
  */
 export function Hero() {
   const { hero } = home;
-  // One cover per service that has work.
+  const heroClients = clients.slice(0, 4).map((c) => c.name);
   const peek = folders()
     .map((c) => projectsIn(c.id)[0])
     .filter(Boolean)
-    .slice(0, 4)
-    .map((p) => ({
-      src: thumbOf(cover(p)),
-      label: getCategory(p.category).name,
-    }));
+    .slice(0, 3)
+    .map((p) => thumbOf(cover(p)));
   return (
     <Section
-      trace="left"
       spacing="none"
       aria-labelledby="hero-title"
-      className="pb-16 md:pb-24"
+      className="pb-16 pt-8 md:pb-24 md:pt-12"
     >
-      {/* Desktop: a teal slab bleeds off the right edge. The hand's teal sleeve comes out of it and
-          the reel straddles the seam, half on cream, half on teal. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-0 hidden w-[24vw] bg-teal lg:-bottom-24 lg:block"
-      >
-        <span className="absolute bottom-[calc(6rem+2.5rem)] right-[calc(var(--gutter)/2-0.5em)] rotate-180 font-sans text-meta uppercase tracking-[0.2em] text-cream-muted [writing-mode:vertical-rl]">
-          {hero.reelTag}
-        </span>
-      </div>
-      <Container className="grid gap-x-6 gap-y-10 pt-10 md:pt-14 lg:grid-cols-12 lg:pt-16">
-        <HeroTitle
-          id="hero-title"
-          lines={hero.title}
-          className="relative z-10 max-md:text-center lg:col-span-12 lg:col-start-1 lg:row-start-1 lg:-ml-[calc(var(--gutter)-0.5rem)] lg:text-[min(8.8vw,10rem)]"
-        />
-        <HeroFade
-          delay={0.45}
-          className="flex flex-col gap-8 lg:col-span-5 lg:col-start-1 lg:row-start-2 lg:self-start lg:pt-4"
-        >
-          <p className="measure text-lead">{hero.line}</p>
-          {/* Phones: the folder shortcut comes right under the main button (no second button). */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 max-md:-mb-4 max-md:justify-center">
-            <Button href={hero.primary.href} arrow data-primary-cta="">
-              {hero.primary.label}
-            </Button>
-            <Button
-              href={hero.secondary.href}
-              variant="secondary"
-              className="max-md:hidden"
-            >
-              {hero.secondary.label}
-            </Button>
-          </div>
-          {/* Shortcut for visitors in a hurry: a folder of the work, with the hint to open it.
-              Goes to the page with every project. */}
-          <div className="flex max-w-[420px] flex-col gap-3 max-md:mx-auto max-md:w-full max-md:items-center md:border-t md:border-line md:pt-6">
-            <p className="flex items-baseline gap-2 text-small max-md:flex-col max-md:items-center max-md:gap-1.5 max-md:text-center">
-              <span className="shrink-0 whitespace-nowrap bg-ochre px-2 py-0.5 font-display font-semibold text-teal">
-                {hero.rush.kicker}
-              </span>
-              <span className="text-ink-muted">{hero.rush.hint}</span>
+      <Container className="grid items-start gap-x-10 gap-y-12 lg:grid-cols-12">
+        {/* Left: one edge, read top to bottom: title, what we do, the action, two figures. */}
+        <div className="flex flex-col max-md:items-center lg:col-span-7 lg:self-stretch lg:pt-6">
+          <HeroTitle
+            id="hero-title"
+            lines={hero.title}
+            className="leading-[0.92] tracking-[-0.045em] max-md:text-center lg:text-[min(6vw,7.25rem)] lg:whitespace-nowrap"
+          />
+          <HeroFade
+            delay={0.15}
+            className="mt-8 flex flex-col gap-8 max-md:items-center"
+          >
+            <p className="max-w-[44ch] text-lead max-md:text-center">
+              {hero.line}
             </p>
-            <IconFolder
-              index="↗"
-              title={hero.rush.title}
-              count={hero.rush.count(projects.length)}
-              items={peek}
-              href={hero.rush.href}
-              compact
-              className="!h-[230px] max-md:w-[78%] max-md:origin-top max-md:scale-[0.82] max-md:!-mb-10"
-            />
-          </div>
-        </HeroFade>
-        {/* Room above the piece for the hand. Desktop: beside the title, across the teal seam. */}
-        <div className="flex justify-center pt-6 sm:pt-10 lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:justify-end lg:pt-[clamp(10.5rem,15.5vw,14rem)]">
-          <VideoPiece {...hero.video} />
+            <div className="flex flex-wrap items-center gap-3 max-md:justify-center">
+              <Button href={hero.primary.href} arrow data-primary-cta="">
+                {hero.primary.label}
+              </Button>
+              {/* For visitors in a hurry: every project, one tap. */}
+              <Link
+                href={hero.rush.href}
+                className="group flex h-[52px] items-center gap-3 rounded-full pl-1.5 pr-5 font-display text-small font-semibold no-underline shadow-[inset_0_0_0_1.5px_var(--line)] transition-[box-shadow,transform] duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:shadow-[inset_0_0_0_1.5px_var(--ink)] active:scale-[0.96]"
+              >
+                <span className="flex -space-x-2.5">
+                  {peek.map((src) => (
+                    <span
+                      key={src}
+                      className="relative size-10 overflow-hidden rounded-full ring-2 ring-cream"
+                    >
+                      <Image
+                        src={src}
+                        alt=""
+                        fill
+                        sizes="40px"
+                        className="object-cover"
+                      />
+                    </span>
+                  ))}
+                </span>
+                <span>
+                  {hero.rush.kicker}{" "}
+                  <span className="underline decoration-ochre decoration-2 underline-offset-4 group-hover:decoration-4">
+                    {hero.rush.count(projects.length)}
+                  </span>
+                </span>
+              </Link>
+            </div>
+          </HeroFade>
+          <HeroFade
+            delay={0.3}
+            className="mt-12 flex w-full max-w-[520px] gap-10 border-t border-line pt-8 max-md:justify-center md:gap-16"
+          >
+            {hero.stats.map((s) => (
+              <div
+                key={s.label}
+                className="flex flex-col gap-2 max-md:items-center max-md:text-center"
+              >
+                <p className="font-display text-[clamp(2.5rem,4.6vw,4.25rem)] font-bold leading-none tracking-[-0.04em] tabular">
+                  <sup className="mr-0.5 align-[0.7em] text-[0.45em]">+</sup>
+                  {s.value}
+                </p>
+                <p className="max-w-[22ch] text-small text-ink-muted">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </HeroFade>
+          {/* Bottom of the column, level with the reel's foot: who already trusts us (real clients). */}
+          <HeroFade
+            delay={0.45}
+            className="mt-10 flex max-w-[520px] flex-wrap items-baseline gap-x-2 gap-y-1 text-small text-ink-muted max-md:justify-center max-md:text-center lg:mt-auto"
+          >
+            <span>{hero.trusted}</span>
+            {heroClients.map((n, k) => (
+              <span key={n} className="font-display font-semibold text-ink">
+                {n}
+                {k < heroClients.length - 1 ? "," : ""}
+              </span>
+            ))}
+            <span>{hero.trustedMore(clients.length - heroClients.length)}</span>
+          </HeroFade>
         </div>
+
+        <HeroFade delay={0.2} className="lg:col-span-5">
+          <HeroReel
+            {...hero.video}
+            soundOn={hero.soundOn}
+            soundOff={hero.soundOff}
+          >
+            {/* Shortcut column on the reel's left edge (in a notch of cream). */}
+            <div className="absolute -left-7 bottom-8 hidden flex-col items-center gap-4 md:flex">
+              {peek.slice(0, 2).map((src) => (
+                <Link
+                  key={src}
+                  href={hero.rush.href}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="relative size-14 overflow-hidden rounded-full transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:scale-105"
+                >
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    sizes="56px"
+                    className="object-cover"
+                  />
+                </Link>
+              ))}
+              <CircleLink
+                href={hero.rush.href}
+                label={`${hero.rush.title} (${projects.length})`}
+                size={56}
+                tone="ochre"
+              />
+            </div>
+          </HeroReel>
+        </HeroFade>
       </Container>
     </Section>
   );

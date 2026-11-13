@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: PageProps<"/projets/[slug]
                   <li key={o.slug}>
                     <div className="group flex flex-col gap-4">
                       <div className="pr-[10%] transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
-                        <MediaPiece media={cover(o)} shape={4 / 3} href={`/projets/${o.slug}`} label={o.title} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="300px" />
+                        <MediaPiece plain media={cover(o)} shape={4 / 3} href={`/projets/${o.slug}`} label={o.title} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="300px" />
                       </div>
                       <Link href={`/projets/${o.slug}`} tabIndex={-1} className="font-display text-list no-underline decoration-ochre decoration-2 underline-offset-4 group-hover:underline">
                         {o.title}
@@ -130,7 +130,7 @@ export default async function ProjectPage({ params }: PageProps<"/projets/[slug]
               <Link href={`/projets/${next.slug}`} className="group grid items-center gap-8 no-underline md:grid-cols-12">
                 <div className="md:col-span-4">
                   <div className="transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
-                    <MediaPiece media={cover(next)} still shape={4 / 3} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="400px" className="w-[88%]" />
+                    <MediaPiece plain media={cover(next)} still shape={4 / 3} edges={{ top: "flat", right: "tab", bottom: "flat", left: "flat" }} sizes="400px" />
                   </div>
                 </div>
                 <span className="flex flex-col gap-2 md:col-span-7 md:col-start-6">

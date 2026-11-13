@@ -28,13 +28,11 @@ export const home = {
   },
   hero: {
     title: ["Nos projets,", "pièce par pièce."],
-    line: "Agence 360° à Oran — sites web, identité, murs, façades, stands, réseaux sociaux.",
+    line: "Agence 360° à Oran : stands de salon, vidéos, sites web et identités de marque, de l’idée jusqu’au montage.",
     puzzle: { a: "votre marque", b: "nos solutions", groupLabel: "Votre marque, plus nos solutions" },
     primary: { label: "Démarrer un projet", href: "#contact" },
-    secondary: { label: "Voir les projets", href: "#projets" },
     /** Shortcut for visitors in a hurry: straight to the page with every project. */
-    rush: { kicker: "Pressé ?", hint: "Ouvrez le dossier : tous nos projets, classés par service.", title: "Tous nos projets", count: (n: number) => `${n} projets`, href: "/projets" },
-    reelTag: "Showreel — Signature creative co. — Oran",
+    rush: { kicker: "Pressé ?", hint: "Tous nos projets, classés par service, en un clic.", title: "Tous nos projets", count: (n: number) => `${n} projets`, href: "/projets" },
     /** Showreel. Put the file in /public (e.g. "/video/showreel.mp4"); null shows the placeholder. */
     video: {
       src: null as string | null,
@@ -46,6 +44,15 @@ export const home = {
       pending: "Vidéo à venir",
     },
     indexLabel: "Types de projets",
+    /** From the agency's own banner (public/brand/banner-strip.webp). */
+    stats: [
+      { value: "600", label: "clients accompagnés depuis nos débuts" },
+      { value: "15", label: "ans à concevoir stands, sites et marques" },
+    ],
+    trusted: "Ils nous font confiance :",
+    trustedMore: (n: number) => `et ${n} autres.`,
+    soundOn: "Activer le son",
+    soundOff: "Couper le son",
   },
   showcase: {
     title: "Nos projets, client par client.",
@@ -68,8 +75,10 @@ export const home = {
     more: (n: number) => `Voir les ${n} autre${n > 1 ? "s" : ""} projet${n > 1 ? "s" : ""}`,
   },
   services: {
-    title: "Ce qu’on peut faire pour vous.",
-    lead: "Prenez ce qu’il vous faut : chaque languette ouvre les projets du métier.",
+    title: "Ce qu’on fait, de A à Z.",
+    lead: "Sept métiers sous un même toit. Chaque carte ouvre ses projets.",
+    customTitle: "Un besoin qui n’est pas dans la liste ?",
+    customAction: "Parlons-en",
     flyerTitle: "Nos services",
     videosLabel: "Nos vidéos de promotion, présentées par Zahra, commerciale de l’agence.",
     flyerSub: "Prenez ce qu’il vous faut",
@@ -92,6 +101,7 @@ export const home = {
     instagram: "Instagram",
     address: "Adresse",
     map: "Voir sur la carte",
+    mapLabel: "Plan",
     website: "L’agence",
   },
   footer: "© 2026 Signature Consulting — Oran",

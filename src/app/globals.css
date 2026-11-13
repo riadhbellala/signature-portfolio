@@ -37,8 +37,12 @@
   --color-cream-deep: #a7a094;
   --color-sand-deep: #bfae99; /* sand at 82%: side of placeholder pieces */
 
-  /* Radius: square everything. Only knobs and dots are round (rounded-full is static). */
+  /* Radius (bento system). Nested shapes: inner = outer - padding. */
   --radius-xs: 2px;
+  --radius-sm: 12px; /* thumbnails, chips inside cards */
+  --radius-md: 20px; /* media inside a 28px card with 8px padding */
+  --radius-lg: 28px; /* cards */
+  --radius-xl: 40px; /* section panels */
 
   /* Type */
   --font-display: var(--font-poppins), ui-sans-serif, sans-serif;
@@ -243,9 +247,9 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    height: 48px;
-    padding-inline: 20px;
-    border-radius: 0;
+    height: 52px;
+    padding-inline: 24px;
+    border-radius: 9999px;
     font-family: var(--font-display);
     font-size: var(--text-button);
     font-weight: 600;
@@ -279,6 +283,11 @@
   }
 
   .btn-primary {
+    background-color: var(--color-teal);
+    color: var(--color-cream);
+  }
+  .tone-teal .btn-primary,
+  .on-dark .btn-primary {
     background-color: var(--color-ochre);
     color: var(--color-teal);
   }
@@ -295,6 +304,7 @@
   .btn-secondary {
     background-color: transparent;
     color: var(--secondary-ink);
+    box-shadow: inset 0 0 0 1.5px currentColor;
   }
   .btn-secondary .btn-label::after {
     bottom: -8px;
@@ -355,56 +365,6 @@
   --focus: var(--color-teal);
 }
 
-/* One-page flow (FlowBackground): sections hand their background to <main>, which fades. */
-.flow-layer {
-  /* Taller than the screen: no gap when the phone's address bar slides away. */
-  height: 120lvh;
-  transition: background-color 700ms var(--ease-out-quint);
-  will-change: background-color;
-}
-.flow-on {
-  background-color: transparent;
-  /* Own stacking context: the fixed colour layer sits behind the sections, above the body. */
-  position: relative;
-  isolation: isolate;
-}
-.flow-on [data-flow] {
-  background-color: transparent;
-}
-@media (prefers-reduced-motion: reduce) {
-  .flow-layer {
-    transition-duration: 0.01ms;
-  }
-}
-
-/* While the flow runs, every section takes the ink of the page's current colour, so text stays
-   readable while the background fades. Pieces, the folder panel and the flyer lock their own. */
-html[data-flow="teal"] .flow-on [data-flow] {
-  --surface: var(--color-teal);
-  --ink: var(--color-cream);
-  --ink-muted: var(--color-cream-muted);
-  --line: var(--color-rule-on-teal);
-  --trace: var(--color-trace-on-teal);
-  --focus: var(--color-cream);
-  --secondary-ink: var(--color-cream);
-  color: var(--ink);
-}
-html[data-flow="cream"] .flow-on [data-flow],
-html[data-flow="sand"] .flow-on [data-flow] {
-  --surface: var(--color-cream);
-  --ink: var(--color-teal);
-  --ink-muted: var(--color-teal-muted);
-  --line: var(--color-rule);
-  --trace: var(--color-sand);
-  --focus: var(--color-teal);
-  --secondary-ink: var(--color-teal);
-  color: var(--ink);
-}
-html[data-flow="sand"] .flow-on [data-flow] {
-  --surface: var(--color-sand);
-  --trace: var(--color-cream);
-}
-
 /* Développement: the active domain slides past behind the devices. */
 @keyframes dev-marquee {
   to {
@@ -418,4 +378,147 @@ html[data-flow="sand"] .flow-on [data-flow] {
   .dev-marquee {
     animation: none;
   }
+}
+
+/* Hero: the ochre outline slides from under the letters to its offset (CSS: no wait for JS). */
+@keyframes hero-outline {
+  from {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0.04em, 0.04em);
+    opacity: 1;
+  }
+}
+.hero-outline {
+  transform: translate(0.04em, 0.04em);
+  animation: hero-outline 600ms var(--ease-out-quint) 250ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-outline {
+    animation: none;
+  }
+}
+
+/* Pill buttons. Feedback, the same everywhere:
+   hover  : a fill sweeps in from the left (300ms, ease-out-quint), the arrow slides forward;
+   press  : the pill squashes to 96% (120ms) and springs back;
+   focus  : a 2px ring offset from the pill. */
+@layer components {
+  .btn {
+    isolation: isolate;
+    overflow: hidden;
+    transition:
+      transform 120ms var(--ease-out-quint),
+      color 300ms var(--ease-out-quint),
+      box-shadow 300ms var(--ease-out-quint);
+  }
+  .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--btn-sweep, var(--color-teal-deep));
+    transform: translateX(-101%);
+    transition: transform 300ms var(--ease-out-quint);
+  }
+  .btn .btn-label::after {
+    display: none;
+  }
+  .btn svg {
+    transition: transform 300ms var(--ease-out-quint);
+  }
+  .btn:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+  .btn:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+  .btn-secondary {
+    --btn-sweep: var(--ink);
+  }
+  .tone-teal .btn-primary,
+  .on-dark .btn-primary {
+    --btn-sweep: var(--color-cream);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover:not(:disabled)::before {
+      transform: translateX(0);
+    }
+    .btn:hover:not(:disabled) svg {
+      transform: translateX(3px);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      color: var(--surface);
+    }
+  }
+}
+
+/* Hero reel: its ochre outline slides to the same offset as the title's, a beat later. */
+@keyframes hero-frame {
+  from { transform: translate(0, 0); opacity: 0; }
+  to { transform: translate(14px, 14px); opacity: 1; }
+}
+.hero-frame {
+  transform: translate(14px, 14px);
+  animation: hero-frame 700ms var(--ease-out-quint) 450ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-frame { animation: none; }
+}
+
+/* Hero reel: three round holes cut out of its left edge; the shortcut circles sit in them, on the
+   page itself (circle 56px at bottom 32/104/176px; hole radius 36px = circle + 8px gap). */
+@media (min-width: 768px) {
+.hero-holes {
+  -webkit-mask:
+    radial-gradient(circle 36px at 0 calc(100% - 60px), #0000 98%, #000) ,
+    radial-gradient(circle 36px at 0 calc(100% - 132px), #0000 98%, #000) ,
+    radial-gradient(circle 36px at 0 calc(100% - 204px), #0000 98%, #000);
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(circle 36px at 0 calc(100% - 60px), #0000 98%, #000),
+    radial-gradient(circle 36px at 0 calc(100% - 132px), #0000 98%, #000),
+    radial-gradient(circle 36px at 0 calc(100% - 204px), #0000 98%, #000);
+  mask-composite: intersect;
+}
+}
+
+/* The ochre frame sits 14px right/down of the card: the same holes, shifted, so its line stops
+   at each hole instead of crossing it. */
+@media (min-width: 768px) {
+.hero-frame-holes {
+  -webkit-mask:
+    radial-gradient(circle 36px at -14px calc(100% - 46px), #0000 98%, #000),
+    radial-gradient(circle 36px at -14px calc(100% - 118px), #0000 98%, #000),
+    radial-gradient(circle 36px at -14px calc(100% - 190px), #0000 98%, #000);
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(circle 36px at -14px calc(100% - 46px), #0000 98%, #000),
+    radial-gradient(circle 36px at -14px calc(100% - 118px), #0000 98%, #000),
+    radial-gradient(circle 36px at -14px calc(100% - 190px), #0000 98%, #000);
+  mask-composite: intersect;
+}
+}
+
+@media (max-width: 767px) {
+  .btn { height: 46px; padding-inline: 18px; gap: 8px; }
+}
+
+/* Hero title: lines rise into place (ease-out-quint, 800ms), then the ochre outline slides in. */
+@keyframes hero-line {
+  from { transform: translateY(105%); }
+  to { transform: translateY(0); }
+}
+.hero-line {
+  animation: hero-line 800ms var(--ease-out-quint) both;
+}
+.hero-outline {
+  animation-delay: 650ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-line { animation: none; }
 }

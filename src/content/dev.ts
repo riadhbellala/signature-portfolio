@@ -26,8 +26,8 @@ export const devMedia = (id: string, device: Device) => ({ video: `/dev/${id}-${
 
 export const devCopy = {
   eyebrow: "Développement",
-  title: ["Du code,", "pièce par pièce."],
-  lead: "Des sites et des applications pensés pour chaque écran : ordinateur, tablette, téléphone. Choisissez un projet, il défile en direct.",
+  title: ["Des sites web", "qui travaillent pour vous."],
+  lead: "Cinq sites conçus et développés par l’équipe, pour l’ordinateur comme pour le téléphone. Choisissez-en un : il défile en direct.",
   listLabel: "Sites réalisés",
   visit: "Visiter le site",
   devicesLabel: (name: string) => `${name} sur ordinateur, tablette et téléphone`,

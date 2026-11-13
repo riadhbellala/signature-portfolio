@@ -3,13 +3,12 @@
 import clsx from "clsx";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { devCopy, devMedia, devSites, type Device } from "@/content/dev";
-import { PuzzlePiece } from "../puzzle/PuzzlePiece";
 import { ArrowUpRightIcon } from "../ui/icons";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
-const pad = (n: number) => String(n + 1).padStart(2, "0");
 
 /** Mockup frames (public/mockups/*-frame.webp, screens cut out) and where their screen sits, in %. */
 const FRAMES: Record<
@@ -85,6 +84,8 @@ function Screen({
         <AnimatePresence initial={false}>
           {still ? (
             <motion.img
+              loading="lazy"
+              decoding="async"
               key={id}
               src={`/dev/${id}-${device}-still.webp`}
               alt=""
@@ -164,160 +165,119 @@ export function DevShowcase() {
   };
   const play = inView && !reduce;
 
+  const features = [
+    { n: "01", title: "Toutes les solutions digitales", line: "Sites vitrines, boutiques en ligne, applications web et mobiles, plateformes sur mesure." },
+    { n: "02", title: "Pensé pour le téléphone", line: "La majorité des visites arrivent sur mobile : chaque page y est conçue d’abord." },
+    { n: "03", title: "Mis en ligne et suivi", line: "Hébergement, nom de domaine et mises à jour, on s’en occupe." },
+  ];
+  // Concave corner: a 28px square of page colour with a quarter circle of the panel left in it,
+  // so the panel turns a rounded corner around a notch. `at` = where the panel's circle centre is.
+  const concave = (at: string) => ({ background: `radial-gradient(circle 28px at ${at}, transparent 27.5px, var(--color-cream) 28px)` });
+  const card = "relative flex flex-col gap-3 bg-cream p-6 text-teal lg:min-h-[168px] lg:p-7";
+  const cardHead = (f: (typeof features)[number]) => (
+    <>
+      <span className="flex items-center gap-3">
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-sand font-sans text-small tabular">{f.n}</span>
+        <span className="font-display text-piece font-semibold leading-tight">{f.title}</span>
+      </span>
+      <p className="text-small text-teal-muted">{f.line}</p>
+    </>
+  );
   return (
-    <div className="relative">
-      {/* The active domain, huge, outlined in ochre like the titles, sliding behind everything. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-[calc(var(--gutter)*-1)] bottom-[-4rem] overflow-hidden md:bottom-[-6rem]"
-      >
-        <div className="dev-marquee flex w-max whitespace-nowrap font-display text-[clamp(4.5rem,15vw,15rem)] leading-none text-transparent [-webkit-text-stroke:1.5px_var(--color-ochre)] opacity-50">
-          {[0, 1].map((k) => (
-            <span key={k} className="pr-[0.4em]">
-              {site.domain} — {site.domain} —
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="relative grid gap-x-6 gap-y-10 lg:grid-cols-12 lg:gap-y-8">
-        <div className="flex flex-col gap-5 lg:col-span-4 lg:row-start-1 lg:self-end">
-          <p className="font-sans text-meta uppercase tracking-[0.2em] text-ochre">
-            {devCopy.eyebrow}
-          </p>
-          <h2 id="dev-title" className="font-display text-h2 max-md:text-center">
+    // One dark shape on the page (the reference's second and third blocks). The three light cards
+    // are not laid on it: they are the page biting into it. Card 1 is a notch from the left edge,
+    // card 2 an island, card 3 a notch from the right edge; all three on one line. The
+    // laptop breaks out of the top.
+    <div className="tone-teal relative rounded-[var(--radius-xl)] bg-teal text-cream lg:mt-28">
+      {/* Top: title, line, two pills. */}
+      <div className="relative px-6 pb-10 pt-10 md:px-12 md:pt-14 lg:min-h-[440px] lg:pb-14">
+        <div className="flex flex-col gap-6 max-lg:items-center max-lg:text-center lg:max-w-[44%]">
+          <h2 id="dev-title" className="font-display text-[clamp(2.25rem,4.2vw,4rem)] font-bold leading-[0.98] tracking-[-0.035em]">
             {devCopy.title.map((l) => (
               <span key={l} className="block">
                 {l}
               </span>
             ))}
           </h2>
-          <p className="measure text-lead">{devCopy.lead}</p>
+          <p className="max-w-[40ch] text-lead text-ink-muted">{devCopy.lead}</p>
+          <div className="flex flex-wrap items-center gap-3 max-lg:justify-center">
+            <a href={site.url} target="_blank" rel="noreferrer" className="btn btn-primary">
+              <span className="btn-label">{devCopy.visit}</span>
+              <ArrowUpRightIcon size={14} />
+            </a>
+            <Link href="/projets#dossier-site-web" className="btn btn-secondary">
+              <span className="btn-label">Tous nos sites</span>
+            </Link>
+          </div>
         </div>
-
-        {/* Stage: laptop in the middle, tablet leaning in from the left, phone in front on the right. */}
+        {/* The laptop: out of the top of the shape, over the cards' corner. */}
         <div
           ref={stage}
           role="img"
           aria-label={devCopy.devicesLabel(site.name)}
-          className="relative lg:col-span-8 lg:col-start-5 lg:row-span-2 lg:row-start-1 lg:self-center"
+          className="relative z-[3] max-lg:mt-10 lg:absolute lg:right-[3%] lg:top-[-5.5rem] lg:w-[54%]"
         >
-          <div className="relative mx-auto aspect-[16/11] w-full max-w-[1000px]">
-            <div
-              aria-hidden="true"
-              className="absolute right-[-2%] top-[-8%] w-[46%] rotate-[8deg]"
-            >
-              <PuzzlePiece
-                fluid
-                tone="ochre"
-                edges={{
-                  top: "flat",
-                  right: "tab",
-                  bottom: "blank",
-                  left: "tab",
-                }}
-                shadow={false}
-              />
-            </div>
-            <motion.div
-              className="absolute left-[11%] top-[2%] w-[80%]"
-              initial={reduce ? false : { y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: EASE }}
-            >
-              <Screen
-                device="desktop"
-                id={site.id}
-                play={play}
-                onProgress={setProgress}
-                onEnded={() => pick((active + 1) % devSites.length)}
-              />
-            </motion.div>
-            <motion.div
-              className="absolute bottom-0 left-0 w-[25%] -rotate-[4deg]"
-              initial={reduce ? false : { x: -40, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: EASE, delay: 0.15 }}
-            >
-              <Screen device="tablet" id={site.id} play={play} still />
-            </motion.div>
-            <motion.div
-              className="absolute bottom-[-2%] right-[3%] w-[15.5%] rotate-[5deg]"
-              initial={reduce ? false : { y: 60, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
-            >
-              <Screen device="phone" id={site.id} play={play} still />
-            </motion.div>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-8 lg:col-span-4 lg:row-start-2 lg:self-start">
-          <ol
-            aria-label={devCopy.listLabel}
-            className="flex flex-col border-t border-line"
+          <motion.div
+            initial={reduce ? false : { y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: EASE }}
+            className="drop-shadow-[0_36px_36px_color-mix(in_oklab,var(--color-teal-deep)_60%,transparent)]"
           >
+            <Screen device="desktop" id={site.id} play={play} onProgress={setProgress} onEnded={() => pick((active + 1) % devSites.length)} />
+          </motion.div>
+        </div>
+      </div>
+
+      <div className="relative overflow-hidden rounded-b-[var(--radius-xl)]">
+        {/* Cards: stepping down, left to right. */}
+        <ul className="relative grid gap-9 lg:grid-cols-3 lg:items-stretch lg:gap-5">
+          <li className={`${card} mr-10 rounded-r-[var(--radius-lg)] lg:mr-0`}>
+            <span aria-hidden="true" className="absolute -top-7 left-0 size-7" style={concave("100% 0")} />
+            <span aria-hidden="true" className="absolute -bottom-7 left-0 size-7" style={concave("100% 100%")} />
+            {cardHead(features[0])}
+          </li>
+          <li className={`${card} mx-6 rounded-[var(--radius-lg)] lg:mx-0`}>{cardHead(features[1])}</li>
+          <li className={`${card} ml-10 rounded-l-[var(--radius-lg)] lg:ml-0`}>
+            <span aria-hidden="true" className="absolute -top-7 right-0 size-7" style={concave("0 0")} />
+            <span aria-hidden="true" className="absolute -bottom-7 right-0 size-7" style={concave("0 100%")} />
+            {cardHead(features[2])}
+          </li>
+        </ul>
+
+        {/* Bottom of the shape: which site is on the laptop, and the round buttons to change it. */}
+        <div className="grid items-center gap-8 px-6 pb-10 pt-10 md:px-12 lg:grid-cols-12 lg:pb-12 lg:pt-10">
+          <div className="flex flex-col gap-2 max-lg:items-center max-lg:text-center lg:col-span-6">
+            <p className="font-display text-h3">{site.name}</p>
+            <p className="text-small text-ink-muted">
+              {site.kind} · {site.domain}
+            </p>
+            <span aria-hidden="true" className="mt-3 block h-0.5 w-full max-w-[320px] overflow-hidden rounded-full bg-cream/15">
+              <span className="block h-full bg-ochre" style={{ width: `${(reduce ? 1 : progress) * 100}%` }} />
+            </span>
+          </div>
+          <ul aria-label={devCopy.listLabel} className="flex flex-wrap gap-2 max-lg:justify-center md:gap-3 lg:col-span-6 lg:justify-end">
             {devSites.map((s, i) => {
               const on = i === active;
               return (
-                <li key={s.id} className="relative border-b border-line">
+                <li key={s.id}>
                   <button
                     type="button"
                     onClick={() => pick(i)}
                     aria-pressed={on}
+                    aria-label={s.name}
+                    title={s.name}
                     className={clsx(
-                      "group flex min-h-14 w-full items-center gap-4 py-3 text-left transition-colors duration-[var(--dur-ui)]",
-                      on ? "text-ochre" : "text-ink hover:text-ochre",
+                      "flex size-12 items-center justify-center rounded-full font-display md:size-14 text-small font-bold transition-[transform,background-color,color] duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] active:scale-90",
+                      on ? "scale-110 bg-cream text-teal" : "bg-teal-deep text-cream hover:bg-cream/15",
                     )}
                   >
-                    <span className="font-sans text-meta tabular text-ink-muted">
-                      ({pad(i)})
-                    </span>
-                    <span className="flex min-w-0 flex-1 flex-col">
-                      <span className="truncate font-display text-body font-semibold md:text-piece">
-                        {s.name}
-                      </span>
-                      <span className="truncate font-sans text-small text-ink-muted">
-                        {s.kind}
-                      </span>
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className={clsx(
-                        "transition-transform duration-[var(--dur-ui)]",
-                        on
-                          ? "translate-x-0"
-                          : "-translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100",
-                      )}
-                    >
-                      →
-                    </span>
+                    {s.name.slice(0, 2).toUpperCase()}
                   </button>
-                  {/* Time left on this site: the laptop recording, as an ochre line. */}
-                  {on ? (
-                    <span
-                      aria-hidden="true"
-                      className="absolute bottom-[-1px] left-0 h-0.5 bg-ochre"
-                      style={{ width: `${(reduce ? 1 : progress) * 100}%` }}
-                    />
-                  ) : null}
                 </li>
               );
             })}
-          </ol>
-
-          <a
-            href={site.url}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex min-h-11 items-center gap-2 self-start font-display text-body font-semibold underline decoration-ochre decoration-2 underline-offset-8 hover:decoration-4"
-          >
-            {devCopy.visit} : {site.domain}
-            <ArrowUpRightIcon size={12} />
-          </a>
+          </ul>
         </div>
       </div>
     </div>

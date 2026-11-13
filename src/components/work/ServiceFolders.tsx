@@ -27,6 +27,15 @@ const pad = (n: number) => String(n).padStart(2, "0");
 export function ServiceFolders() {
   const cats = folders();
   const [active, setActive] = useState<CategoryId>(cats[0].id);
+  // Phones: two folders per row, so each one is smaller and fans its pictures tighter.
+  const [small, setSmall] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const on = () => setSmall(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
 
   useEffect(() => {
     const apply = () => {
@@ -47,7 +56,7 @@ export function ServiceFolders() {
 
   return (
     <div>
-      <ul className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-2 gap-x-3 gap-y-6 md:gap-x-8 md:gap-y-10 lg:grid-cols-3">
         {cats.map((x) => {
           const ps = projectsIn(x.id);
           return (
@@ -67,6 +76,9 @@ export function ServiceFolders() {
                 active={x.id === active}
                 controls="dossier-ouvert"
                 onSelect={() => setActive(x.id)}
+                spread={small ? 26 : 64}
+                compact={small}
+                className={small ? "!h-[210px]" : undefined}
               />
             </li>
           );
@@ -98,11 +110,11 @@ export function ServiceFolders() {
                 {home.category.empty}
               </p>
             ) : null}
-            <ul className="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-8 grid grid-cols-2 gap-x-3 gap-y-8 md:mt-10 md:gap-x-6 md:gap-y-12 lg:grid-cols-3">
               {list.map((p) => (
                 <li key={p.slug} className="group flex flex-col gap-4">
                   {/* Every card the same shape (4:3), so the grid lines up whatever the media. */}
-                  <div className="pr-[10%] transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-1.5">
+                  <div>
                     {p.category === "site-web" ? (
                       // Sites: the bare laptop mockup, no card, no puzzle shape.
                       <Link
@@ -127,6 +139,7 @@ export function ServiceFolders() {
                       </Link>
                     ) : (
                       <MediaPiece
+                        plain
                         media={cover(p)}
                         shape={4 / 3}
                         href={`/projets/${p.slug}`}

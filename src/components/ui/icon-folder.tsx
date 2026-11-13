@@ -201,16 +201,16 @@ export function IconFolder({
       >
         <span
           className={clsx(
-            "block px-5 pt-9 font-sans text-meta tabular",
+            compact ? "block px-5 pt-6 font-sans text-meta tabular" : "block px-5 pt-9 font-sans text-meta tabular",
             active ? "text-teal" : "text-cream-muted",
           )}
         >
           ({index})
         </span>
-        <span className="mt-1 block px-5 font-display text-h3">{title}</span>
+        <span className={clsx("mt-1 block px-5 font-display", compact ? "pr-4 text-body leading-tight" : "text-h3")}>{title}</span>
         <span
           className={clsx(
-            "absolute bottom-4 right-5 font-sans text-small tabular",
+            compact ? "absolute bottom-3 left-5 font-sans text-meta tabular" : "absolute bottom-4 right-5 font-sans text-small tabular",
             active ? "text-teal" : "text-cream-muted",
           )}
         >
@@ -233,7 +233,7 @@ export function IconFolder({
         setHi(null);
       }}
       className={clsx(
-        "relative isolate block h-[280px] w-full cursor-pointer select-none text-left outline-none [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal",
+        "relative isolate block h-[280px] w-full cursor-pointer overflow-hidden rounded-[var(--radius-lg)] select-none text-left outline-none [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal",
         className,
       )}
       style={{
@@ -267,7 +267,7 @@ export function IconFolder({
         setHi(null);
       }}
       className={clsx(
-        "relative isolate block h-[280px] w-full cursor-pointer select-none text-left outline-none [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal",
+        "relative isolate block h-[280px] w-full cursor-pointer overflow-hidden rounded-[var(--radius-lg)] select-none text-left outline-none [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal",
         className,
       )}
       style={{

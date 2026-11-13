@@ -15,11 +15,13 @@ export interface SectionProps {
   spacing?: "full" | "compact" | "none";
   /** Teal sections only: the single knob pushing into the neighbouring cream section. */
   joint?: PuzzleJointProps;
+  /** Sheet: rounded top corners, sliding over the previous section (bento layering). */
+  sheet?: boolean;
   className?: string;
   children: ReactNode;
   "aria-labelledby"?: string;
   "data-category"?: string;
-  /** Tone this section hands to the page background in the one-page flow (FlowBackground). */
+  /** Tone marker (kept for styling hooks). */
   "data-flow"?: "cream" | "sand" | "teal";
 }
 
@@ -27,7 +29,7 @@ export interface SectionProps {
  * Sets background, ink, muted ink, rule, trace and focus tokens for everything inside.
  * Never put two teal sections in a row.
  */
-export function Section({ tone = "cream", as: Tag = "section", id, trace, spacing = "full", joint, className, children, ...rest }: SectionProps) {
+export function Section({ tone = "cream", as: Tag = "section", id, trace, spacing = "full", joint, sheet = false, className, children, ...rest }: SectionProps) {
   return (
     <Tag
       id={id}
@@ -35,6 +37,7 @@ export function Section({ tone = "cream", as: Tag = "section", id, trace, spacin
       className={clsx(
         `tone-${tone}`,
         "relative [overflow-x:clip]",
+        sheet && "z-[1] -mt-10 rounded-t-[var(--radius-xl)] md:-mt-14",
         spacing === "full" && "py-20 md:py-24 lg:py-32",
         spacing === "compact" && "py-16 md:py-20 lg:py-24",
         className,
