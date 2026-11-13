@@ -49,6 +49,12 @@ export const home = {
       { value: "600", label: "clients accompagnés depuis nos débuts" },
       { value: "15", label: "ans à concevoir stands, sites et marques" },
     ],
+    mobileServices: [
+      { id: "stands", label: "Stands" },
+      { id: "reseaux-sociaux", label: "Vidéo" },
+      { id: "site-web", label: "Sites web" },
+      { id: "identite", label: "Branding" },
+    ],
     trusted: "Ils nous font confiance :",
     trustedMore: (n: number) => `et ${n} autres.`,
     soundOn: "Activer le son",

@@ -35,21 +35,21 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="pb-16 pt-8 md:pb-24 md:pt-12"
     >
-      <Container className="grid items-start gap-x-10 gap-y-12 lg:grid-cols-12">
-        {/* Left: one edge, read top to bottom: title, what we do, the action, two figures. */}
-        <div className="flex flex-col max-md:items-center lg:col-span-7 lg:self-stretch lg:pt-6">
+      <Container className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] items-start gap-x-4 gap-y-8 md:grid-cols-1 md:gap-x-10 md:gap-y-12 lg:grid-cols-12">
+        {/* Left: one edge, read top to bottom: title, what we do, the action, two figures.
+            Phones: the column dissolves (contents) so its parts join the grid: title and actions
+            full width, then the figure + service list beside the reel, then the clients line. */}
+        <div className="contents md:flex md:flex-col lg:col-span-7 lg:self-stretch lg:pt-6">
           <HeroTitle
             id="hero-title"
             lines={hero.title}
-            className="leading-[0.92] tracking-[-0.045em] max-md:text-center lg:text-[min(6vw,7.25rem)] lg:whitespace-nowrap"
+            className="leading-[0.92] tracking-[-0.045em] max-md:col-span-2 max-md:text-center lg:text-[min(6vw,7.25rem)] lg:whitespace-nowrap"
           />
           <HeroFade
             delay={0.15}
-            className="mt-8 flex flex-col gap-8 max-md:items-center"
+            className="flex flex-col gap-6 max-md:col-span-2 max-md:items-center md:mt-8 md:gap-8"
           >
-            <p className="max-w-[44ch] text-lead max-md:text-center">
-              {hero.line}
-            </p>
+            <p className="max-w-[44ch] text-lead max-md:text-center">{hero.line}</p>
             <div className="flex flex-wrap items-center gap-3 max-md:justify-center">
               <Button href={hero.primary.href} arrow data-primary-cta="">
                 {hero.primary.label}
@@ -86,12 +86,16 @@ export function Hero() {
           </HeroFade>
           <HeroFade
             delay={0.3}
-            className="mt-12 flex w-full max-w-[520px] gap-10 border-t border-line pt-8 max-md:justify-center md:gap-16"
+            className="flex w-full max-w-[520px] flex-col gap-6 max-md:col-start-1 max-md:row-start-3 max-md:self-end md:mt-12 md:flex-row md:gap-16 md:border-t md:border-line md:pt-8"
           >
-            {hero.stats.map((s) => (
+            {hero.stats.map((s, k) => (
               <div
                 key={s.label}
-                className="flex flex-col gap-2 max-md:items-center max-md:text-center"
+                className={
+                  k > 0
+                    ? "flex flex-col gap-2 max-md:hidden"
+                    : "flex flex-col gap-2"
+                }
               >
                 <p className="font-display text-[clamp(2.5rem,4.6vw,4.25rem)] font-bold leading-none tracking-[-0.04em] tabular">
                   <sup className="mr-0.5 align-[0.7em] text-[0.45em]">+</sup>
@@ -102,11 +106,29 @@ export function Hero() {
                 </p>
               </div>
             ))}
+            {/* Phones: what we do, as a short numbered list (each opens its folder). */}
+            <ol className="flex flex-col border-t border-line md:hidden">
+              {hero.mobileServices.map((m, k) => (
+                <li key={m.id} className="border-b border-line">
+                  <Link
+                    href={`/projets#dossier-${m.id}`}
+                    className="flex min-h-11 items-baseline gap-2 py-2 no-underline"
+                  >
+                    <span className="font-sans text-meta tabular text-ink-muted">
+                      {String(k + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-display text-small font-semibold">
+                      {m.label}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
           </HeroFade>
           {/* Bottom of the column, level with the reel's foot: who already trusts us (real clients). */}
           <HeroFade
             delay={0.45}
-            className="mt-10 flex max-w-[520px] flex-wrap items-baseline gap-x-2 gap-y-1 text-small text-ink-muted max-md:justify-center max-md:text-center lg:mt-auto"
+            className="flex max-w-[520px] flex-wrap items-baseline gap-x-2 gap-y-1 text-small text-ink-muted max-md:col-span-2 max-md:row-start-4 md:mt-10 lg:mt-auto"
           >
             <span>{hero.trusted}</span>
             {heroClients.map((n, k) => (
@@ -119,7 +141,10 @@ export function Hero() {
           </HeroFade>
         </div>
 
-        <HeroFade delay={0.2} className="lg:col-span-5">
+        <HeroFade
+          delay={0.2}
+          className="max-md:col-start-2 max-md:row-start-3 lg:col-span-5"
+        >
           <HeroReel
             {...hero.video}
             soundOn={hero.soundOn}
