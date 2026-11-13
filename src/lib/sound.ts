@@ -70,16 +70,6 @@ const subscribe = (f: () => void) => {
 };
 const server: State = { enabled: true, interacted: true, active: null };
 
-/** Sound waits for the visitor's first interaction (the browser refused it on open). */
-export function useSoundWaiting() {
-  const s = useSyncExternalStore(
-    subscribe,
-    () => state,
-    () => server,
-  );
-  return s.enabled && !s.interacted && s.active !== null;
-}
-
 /** True when this video should currently play with sound. */
 export function useSound(id: string) {
   const s = useSyncExternalStore(

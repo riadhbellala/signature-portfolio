@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter_Tight, Poppins } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
-import { SoundPrompt } from "@/components/site/SoundPrompt";
 import "lenis/dist/lenis.css";
 
 const poppins = Poppins({
@@ -39,7 +38,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body>
         {children}
-        <SoundPrompt />
         <SmoothScroll />
       </body>
     </html>
