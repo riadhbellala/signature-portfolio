@@ -165,14 +165,14 @@ export function HeroReel({
         ) : null}
       </div>
       {/* The reel has no sound: the corner button replays it instead. */}
-      <div className="absolute -right-2 -top-2 rounded-full bg-cream p-2.5">
+      <div className="absolute -right-1.5 -top-1.5 rounded-full bg-cream p-1.5 md:-right-2 md:-top-2 md:p-2.5">
         <button
           type="button"
           onClick={replay}
           aria-label={replayLabel}
-          className="group flex size-14 items-center justify-center rounded-full bg-teal text-cream transition-transform duration-[var(--dur-press)] ease-[var(--ease-out-quint)] hover:scale-105 active:scale-90"
+          className="group flex size-9 items-center justify-center rounded-full bg-teal md:size-14 text-cream transition-transform duration-[var(--dur-press)] ease-[var(--ease-out-quint)] hover:scale-105 active:scale-90"
         >
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true" className="transition-transform duration-[600ms] ease-[var(--ease-out-quint)] group-hover:-rotate-[200deg]">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true" className="size-4 md:size-5 transition-transform duration-[600ms] ease-[var(--ease-out-quint)] group-hover:-rotate-[200deg]">
             <path d="M3.5 10a6.5 6.5 0 1 0 2-4.7" strokeLinecap="round" />
             <path d="M3 3.5v3.8h3.8" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
