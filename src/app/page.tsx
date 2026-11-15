@@ -36,8 +36,8 @@ export default function HomePage() {
           </Container>
         </Section>
         <Services />
-        <AgencyBridge />
-        <Section id="projets" tone="cream" sheet spacing="compact" aria-labelledby="projets-title" className="scroll-mt-16 !pt-[300px] md:!pt-[260px] lg:!pt-[340px]">
+        <Section id="projets" tone="cream" sheet spacing="compact" aria-labelledby="projets-title" className="scroll-mt-16 !pt-0">
+          <AgencyBridge />
           <Container>
             <SectionHead id="projets-title" title={home.showcase.title} lead={home.showcase.lead} />
             <div className="mt-10 md:mt-14">

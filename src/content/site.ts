@@ -55,6 +55,8 @@ export const home = {
       { id: "site-web", label: "Sites web" },
       { id: "identite", label: "Branding" },
     ],
+    bgAlt: "Illustration : un stand de salon, une boutique, des toiles, un ordinateur et un téléphone, l’univers de Signature",
+    talk: "Un projet ? Écrivez-nous sur WhatsApp.",
     trusted: "Ils nous font confiance :",
     trustedMore: (n: number) => `et ${n} autres.`,
     soundOn: "Activer le son",

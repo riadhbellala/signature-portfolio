@@ -165,7 +165,7 @@
   --dur-draw: 800ms;
   --gutter: 20px;
   /* Content width: fills large screens, stops at 1680px so lines and images stay readable. */
-  --page-max: 1680px;
+  --page-max: 2400px;
   /* Left edge of the container's content, for things placed on the section. */
   --page-edge: max(var(--gutter), calc((100% - var(--page-max)) / 2 + var(--gutter)));
 }
@@ -522,3 +522,8 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-line { animation: none; }
 }
+
+/* Hero background: settles from a slight zoom on load. */
+@keyframes hero-bg { from { transform: scale(1.08); } to { transform: scale(1); } }
+.hero-bg { animation: hero-bg 2400ms var(--ease-out-quint) both; }
+@media (prefers-reduced-motion: reduce) { .hero-bg { animation: none; } }

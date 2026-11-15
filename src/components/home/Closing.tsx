@@ -17,9 +17,8 @@ import { AgencyVideos } from "../work/AgencyVideos";
 const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
- * Services (the reference's third block): a grid of cards. Each card: a round number, the
- * service, one line, and the whole card opens that service's projects. One dark card holds the
- * agency's own videos (shown, not described); the last card, ochre, is the way out: ask.
+ * Services: a bento of illustrated tiles (one per métier, the lead one big), then an ochre strip:
+ * the way out for anything not listed.
  */
 export function Services() {
   const t = home.services;
@@ -30,7 +29,7 @@ export function Services() {
       sheet
       spacing="compact"
       aria-labelledby="services-title"
-      className="scroll-mt-16 !pb-[300px] sm:!pb-[260px] lg:!pb-[300px]"
+      className="scroll-mt-16 !pb-[340px]"
     >
       <Container>
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
@@ -43,41 +42,72 @@ export function Services() {
             {t.lead}
           </p>
         </div>
-        <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:gap-3 lg:mt-14 lg:grid-cols-4">
-          {services.map((s, i) => (
-            <li key={s.name} className={i === 0 ? "lg:col-start-1" : undefined}>
-              <Link
-                href={`/projets#dossier-${s.category}`}
-                className="group flex h-full min-h-[150px] flex-col justify-between gap-4 rounded-[var(--radius-lg)] bg-cream p-4 sm:min-h-[200px] sm:gap-8 sm:p-6 no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98]"
-              >
-                <span className="flex shrink-0 items-start justify-between">
-                  <span className="flex size-9 items-center justify-center rounded-full bg-sand font-sans text-meta tabular sm:size-11 sm:text-small">
-                    {pad(i + 1)}
+        {/* Bento: stands lead (big tile), sites web wide, the rest square; the façade wide.
+            Each tile: number, name, one line, its illustration; the whole tile opens the folder. */}
+        <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:gap-3 lg:mt-14 lg:grid-cols-4 lg:grid-rows-[220px_220px_220px_auto]">
+          {BENTO.map((b, i) => {
+            const s = services.find((x) => x.category === b.id)!;
+            return (
+              <li key={s.name} className={b.cls}>
+                <Link
+                  href={`/projets#dossier-${s.category}`}
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] bg-cream p-4 no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98] sm:p-6 ${b.big ? "min-h-[320px]" : b.wide ? "min-h-[190px]" : "min-h-[220px]"}`}
+                >
+                  <span className="relative z-[1] flex items-start justify-between gap-3">
+                    <span className="flex flex-col gap-1">
+                      <span className="font-sans text-meta tabular text-ink-muted">
+                        {pad(i + 1)}
+                      </span>
+                      <span
+                        className={
+                          b.big
+                            ? "font-display text-h3 leading-tight"
+                            : "font-display text-piece leading-tight"
+                        }
+                      >
+                        {s.name}
+                      </span>
+                      <span
+                        className={`text-small text-ink-muted ${b.big || b.wide ? "max-w-[24ch]" : "hidden"}`}
+                      >
+                        {s.line}
+                      </span>
+                    </span>
+                    <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-teal text-cream transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:rotate-45 sm:size-11">
+                      <ArrowUpRightIcon size={14} />
+                    </span>
                   </span>
-                  <span className="flex size-9 items-center justify-center rounded-full bg-teal text-cream opacity-0 sm:size-11 transition-opacity duration-[var(--dur-ui)] group-hover:opacity-100 max-lg:opacity-100">
-                    <ArrowUpRightIcon size={14} />
+                  <span
+                    aria-hidden="true"
+                    className={`pointer-events-none absolute transition-transform duration-[600ms] ease-[var(--ease-out-quint)] group-hover:scale-105 ${b.img}`}
+                  >
+                    <Image
+                      src={s.image}
+                      alt=""
+                      fill
+                      sizes={
+                        b.big
+                          ? "(min-width: 1024px) 560px, 90vw"
+                          : "(min-width: 1024px) 300px, 45vw"
+                      }
+                      className="object-contain object-bottom"
+                    />
                   </span>
-                </span>
-                <span className="flex flex-col gap-1.5">
-                  <span className="font-display text-piece leading-tight">
-                    {s.name}
-                  </span>
-                  <span className="text-small text-ink-muted max-sm:hidden">{s.line}</span>
-                </span>
-              </Link>
-            </li>
-          ))}
-          <li>
+                </Link>
+              </li>
+            );
+          })}
+          <li className="col-span-2 lg:col-span-4 lg:row-span-1 lg:h-auto">
             <a
               href="#contact"
-              className="group flex h-full flex-col justify-between gap-4 rounded-[var(--radius-lg)] bg-ochre p-4 min-h-[150px] sm:min-h-[200px] sm:gap-8 sm:p-6 text-teal no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98]"
+              className="group flex h-full flex-col justify-between gap-4 rounded-[var(--radius-lg)] bg-ochre p-5 text-teal no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98] sm:flex-row sm:items-center sm:p-6"
             >
-              <span className="font-display text-piece leading-tight">
+              <span className="font-display text-h3 leading-tight">
                 {t.customTitle}
               </span>
-              <span className="inline-flex items-center gap-2 font-display font-semibold">
-                {t.customAction}
-                <ArrowIcon className="transition-transform duration-[var(--dur-ui)] group-hover:translate-x-1" />
+              <span className="btn btn-primary !bg-teal !text-cream self-start sm:self-auto">
+                <span className="btn-label">{t.customAction}</span>
+                <ArrowIcon />
               </span>
             </a>
           </li>
@@ -86,6 +116,38 @@ export function Services() {
     </Section>
   );
 }
+
+/** Bento order and shapes (mobile 2 columns, desktop 4). `img`: where the illustration sits. */
+const BENTO: {
+  id: string;
+  cls: string;
+  img: string;
+  big?: boolean;
+  wide?: boolean;
+}[] = [
+  {
+    id: "stands",
+    big: true,
+    cls: "col-span-2 lg:row-span-2",
+    img: "inset-x-4 bottom-0 top-28 sm:top-32",
+  },
+  {
+    id: "site-web",
+    wide: true,
+    cls: "col-span-2",
+    img: "bottom-0 right-0 top-12 w-[46%]",
+  },
+  { id: "reseaux-sociaux", cls: "", img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]" },
+  { id: "identite", cls: "", img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]" },
+  {
+    id: "facade",
+    wide: true,
+    cls: "col-span-2",
+    img: "bottom-0 right-0 top-10 w-[52%]",
+  },
+  { id: "murs", cls: "", img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]" },
+  { id: "tableaux", cls: "", img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]" },
+];
 
 const CLIENT_LAYOUTS = [
   // Banner height = cols / 4.44, the ratio of the Signature banner image.
@@ -364,10 +426,12 @@ export function Contact() {
 export function AgencyBridge() {
   const t = home.services;
   return (
-    // Zero-height layer on the seam; the card is centred on it (half up, half down).
-    <div className="relative z-[3] h-0">
-      <Container className="-translate-y-[55%]">
-        <div className="tone-teal rounded-[var(--radius-lg)] bg-teal p-6 text-cream md:-mb-40 md:p-8">
+    // First thing inside the projects section, pulled up a fixed distance into Services: the top
+    // part sits on sand, the rest on cream, and the projects follow below it whatever its height
+    // (the card grows with the screen, so nothing may depend on its height).
+    <div className="relative z-[3] -mb-[156px] -translate-y-[220px] md:-mb-[140px]">
+      <Container>
+        <div className="tone-teal rounded-[var(--radius-lg)] bg-teal p-6 text-cream md:p-8">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
             <p className="font-display text-h3 leading-tight lg:col-span-4">
               {t.videosLabel}

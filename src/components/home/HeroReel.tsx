@@ -22,6 +22,7 @@ export function HeroReel({
   soundOn,
   soundOff,
   children,
+  className,
 }: {
   vimeoId: string | null;
   poster: string | null;
@@ -30,6 +31,8 @@ export function HeroReel({
   soundOn: string;
   soundOff: string;
   children?: React.ReactNode;
+  /** Size of the media box (the bento tile sets it). */
+  className?: string;
 }) {
   const frame = useRef<HTMLIFrameElement>(null);
   const box = useRef<HTMLDivElement>(null);
@@ -129,11 +132,8 @@ export function HeroReel({
   }, [duration]);
 
   return (
-    <div ref={box} className="relative">
-      {/* Echo of the title: the same ochre outline, offset behind the card, so the reel reads as
-          printed on the page; a long soft shadow lifts it off the ground. */}
-      <div aria-hidden="true" className="hero-frame hero-frame-holes absolute inset-0 rounded-[var(--radius-xl)] border-2 border-ochre" />
-      <div className="hero-holes relative aspect-[3/5] md:aspect-[4/5] overflow-hidden rounded-[var(--radius-xl)] bg-sand shadow-[0_40px_80px_-30px_color-mix(in_oklab,var(--color-teal-deep)_55%,transparent)]">
+    <div ref={box} className="relative h-full">
+      <div className={`relative overflow-hidden rounded-[var(--radius-lg)] bg-sand ${className ?? "aspect-[4/5]"}`}>
         {poster ? (
           // eslint-disable-next-line @next/next/no-img-element -- Vimeo poster, preloaded in <head>
           <img
