@@ -36,8 +36,9 @@ export default function HomePage() {
           </Container>
         </Section>
         <Services />
-        <Section id="projets" tone="cream" sheet spacing="compact" aria-labelledby="projets-title" className="scroll-mt-16 !pt-0">
-          <AgencyBridge />
+        {/* Outside the projects section, so no section clipping can cut it (iOS Safari). */}
+        <AgencyBridge />
+        <Section id="projets" tone="cream" sheet spacing="compact" aria-labelledby="projets-title" className="scroll-mt-16 !pt-[200px]">
           <Container>
             <SectionHead id="projets-title" title={home.showcase.title} lead={home.showcase.lead} />
             <div className="mt-10 md:mt-14">

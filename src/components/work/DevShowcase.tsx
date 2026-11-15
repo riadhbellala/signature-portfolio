@@ -190,8 +190,8 @@ export function DevShowcase() {
     // laptop breaks out of the top.
     <div className="tone-teal relative rounded-[var(--radius-xl)] bg-teal text-cream lg:mt-28">
       {/* Top: title, line, two pills. */}
-      <div className="relative px-6 pb-10 pt-10 md:px-12 md:pt-14 lg:min-h-[440px] lg:pb-14">
-        <div className="flex flex-col gap-6 max-lg:items-center max-lg:text-center lg:max-w-[44%]">
+      <div className="relative px-6 pb-10 pt-10 md:px-12 md:pt-14 lg:grid lg:grid-cols-[minmax(0,44%)_minmax(0,1fr)] lg:items-center lg:gap-10 lg:pb-14">
+        <div className="flex flex-col gap-6 max-lg:items-center max-lg:text-center ">
           <h2 id="dev-title" className="font-display text-[clamp(2.25rem,4.2vw,4rem)] font-bold leading-[0.98] tracking-[-0.035em]">
             {devCopy.title.map((l) => (
               <span key={l} className="block">
@@ -215,7 +215,8 @@ export function DevShowcase() {
           ref={stage}
           role="img"
           aria-label={devCopy.devicesLabel(site.name)}
-          className="relative z-[3] max-lg:mt-10 lg:absolute lg:right-[3%] lg:top-[-5.5rem] lg:w-[54%]"
+          // In the flow (not absolute): the panel grows with the laptop, so it never reaches the cards.
+          className="relative z-[3] max-lg:mt-10 lg:-mt-36 lg:mx-auto lg:w-full lg:max-w-[760px]"
         >
           <motion.div
             initial={reduce ? false : { y: 40, opacity: 0 }}

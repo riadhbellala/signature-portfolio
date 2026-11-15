@@ -44,20 +44,38 @@ export function Services() {
         </div>
         {/* Bento: stands lead (big tile), sites web wide, the rest square; the façade wide.
             Each tile: number, name, one line, its illustration; the whole tile opens the folder. */}
-        <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:gap-3 lg:mt-14 lg:grid-cols-4 lg:grid-rows-[220px_220px_220px_auto]">
+        <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:gap-3 lg:mt-14 lg:grid-cols-4 lg:grid-rows-[260px_260px_260px_auto]">
           {BENTO.map((b, i) => {
             const s = services.find((x) => x.category === b.id)!;
             return (
               <li key={s.name} className={b.cls}>
                 <Link
                   href={`/projets#dossier-${s.category}`}
-                  className={`group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] bg-cream p-4 no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98] sm:p-6 ${b.big ? "min-h-[320px]" : b.wide ? "min-h-[190px]" : "min-h-[220px]"}`}
+                  className={`group relative flex h-full flex-col justify-end overflow-hidden rounded-[var(--radius-lg)] bg-teal-deep p-4 text-cream no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] active:scale-[0.98] sm:p-6 ${b.big ? "min-h-[340px]" : b.wide ? "min-h-[220px]" : "min-h-[220px]"}`}
                 >
-                  <span className="relative z-[1] flex items-start justify-between gap-3">
+                  {/* The work itself, full bleed; it leans in on hover. */}
+                  <Image
+                    src={s.image}
+                    alt=""
+                    fill
+                    sizes={
+                      b.big
+                        ? "(min-width: 1024px) 50vw, 100vw"
+                        : b.wide
+                          ? "(min-width: 1024px) 50vw, 100vw"
+                          : "(min-width: 1024px) 25vw, 50vw"
+                    }
+                    className="object-cover transition-transform duration-[900ms] ease-[var(--ease-out-quint)] group-hover:scale-[1.06]"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-linear-to-t from-teal-deep/90 via-teal-deep/25 to-transparent transition-opacity duration-[var(--dur-ui)] group-hover:opacity-90"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-cream/90 px-2.5 py-1 font-sans text-meta tabular text-teal backdrop-blur sm:left-6 sm:top-6">
+                    {pad(i + 1)}
+                  </span>
+                  <span className="relative flex items-end justify-between gap-3">
                     <span className="flex flex-col gap-1">
-                      <span className="font-sans text-meta tabular text-ink-muted">
-                        {pad(i + 1)}
-                      </span>
                       <span
                         className={
                           b.big
@@ -68,30 +86,14 @@ export function Services() {
                         {s.name}
                       </span>
                       <span
-                        className={`text-small text-ink-muted ${b.big || b.wide ? "max-w-[24ch]" : "hidden"}`}
+                        className={`text-small text-cream/80 ${b.big || b.wide ? "max-w-[30ch]" : "hidden"}`}
                       >
                         {s.line}
                       </span>
                     </span>
-                    <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-teal text-cream transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:rotate-45 sm:size-11">
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-ochre text-teal transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:rotate-45 sm:size-11">
                       <ArrowUpRightIcon size={14} />
                     </span>
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className={`pointer-events-none absolute transition-transform duration-[600ms] ease-[var(--ease-out-quint)] group-hover:scale-105 ${b.img}`}
-                  >
-                    <Image
-                      src={s.image}
-                      alt=""
-                      fill
-                      sizes={
-                        b.big
-                          ? "(min-width: 1024px) 560px, 90vw"
-                          : "(min-width: 1024px) 300px, 45vw"
-                      }
-                      className="object-contain object-bottom"
-                    />
                   </span>
                 </Link>
               </li>
@@ -137,7 +139,11 @@ const BENTO: {
     cls: "col-span-2",
     img: "bottom-0 right-0 top-12 w-[46%]",
   },
-  { id: "reseaux-sociaux", cls: "", img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]" },
+  {
+    id: "reseaux-sociaux",
+    cls: "",
+    img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]",
+  },
   { id: "identite", cls: "", img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]" },
   {
     id: "facade",
@@ -429,7 +435,7 @@ export function AgencyBridge() {
     // First thing inside the projects section, pulled up a fixed distance into Services: the top
     // part sits on sand, the rest on cream, and the projects follow below it whatever its height
     // (the card grows with the screen, so nothing may depend on its height).
-    <div className="relative z-[3] -mb-[156px] -translate-y-[220px] md:-mb-[140px]">
+    <div className="relative z-[3] -mb-[140px] -mt-[220px]">
       <Container>
         <div className="tone-teal rounded-[var(--radius-lg)] bg-teal p-6 text-cream md:p-8">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center">

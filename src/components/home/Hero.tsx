@@ -30,10 +30,10 @@ export function Hero() {
       <Container>
         {/* The panel */}
         <div className="relative">
-          <div className="relative h-[min(58svh,700px)] min-h-[440px] overflow-hidden rounded-[var(--radius-xl)] bg-teal-deep">
+          <div className="relative h-[min(78svh,640px)] min-h-[520px] md:h-[min(58svh,700px)] md:min-h-[440px] overflow-hidden rounded-[var(--radius-xl)] bg-teal-deep">
             {/* The agency's world in one image (wide on desktop, tall on phones), slowly settling in. */}
             <Image src="/hero.webp" alt={hero.bgAlt} fill priority sizes="100vw" className="hero-bg object-cover object-left max-md:hidden" />
-            <Image src="/herom.webp" alt={hero.bgAlt} fill priority sizes="100vw" className="hero-bg object-cover object-[center_70%] md:hidden" />
+            <Image src="/herom.webp" alt={hero.bgAlt} fill priority sizes="100vw" className="hero-bg object-cover object-bottom md:hidden" />
             <div
               aria-hidden="true"
               className="absolute inset-0 bg-linear-to-tr from-teal-deep/80 via-transparent to-transparent"
@@ -46,8 +46,17 @@ export function Hero() {
               </p>
             </div>
 
-            {/* The reel: a vertical card standing in the panel. */}
-            <div className="absolute bottom-4 right-4 w-[40%] md:bottom-6 md:right-6 md:top-6 md:w-auto md:aspect-[9/16]">
+            {/* Phones: the image's empty sky holds the message (line + the projects shortcut). */}
+            <div className="absolute left-5 right-[38%] top-6 flex flex-col items-start gap-4 text-cream md:hidden">
+              <p className="font-display text-[1.05rem] font-semibold leading-snug">{hero.line}</p>
+              <Link href={hero.rush.href} className="inline-flex h-10 items-center gap-2 rounded-full bg-cream/15 pl-4 pr-1.5 font-display text-small font-semibold text-cream no-underline backdrop-blur active:scale-95">
+                {hero.rush.title}
+                <span className="flex size-7 items-center justify-center rounded-full bg-ochre text-teal tabular text-meta">{projects.length}</span>
+              </Link>
+            </div>
+
+            {/* The reel: a vertical card standing in the panel (phones: top-right, in the sky). */}
+            <div className="absolute right-4 top-4 w-[32%] md:bottom-6 md:right-6 md:top-6 md:w-auto md:aspect-[9/16]">
               <HeroReel
                 {...hero.video}
                 soundOn={hero.soundOn}
@@ -81,7 +90,7 @@ export function Hero() {
             delay={0.2}
             className="flex flex-col gap-6 max-lg:items-center max-lg:text-center lg:col-span-4"
           >
-            <p className="max-w-[40ch] text-lead md:hidden">{hero.line}</p>
+            
             <Link
               href={hero.rush.href}
               className="group flex items-baseline gap-2 font-display text-small font-semibold no-underline"

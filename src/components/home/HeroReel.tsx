@@ -4,12 +4,11 @@ import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { sound, useSound, vimeoCommand } from "@/lib/sound";
 import { vimeoSrc } from "@/lib/vimeo";
-import { SoundOff, SoundOn } from "../work/MediaPiece";
 
 /**
  * The hero's media card: the showreel in a large rounded card. The poster paints first; the
  * Vimeo player loads once the page has loaded and the browser is idle. It plays once, then
- * stops on its last frame. Sound button top-right; `children` ride at the bottom (the shortcut).
+ * stops on its last frame. Replay button top-right (the reel has no sound); `children` ride at the bottom (the shortcut).
  * The player is set to loop, so Vimeo's "more videos" end screen can
  * never appear: we pause it ourselves just before the end (clock + progress, whichever first). Top-right: a round sound button sitting in
  * a notch cut out of the card. `children` sit over the card's left edge (the shortcut column).
@@ -19,8 +18,7 @@ export function HeroReel({
   poster,
   label,
   duration = 6,
-  soundOn,
-  soundOff,
+  replayLabel = "Revoir la vidéo",
   children,
   className,
 }: {
@@ -28,8 +26,9 @@ export function HeroReel({
   poster: string | null;
   label: string;
   duration?: number;
-  soundOn: string;
-  soundOff: string;
+  soundOn?: string;
+  soundOff?: string;
+  replayLabel?: string;
   children?: React.ReactNode;
   /** Size of the media box (the bento tile sets it). */
   className?: string;
@@ -80,6 +79,13 @@ export function HeroReel({
     if (audible) vimeoCommand(frame.current, "setVolume", 1);
   }, [audible, ready]);
 
+  const replay = () => {
+    stopped.current = false;
+    window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(stop, Math.max(0, (duration - 0.4) * 1000));
+    vimeoCommand(frame.current, "setCurrentTime", 0);
+    vimeoCommand(frame.current, "play");
+  };
   const stop = () => {
     if (stopped.current) return;
     stopped.current = true;
@@ -158,16 +164,18 @@ export function HeroReel({
           />
         ) : null}
       </div>
-      {/* Notch: a bite out of the top-right corner, holding the sound button. */}
+      {/* The reel has no sound: the corner button replays it instead. */}
       <div className="absolute -right-2 -top-2 rounded-full bg-cream p-2.5">
         <button
           type="button"
-          onClick={() => sound.toggle("hero")}
-          aria-label={audible ? soundOff : soundOn}
-          aria-pressed={audible}
-          className="flex size-14 items-center justify-center rounded-full bg-teal text-cream transition-transform duration-[var(--dur-press)] ease-[var(--ease-out-quint)] hover:scale-105 active:scale-90"
+          onClick={replay}
+          aria-label={replayLabel}
+          className="group flex size-14 items-center justify-center rounded-full bg-teal text-cream transition-transform duration-[var(--dur-press)] ease-[var(--ease-out-quint)] hover:scale-105 active:scale-90"
         >
-          {audible ? <SoundOn /> : <SoundOff />}
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true" className="transition-transform duration-[600ms] ease-[var(--ease-out-quint)] group-hover:-rotate-[200deg]">
+            <path d="M3.5 10a6.5 6.5 0 1 0 2-4.7" strokeLinecap="round" />
+            <path d="M3 3.5v3.8h3.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
       </div>
       {children}
