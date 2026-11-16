@@ -24,15 +24,15 @@ export interface Category {
 }
 
 export const categories: Category[] = [
-  { id: "site-web", name: "Développement", definition: "Votre adresse sur internet : sites et applications où un client vous découvre, vous compare et vous contacte.", line: "Sites vitrines, boutiques en ligne et applications, conçus et développés par l’équipe.", ratio: "16/10", layout: "screens", tone: "cream" },
-  { id: "identite", name: "Branding", definition: "Le visage de votre marque : un nom, un logo, des couleurs et un ton reconnaissables partout.", line: "Logos, chartes graphiques et identités complètes.", ratio: "1/1", layout: "boards", tone: "cream" },
+  { id: "site-web", name: "Web & mobile", definition: "Votre adresse sur internet et dans la poche de vos clients : sites et applications.", line: "Sites web et applications mobiles, conçus et développés par l’équipe.", ratio: "16/10", layout: "screens", tone: "cream" },
+  { id: "identite", name: "Branding & packaging", definition: "Le visage de votre marque, jusque sur ses emballages : logo, couleurs, ton, boîte, étiquette.", line: "Identités de marque complètes et packagings.", ratio: "1/1", layout: "boards", tone: "cream" },
   { id: "murs", name: "Murs", definition: "Une fresque peinte à la main qui transforme un mur en enseigne, en décor ou en repère.", line: "Fresques peintes à la main, en intérieur comme en façade.", ratio: "3/2", layout: "murals", tone: "teal" },
   { id: "tableaux", name: "Tableaux", definition: "Une toile unique, peinte pour un lieu précis : un hall, un bureau, une boutique.", line: "Toiles réalisées sur commande pour vos espaces.", ratio: "4/5", layout: "gallery", tone: "cream" },
-  { id: "facade", name: "Façade & enseigne", definition: "Ce que le passant voit avant d’entrer : l’enseigne, la vitrine, la façade.", line: "Habillage de boutique, enseignes et signalétique.", ratio: "3/2", layout: "landscape", tone: "cream" },
-  { id: "stands", name: "Stands & événements", definition: "Votre espace dans un salon ou un événement, pensé pour arrêter les visiteurs.", line: "Stands de salon et décors d’événement, de la maquette au montage.", ratio: "3/2", layout: "feature", tone: "teal" },
-  { id: "reseaux-sociaux", name: "Vidéo & réseaux sociaux", definition: "Ce que vos abonnés voient chaque semaine : vidéos, visuels et textes publiés sur vos comptes.", line: "Contenus, visuels et vidéos pour vos comptes.", ratio: "4/5", layout: "posts", tone: "cream" },
+  { id: "facade", name: "Façades & grand format", definition: "Ce que le passant voit avant d’entrer, et ce que la ville voit de loin : vitrine, enseigne, bâche.", line: "Conception et montage de façades, enseignes et publicité grand format.", ratio: "3/2", layout: "landscape", tone: "cream" },
+  { id: "stands", name: "Stands d’exposition", definition: "Votre espace dans un salon, pensé pour arrêter les visiteurs et leur parler de vous.", line: "Conception 3D, fabrication et montage de stands de salon.", ratio: "3/2", layout: "feature", tone: "teal" },
+  { id: "reseaux-sociaux", name: "Réseaux sociaux & vidéo", definition: "Ce que vos abonnés voient chaque semaine : vidéos, visuels et publications sur vos comptes.", line: "Gestion des réseaux sociaux et production audiovisuelle.", ratio: "4/5", layout: "posts", tone: "cream" },
   { id: "marketing", name: "Stratégie marketing", definition: "Le plan qui relie vos objectifs à vos clients : qui viser, quoi dire, sur quels canaux.", line: "Études, plans de communication et campagnes.", ratio: "16/10", layout: "screens", tone: "cream" },
-  { id: "supports", name: "Création de supports", definition: "Tout ce qui s’imprime à votre nom : flyers, affiches, menus, cartes et brochures.", line: "Flyers, affiches, menus, cartes de visite et brochures.", ratio: "4/5", layout: "gallery", tone: "cream" },
+  { id: "supports", name: "Édition & impression", definition: "Tout ce qui s’imprime à votre nom : catalogues, brochures, supports de marque et objets publicitaires.", line: "Design éditorial, impression UV et numérique, objets publicitaires.", ratio: "4/5", layout: "gallery", tone: "cream" },
 ];
 
 /** Section number shown as (02)…(08): the hero is (01). */
@@ -47,4 +47,4 @@ export const getCategory = (id: CategoryId) => categories.find((c) => c.id === i
  * The folders of "Tous les projets, par service", in this order. A folder with no projects yet
  * is still shown, marked "Bientôt" — add projects to projects.ts and it fills itself.
  */
-export const folderOrder: CategoryId[] = ["stands", "reseaux-sociaux", "site-web", "identite", "marketing", "supports"];
+export const folderOrder: CategoryId[] = ["stands", "facade", "identite", "supports", "reseaux-sociaux", "site-web"];

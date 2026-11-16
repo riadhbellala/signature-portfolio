@@ -1,134 +1,108 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { getCategory } from "@/content/categories";
-import {
-  getClient,
-  getProject,
-  projectsOf,
-  showcase,
-  type Media,
-} from "@/content/projects";
+import { getClient, getProject, projectsOf, showcase, thumbOf, type Media } from "@/content/projects";
 import { home } from "@/content/site";
 import { Reveal, RevealItem } from "../motion/Reveal";
-import { ArrowIcon } from "../ui/icons";
-import { AutoScroll } from "./AutoScroll";
+import { ArrowUpRightIcon } from "../ui/icons";
 import { MediaPiece } from "./MediaPiece";
 
-const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
- * Work by client. Each client is one block: a header line (number, name, what was done, link)
- * and its three pieces of work side by side, each in its real shape (a 3:2 render stays 3:2, a
- * reel stays vertical), one shared height, a narrow gap. No puzzle cut here: the work is the
- * subject, shown clean. The first client is the lead: its row is taller.
- * Phones: the pieces scroll sideways (snap), so a block stays one screen tall.
+ * Work by client, one chapter per client:
+ * - the story on the left (sticky while the pictures scroll on desktop): name, one line,
+ *   three figures, two actions (see the project, start one);
+ * - the work on the right: the lead piece large, the two others side by side under it.
+ * Story and work swap sides from one client to the next. Phones: index, story, then the pictures.
  */
 export function ClientShowcase() {
   return (
-    <ol className="flex flex-col gap-16 md:gap-24">
+    <ol className="flex flex-col gap-[calc(var(--space-block)*1.4)]">
       {showcase.map((block, b) => {
         const c = getClient(block.client);
         const ps = projectsOf(c.id);
         const types = [...new Set(ps.map((p) => getCategory(p.category).name))];
-        const pieces = block.pieces.map(([slug, i]) => {
-          const p = getProject(slug)!;
-          return { p, m: p.media[i] as Media };
-        });
-        // A video, when the client has one, always comes first.
-        pieces.sort((x, y) => Number(y.m.kind === "video") - Number(x.m.kind === "video"));
-        const lead = b === 0;
+        const stills = block.pieces.map(([slug, i]) => thumbOf(getProject(slug)!.media[i] as Media));
+        const href = `/projets/${ps[0].slug}`;
+        // The client's video, if any: it takes the tall slot beside the pictures.
+        const video = ps.flatMap((p) => p.media).find((m) => m.kind === "video");
+        const medias = ps.reduce((n, p) => n + p.media.length, 0);
+        const img = "object-cover transition-transform duration-[900ms] ease-[var(--ease-out-quint)] group-hover:scale-[1.04]";
+        const stats = [
+          { v: String(medias), l: "médias" },
+          { v: String(ps.length), l: ps.length > 1 ? "projets" : "projet" },
+          { v: String(types.length), l: types.length > 1 ? "services" : "service" },
+        ];
         return (
           <li key={c.id}>
             <Reveal>
-              <RevealItem className="flex flex-col gap-3 border-t border-line pt-5 md:flex-row md:items-baseline md:justify-between md:gap-8">
-                <div className="flex items-baseline gap-4">
-                  <span className="font-sans text-small tabular text-ink-muted">
-                    {pad(b + 1)}
-                  </span>
-                  <h3
-                    className={
-                      lead
-                        ? "font-display text-h2 leading-[1]"
-                        : "font-display text-h3"
-                    }
-                  >
-                    {c.name}
-                  </h3>
-                </div>
-                <div className="flex flex-wrap items-baseline gap-x-6 gap-y-1 pl-9 md:pl-0">
-                  <p className="text-small text-ink-muted">
-                    {types.join(" · ")}
-                  </p>
-                  <Link
-                    href={`/projets/${ps[0].slug}`}
-                    className="group inline-flex min-h-11 items-center gap-2 font-display text-body font-semibold underline decoration-ochre decoration-2 underline-offset-8 hover:decoration-4"
-                  >
-                    {home.showcase.open}
-                    <ArrowIcon className="transition-transform duration-[var(--dur-ui)] group-hover:translate-x-1" />
-                  </Link>
-                </div>
-              </RevealItem>
 
-              {/* Tablet and desktop: one row, widths follow each picture's shape. */}
-              <RevealItem className="mt-5 hidden gap-2 md:flex">
-                {pieces.map(({ p, m }, k) => (
-                  <div
-                    key={k}
-                    className="min-w-0"
-                    style={{ flex: `${m.ratio} 1 0` }}
-                  >
-                    <MediaPiece
-                      plain
-                      media={m}
-                      href={`/projets/${p.slug}`}
-                      label={`${c.name}, ${p.title}`}
-                      edges={{
-                        top: "flat",
-                        right: "flat",
-                        bottom: "flat",
-                        left: "flat",
-                      }}
-                      sizes={`(min-width: 1440px) ${Math.round(m.ratio * 560)}px, ${Math.round(m.ratio * 38)}vw`}
-                    />
+              <div className="grid gap-[var(--space-grid)] gap-y-8 lg:grid-cols-12 lg:gap-x-12">
+                {/* The story */}
+                <RevealItem className={b % 2 ? "lg:order-2 lg:col-span-4" : "lg:col-span-4"}>
+                  <div className="flex flex-col gap-6 lg:sticky lg:top-28">
+                    <h3 className="font-display text-[clamp(2rem,3.4vw,3.5rem)] font-bold leading-[1] tracking-[-0.03em]">{c.name}</h3>
+                    <p className="max-w-[36ch] text-lead text-ink-muted">{c.line}</p>
+                    <dl className="grid grid-cols-3 rounded-[var(--radius-lg)] bg-sand/60 py-4">
+                      {stats.map((st) => (
+                        <div key={st.l} className="flex flex-col items-center gap-1">
+                          <dt className="sr-only">{st.l}</dt>
+                          <dd className="font-display text-h3 leading-none tabular">{st.v}</dd>
+                          <span aria-hidden="true" className="font-sans text-meta uppercase tracking-[0.14em] text-ink-muted">{st.l}</span>
+                        </div>
+                      ))}
+                    </dl>
+                    <div className="flex flex-wrap gap-3">
+                      <Link href={href} className="btn btn-primary">
+                        <span className="btn-label">{home.showcase.open}</span>
+                        <ArrowUpRightIcon size={14} />
+                      </Link>
+                      <Link href="#contact" className="btn btn-secondary">
+                        <span className="btn-label">{home.showcase.start}</span>
+                      </Link>
+                    </div>
                   </div>
-                ))}
-              </RevealItem>
+                </RevealItem>
 
-              {/* Phones: swipe sideways, one shared height; slides on its own while on screen. */}
-              <RevealItem className="md:hidden">
-                <AutoScroll className="-mx-[var(--gutter)] mt-4 flex snap-x snap-mandatory scroll-px-[var(--gutter)] items-start gap-2 overflow-x-auto px-[var(--gutter)] pb-2 [scrollbar-width:none]">
-                  {pieces.map(({ p, m }, k) => (
-                    <div
-                      key={k}
-                      // Height fits the screen; a wide picture never fills the whole width, so the
-                      // next one peeks in and says "swipe".
-                      className="h-[260px] shrink-0 snap-start"
-                      style={
-                        {
-                          aspectRatio: `${m.ratio}`,
-                          "--r": m.ratio,
-                        } as React.CSSProperties
-                      }
-                    >
+                {/* The work */}
+                {video ? (
+                  // With a video: two pictures stacked on the left, the video tall on the right.
+                  <RevealItem className={`grid grid-cols-3 gap-[var(--space-grid)] lg:col-span-8 ${b % 2 ? "lg:order-1" : ""}`}>
+                    <div className="col-span-2 grid gap-[var(--space-grid)]">
+                      {stills.filter((src) => src !== thumbOf(video)).slice(0, 2).map((src, k) => (
+                        <Link key={k} href={href} aria-label={`${c.name}, ${home.showcase.open}`} className="group relative block aspect-[16/10] overflow-hidden rounded-[var(--radius-lg)] bg-sand">
+                          <Image src={src} alt="" fill sizes="(min-width: 1024px) 42vw, 66vw" className={img} />
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="relative min-h-0">
                       <MediaPiece
                         plain
-                        media={m}
-                        href={`/projets/${p.slug}`}
-                        label={`${c.name}, ${p.title}`}
-                        edges={{
-                          top: "flat",
-                          right: "flat",
-                          bottom: "flat",
-                          left: "flat",
-                        }}
-                        className="h-full"
-                        sizes={`${Math.round(m.ratio * 62)}vh`}
+                        media={video}
+                        href={href}
+                        label={`${c.name}, ${video.title}`}
+                        edges={{ top: "flat", right: "flat", bottom: "flat", left: "flat" }}
+                        sizes="(min-width: 1024px) 21vw, 33vw"
+                        className="!absolute inset-0 !rounded-[var(--radius-lg)]"
+                        style={{ aspectRatio: "auto" }}
                       />
                     </div>
-                  ))}
-                </AutoScroll>
-              </RevealItem>
+                  </RevealItem>
+                ) : (
+                  <RevealItem className={`grid grid-cols-2 gap-[var(--space-grid)] lg:col-span-8 ${b % 2 ? "lg:order-1" : ""}`}>
+                    <Link href={href} aria-label={`${c.name}, ${home.showcase.open}`} className="group relative col-span-2 block aspect-[16/10] overflow-hidden rounded-[var(--radius-xl)] bg-sand">
+                      <Image src={stills[0]} alt="" fill sizes="(min-width: 1024px) 62vw, 100vw" className={img} />
+                    </Link>
+                    {stills.slice(1, 3).map((src, k) => (
+                      <Link key={k} href={href} aria-label={`${c.name}, ${home.showcase.open}`} className="group relative block aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-sand">
+                        <Image src={src} alt="" fill sizes="(min-width: 1024px) 31vw, 50vw" className={img} />
+                      </Link>
+                    ))}
+                  </RevealItem>
+                )}
+              </div>
             </Reveal>
           </li>
         );

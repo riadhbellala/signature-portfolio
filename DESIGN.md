@@ -276,3 +276,13 @@ Changed:
 - **Hero**: giant title right-aligned, line + one CTA under it, two figures; reel in a rounded card with a notch (sound) and a shortcut column on its left edge.
 - **Word band**: giant service words sliding between two blocks of work (decoration).
 - **No page-wide colour flow**: each section keeps its ground. Reveals: fade-up only where content arrives (client blocks).
+
+## 2026-11 — White space scale
+
+Fluid tokens in `globals.css`, one rhythm for the whole page:
+- `--space-section` 88→176px: top/bottom padding of every section (`Section spacing="full"`; compact = 85%).
+- `--space-head` 40→80px: section title → its content.
+- `--space-block` 48→96px: between big blocks and between rows of cards.
+- `--space-grid` 16→28px: gap inside grids and bentos.
+- Gutters 20 / 40 / 56 / 80 / 120px (new 120px step from 1920px).
+Projects by client: a gallery of large cards (7/5, 5/7, 6/6), not lines; hover shows a second piece.

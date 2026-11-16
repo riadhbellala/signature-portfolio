@@ -38,8 +38,8 @@ export function Section({ tone = "cream", as: Tag = "section", id, trace, spacin
         `tone-${tone}`,
         "relative [overflow-x:clip]",
         sheet && "z-[1] -mt-10 rounded-t-[var(--radius-xl)] md:-mt-14",
-        spacing === "full" && "py-20 md:py-24 lg:py-32",
-        spacing === "compact" && "py-16 md:py-20 lg:py-24",
+        spacing === "full" && "py-[var(--space-section)]",
+        spacing === "compact" && "py-[calc(var(--space-section)*0.85)]",
         className,
       )}
       {...rest}
@@ -74,9 +74,9 @@ export function Grid({ className, children }: { className?: string; children: Re
  */
 export function SectionHead({ id, title, lead, className }: { id: string; title: string; lead?: string; className?: string }) {
   return (
-    <div className={clsx("grid gap-6 lg:grid-cols-12 lg:items-end", className)}>
+    <div className={clsx("grid gap-5 md:gap-6 lg:grid-cols-12 lg:items-end", className)}>
       <RiseText id={id} text={title} className="text-h2 max-md:text-center lg:col-span-7" />
-      {lead ? <p className="measure text-lead lg:col-span-4 lg:col-start-9">{lead}</p> : null}
+      {lead ? <p className="measure text-lead text-ink-muted max-md:mx-auto max-md:text-center lg:col-span-4 lg:col-start-9">{lead}</p> : null}
     </div>
   );
 }

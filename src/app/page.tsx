@@ -41,7 +41,7 @@ export default function HomePage() {
         <Section id="projets" tone="cream" sheet spacing="compact" aria-labelledby="projets-title" className="scroll-mt-16 !pt-[200px]">
           <Container>
             <SectionHead id="projets-title" title={home.showcase.title} lead={home.showcase.lead} />
-            <div className="mt-10 md:mt-14">
+            <div className="mt-[var(--space-head)]">
               <ClientShowcase />
             </div>
           </Container>
@@ -50,7 +50,7 @@ export default function HomePage() {
         <Section id="dossiers" spacing="compact" aria-labelledby="dossiers-title" className="relative z-[2] scroll-mt-16 !bg-transparent !pb-0">
           <Container>
             <SectionHead id="dossiers-title" title={home.folders.title} lead={home.folders.lead} />
-            <div className="mt-10 md:mt-14">
+            <div className="mt-[var(--space-head)]">
               <ServiceFolders />
             </div>
           </Container>

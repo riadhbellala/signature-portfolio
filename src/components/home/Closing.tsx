@@ -29,7 +29,7 @@ export function Services() {
       sheet
       spacing="compact"
       aria-labelledby="services-title"
-      className="scroll-mt-16 !pb-[340px]"
+      className="scroll-mt-16 !pb-[276px]"
     >
       <Container>
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
@@ -44,38 +44,37 @@ export function Services() {
         </div>
         {/* Bento: stands lead (big tile), sites web wide, the rest square; the façade wide.
             Each tile: number, name, one line, its illustration; the whole tile opens the folder. */}
-        <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:gap-3 lg:mt-14 lg:grid-cols-4 lg:grid-rows-[260px_260px_260px_auto]">
-          {BENTO.map((b, i) => {
+        <ul className="mt-[var(--space-head)] grid grid-cols-2 gap-[var(--space-grid)] lg:grid-cols-4 lg:grid-rows-[260px_260px_240px_auto]">
+          {BENTO.map((b) => {
             const s = services.find((x) => x.category === b.id)!;
             return (
               <li key={s.name} className={b.cls}>
                 <Link
                   href={`/projets#dossier-${s.category}`}
-                  className={`group relative flex h-full flex-col justify-end overflow-hidden rounded-[var(--radius-lg)] bg-teal-deep p-4 text-cream no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] active:scale-[0.98] sm:p-6 ${b.big ? "min-h-[340px]" : b.wide ? "min-h-[220px]" : "min-h-[220px]"}`}
+                  className={`group relative flex h-full flex-col justify-end overflow-hidden rounded-[var(--radius-lg)] ${b.tone} p-4 text-cream no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98] sm:p-6 ${b.big ? "min-h-[340px]" : "min-h-[220px]"}`}
                 >
-                  {/* The work itself, full bleed; it leans in on hover. */}
-                  <Image
-                    src={s.image}
-                    alt=""
-                    fill
-                    sizes={
-                      b.big
-                        ? "(min-width: 1024px) 50vw, 100vw"
-                        : b.wide
-                          ? "(min-width: 1024px) 50vw, 100vw"
-                          : "(min-width: 1024px) 25vw, 50vw"
-                    }
-                    className="object-cover transition-transform duration-[900ms] ease-[var(--ease-out-quint)] group-hover:scale-[1.06]"
-                  />
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-linear-to-t from-teal-deep/90 via-teal-deep/25 to-transparent transition-opacity duration-[var(--dur-ui)] group-hover:opacity-90"
-                  />
-                  <span className="absolute left-4 top-4 rounded-full bg-cream/90 px-2.5 py-1 font-sans text-meta tabular text-teal backdrop-blur sm:left-6 sm:top-6">
-                    {pad(i + 1)}
-                  </span>
+                  {/* The banner, full bleed (leans in on hover); without one, the plain tile. */}
+                  {s.image ? (
+                    <>
+                      <Image
+                        src={s.image}
+                        alt=""
+                        fill
+                        sizes={
+                          b.big || b.wide
+                            ? "(min-width: 1024px) 50vw, 100vw"
+                            : "(min-width: 1024px) 25vw, 50vw"
+                        }
+                        className="object-cover transition-transform duration-[900ms] ease-[var(--ease-out-quint)] group-hover:scale-[1.06]"
+                      />
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0 bg-linear-to-t from-teal-deep/90 via-teal-deep/25 to-transparent"
+                      />
+                    </>
+                  ) : null}
                   <span className="relative flex items-end justify-between gap-3">
-                    <span className="flex flex-col gap-1">
+                    <span className="flex min-w-0 flex-col gap-1">
                       <span
                         className={
                           b.big
@@ -86,9 +85,20 @@ export function Services() {
                         {s.name}
                       </span>
                       <span
-                        className={`text-small text-cream/80 ${b.big || b.wide ? "max-w-[30ch]" : "hidden"}`}
+                        className={`text-small text-cream/80 ${b.big || b.wide ? "max-w-[34ch]" : "hidden"}`}
                       >
                         {s.line}
+                      </span>
+                      {/* The services inside this pôle. */}
+                      <span className="mt-2 flex flex-wrap gap-1.5 max-sm:hidden">
+                        {s.items.map((it) => (
+                          <span
+                            key={it}
+                            className="rounded-full px-2.5 py-1 text-meta text-cream/90 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-cream)_30%,transparent)]"
+                          >
+                            {it}
+                          </span>
+                        ))}
                       </span>
                     </span>
                     <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-ochre text-teal transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:rotate-45 sm:size-11">
@@ -123,36 +133,16 @@ export function Services() {
 const BENTO: {
   id: string;
   cls: string;
-  img: string;
   big?: boolean;
   wide?: boolean;
+  tone: string;
 }[] = [
-  {
-    id: "stands",
-    big: true,
-    cls: "col-span-2 lg:row-span-2",
-    img: "inset-x-4 bottom-0 top-28 sm:top-32",
-  },
-  {
-    id: "site-web",
-    wide: true,
-    cls: "col-span-2",
-    img: "bottom-0 right-0 top-12 w-[46%]",
-  },
-  {
-    id: "reseaux-sociaux",
-    cls: "",
-    img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]",
-  },
-  { id: "identite", cls: "", img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]" },
-  {
-    id: "facade",
-    wide: true,
-    cls: "col-span-2",
-    img: "bottom-0 right-0 top-10 w-[52%]",
-  },
-  { id: "murs", cls: "", img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]" },
-  { id: "tableaux", cls: "", img: "inset-x-5 bottom-3 top-[58%] lg:top-[52%]" },
+  { id: "stands", big: true, cls: "col-span-2 lg:row-span-2", tone: "bg-teal" },
+  { id: "site-web", wide: true, cls: "col-span-2", tone: "bg-teal-deep" },
+  { id: "reseaux-sociaux", cls: "", tone: "bg-teal-muted" },
+  { id: "identite", cls: "", tone: "bg-teal-deep" },
+  { id: "facade", wide: true, cls: "col-span-2", tone: "bg-teal-deep" },
+  { id: "supports", wide: true, cls: "col-span-2", tone: "bg-teal" },
 ];
 
 const CLIENT_LAYOUTS = [
@@ -436,8 +426,10 @@ export function AgencyBridge() {
     // part sits on sand, the rest on cream, and the projects follow below it whatever its height
     // (the card grows with the screen, so nothing may depend on its height).
     <div className="relative z-[3] -mb-[140px] -mt-[220px]">
+      {/* The cream page coming up under the card: its rounded top meets the sand of Services. */}
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 top-[180px] rounded-t-[var(--radius-xl)] bg-cream" />
       <Container>
-        <div className="tone-teal rounded-[var(--radius-lg)] bg-teal p-6 text-cream md:p-8">
+        <div className="tone-teal relative rounded-[var(--radius-lg)] bg-teal p-6 text-cream md:p-8">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
             <p className="font-display text-h3 leading-tight lg:col-span-4">
               {t.videosLabel}

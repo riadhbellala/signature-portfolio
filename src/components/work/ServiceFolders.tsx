@@ -56,7 +56,7 @@ export function ServiceFolders() {
 
   return (
     <div>
-      <ul className="grid grid-cols-2 gap-x-3 gap-y-6 md:gap-x-8 md:gap-y-10 lg:grid-cols-3">
+      <ul className="grid grid-cols-2 gap-x-[var(--space-grid)] gap-y-8 md:gap-y-12 lg:grid-cols-3">
         {cats.map((x) => {
           const ps = projectsIn(x.id);
           return (
@@ -85,7 +85,7 @@ export function ServiceFolders() {
         })}
       </ul>
 
-      <div id="dossier-ouvert" aria-live="polite" className="mt-14 md:mt-20">
+      <div id="dossier-ouvert" aria-live="polite" className="mt-[var(--space-block)]">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={c.id}
@@ -110,7 +110,7 @@ export function ServiceFolders() {
                 {home.category.empty}
               </p>
             ) : null}
-            <ul className="mt-8 grid grid-cols-2 gap-x-3 gap-y-8 md:mt-10 md:gap-x-6 md:gap-y-12 lg:grid-cols-3">
+            <ul className="mt-[var(--space-head)] grid grid-cols-2 gap-x-[var(--space-grid)] gap-y-10 md:gap-y-14 lg:grid-cols-3">
               {list.map((p) => (
                 <li key={p.slug} className="group flex flex-col gap-4">
                   {/* Every card the same shape (4:3), so the grid lines up whatever the media. */}

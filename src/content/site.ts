@@ -51,7 +51,7 @@ export const home = {
     ],
     mobileServices: [
       { id: "stands", label: "Stands" },
-      { id: "reseaux-sociaux", label: "Vidéo" },
+      { id: "facade", label: "Façades" },
       { id: "site-web", label: "Sites web" },
       { id: "identite", label: "Branding" },
     ],
@@ -64,8 +64,9 @@ export const home = {
   },
   showcase: {
     title: "Nos projets, client par client.",
-    lead: "Pour chaque marque, trois pièces : la 3D, le résultat, la vidéo.",
+    lead: "Une marque, trois pièces de son projet. Ouvrez-en une pour tout voir.",
     open: "Voir le projet",
+    start: "Un projet similaire",
   },
   projectsPage: {
     metaTitle: "Tous nos projets",
@@ -84,7 +85,7 @@ export const home = {
   },
   services: {
     title: "Ce qu’on fait, de A à Z.",
-    lead: "Sept métiers sous un même toit. Chaque carte ouvre ses projets.",
+    lead: "Six pôles, quatorze métiers, une seule équipe. Chaque carte ouvre ses projets.",
     customTitle: "Un besoin qui n’est pas dans la liste ?",
     customAction: "Parlons-en",
     flyerTitle: "Nos services",

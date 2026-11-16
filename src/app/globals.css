@@ -168,6 +168,13 @@
   --page-max: 2400px;
   /* Left edge of the container's content, for things placed on the section. */
   --page-edge: max(var(--gutter), calc((100% - var(--page-max)) / 2 + var(--gutter)));
+
+  /* White space scale (8px base, fluid between phone and wide desktop). One rhythm everywhere:
+     section > head-to-content > block > grid gap. */
+  --space-section: clamp(5.5rem, 4rem + 6vw, 11rem); /* 88 → 176px: top/bottom of a section */
+  --space-head: clamp(2.5rem, 2rem + 2.5vw, 5rem);    /* 40 → 80px: section title → its content */
+  --space-block: clamp(3rem, 2rem + 3vw, 6rem);       /* 48 → 96px: between big blocks / card rows */
+  --space-grid: clamp(1rem, 0.75rem + 0.8vw, 1.75rem); /* 16 → 28px: gap inside grids and bentos */
 }
 @media (min-width: 48rem) {
   :root { --gutter: 40px; }
@@ -177,6 +184,9 @@
 }
 @media (min-width: 96rem) {
   :root { --gutter: 80px; }
+}
+@media (min-width: 120rem) {
+  :root { --gutter: 120px; }
 }
 
 @layer base {
