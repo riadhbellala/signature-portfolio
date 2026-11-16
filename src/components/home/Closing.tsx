@@ -25,7 +25,7 @@ export function Services() {
   return (
     <Section
       id="services"
-      tone="sand"
+      tone="cream"
       sheet
       spacing="compact"
       aria-labelledby="services-title"
@@ -162,7 +162,7 @@ export function Clients() {
   return (
     <Section
       id="clients"
-      tone="sand"
+      tone="cream"
       spacing="compact"
       aria-labelledby="clients-title"
       // Transparent: the sand comes from the sheet that wraps Clients and Contact (page.tsx), so

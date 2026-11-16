@@ -57,7 +57,7 @@ export default function HomePage() {
         </Section>
         {/* One sand sheet under Clients and Contact: it starts under the last projects of the open
             folder, so they sit across the seam, half on cream, half on sand. */}
-        <div className="relative z-[1] -mt-[140px] rounded-t-[var(--radius-xl)] bg-sand md:-mt-[180px]">
+        <div className="relative z-[1] -mt-[140px] bg-cream md:-mt-[180px]">
           <Clients />
           <Contact />
         </div>

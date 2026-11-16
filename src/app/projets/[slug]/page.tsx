@@ -101,7 +101,7 @@ export default async function ProjectPage({ params }: PageProps<"/projets/[slug]
         ) : null}
 
         {others.length > 0 ? (
-          <Section tone="sand" spacing="compact" aria-labelledby="autres-title">
+          <Section tone="cream" spacing="compact" aria-labelledby="autres-title">
             <Container>
               <h2 id="autres-title" className="text-h2">
                 {t.more(client.name)}
