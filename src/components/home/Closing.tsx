@@ -167,7 +167,7 @@ export function Clients() {
       aria-labelledby="clients-title"
       // Transparent: the sand comes from the sheet that wraps Clients and Contact (page.tsx), so
       // the clients wall can hang over the top of Contact, half on sand, half on teal.
-      className="relative z-[2] scroll-mt-16 !bg-transparent !pb-0 !pt-[200px] md:!pt-[240px]"
+      className="relative z-[2] scroll-mt-16 !bg-transparent !pb-0 !pt-[calc(140px+var(--space-section)*0.85)] md:!pt-[calc(180px+var(--space-section)*0.85)]"
     >
       <Container>
         <SectionHead id="clients-title" title={t.title} lead={t.lead} />

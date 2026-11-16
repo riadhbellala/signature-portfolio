@@ -190,9 +190,9 @@ export function DevShowcase() {
     // laptop breaks out of the top.
     <div className="tone-teal relative rounded-[var(--radius-xl)] bg-teal text-cream lg:mt-28">
       {/* Top: title, line, two pills. */}
-      <div className="relative px-6 pb-10 pt-10 md:px-12 md:pt-14 lg:grid lg:grid-cols-[minmax(0,44%)_minmax(0,1fr)] lg:items-center lg:gap-10 lg:pb-14">
+      <div className="relative px-6 pb-10 pt-10 md:px-16 md:pt-20 lg:grid lg:grid-cols-[minmax(0,44%)_minmax(0,1fr)] lg:items-center lg:gap-10 lg:pb-20">
         <div className="flex flex-col gap-6 max-lg:items-center max-lg:text-center ">
-          <h2 id="dev-title" className="font-display text-[clamp(2.25rem,4.2vw,4rem)] font-bold leading-[0.98] tracking-[-0.035em]">
+          <h2 id="dev-title" className="font-display text-[clamp(2.125rem,3.4vw,3.5rem)] font-bold leading-[0.98] tracking-[-0.035em]">
             {devCopy.title.map((l) => (
               <span key={l} className="block">
                 {l}
@@ -247,7 +247,7 @@ export function DevShowcase() {
         </ul>
 
         {/* Bottom of the shape: which site is on the laptop, and the round buttons to change it. */}
-        <div className="grid items-center gap-8 px-6 pb-10 pt-10 md:px-12 lg:grid-cols-12 lg:pb-12 lg:pt-10">
+        <div className="grid items-center gap-8 px-6 pb-10 pt-12 md:px-16 lg:grid-cols-12 lg:pb-16 lg:pt-14">
           <div className="flex flex-col gap-2 max-lg:items-center max-lg:text-center lg:col-span-6">
             <p className="font-display text-h3">{site.name}</p>
             <p className="text-small text-ink-muted">

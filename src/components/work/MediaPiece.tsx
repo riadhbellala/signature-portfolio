@@ -31,6 +31,13 @@ function maskFor(d: string, w: number, h: number) {
 }
 
 const icon = { width: 18, height: 18, viewBox: "0 0 20 20", "aria-hidden": true, focusable: false, className: "fill-current" } as const;
+function Pause() {
+  return (
+    <svg {...icon}>
+      <path d="M5 4h3.5v12H5zM11.5 4H15v12h-3.5z" />
+    </svg>
+  );
+}
 function Play() {
   return (
     <svg {...icon}>
@@ -117,6 +124,8 @@ export function MediaPiece({
   const [live, setLive] = useState(false);
   const [ready, setReady] = useState(false);
   const { audible, active } = useSound(id);
+  // The visitor's own choice: true = they pressed play, false = they paused. null = automatic.
+  const [force, setForce] = useState<boolean | null>(null);
   const isVideo = media.kind === "video" && !still;
 
   // Lazy: mount the player within one screen of the viewport, drop it when far.
@@ -175,7 +184,59 @@ export function MediaPiece({
   }, [audible, ready]);
 
   // Performance: one Vimeo player at a time, for the video most on screen; others show the poster.
-  const play = isVideo && near && active && !reduce;
+  // Another video was started: this one goes back to automatic (so only one plays).
+  const [wasActive, setWasActive] = useState(active);
+  if (wasActive !== active) {
+    setWasActive(active);
+    if (!active && force) setForce(null);
+  }
+  const play = isVideo && near && !reduce && (force ?? active);
+  // Show the player once it has loaded (with time for the first frame): the Vimeo "play"
+  // message does not always come back, so it cannot be the only signal.
+  useEffect(() => {
+    if (!play) return;
+    const t = window.setTimeout(() => setLive(true), 1500);
+    return () => window.clearTimeout(t);
+  }, [play]);
+  const togglePlay = () => {
+    if (play) {
+      setForce(false);
+      setLive(false);
+      setReady(false);
+    } else {
+      setForce(true);
+      sound.focus(id);
+    }
+  };
+  // A video plays where it is: clicking it starts or stops it, it does not open the project.
+  const link = href && !isVideo ? href : undefined;
+  const btn = "flex size-11 items-center justify-center rounded-full bg-cream/90 text-teal backdrop-blur transition-transform duration-[var(--dur-press)] hover:bg-cream active:scale-[0.92]";
+  const controls = isVideo ? (
+    <>
+      <button
+        type="button"
+        onClick={togglePlay}
+        aria-label={`${play ? "Pause" : "Lire"} : ${media.title}`}
+        className="absolute inset-0 z-[2] cursor-pointer outline-offset-[-4px]"
+      />
+      <div className="pointer-events-none absolute inset-x-3 bottom-3 z-[3] flex items-center justify-between">
+        <span aria-hidden="true" className={clsx(btn, "pointer-events-none")}>
+          {play ? <Pause /> : <Play />}
+        </span>
+        {play ? (
+          <button
+            type="button"
+            onClick={() => sound.toggle(id)}
+            aria-label={audible ? `Couper le son : ${media.title}` : `Activer le son : ${media.title}`}
+            aria-pressed={audible}
+            className={clsx(btn, "pointer-events-auto")}
+          >
+            {audible ? <SoundOn /> : <SoundOff />}
+          </button>
+        ) : null}
+      </div>
+    </>
+  ) : null;
   const boxRatio = (w + ext.l + ext.r) / (h + ext.t + ext.b);
   const videoFill = isVideo && media.ratio < boxRatio ? "left-0 top-1/2 w-full -translate-y-1/2" : "left-1/2 top-0 h-full -translate-x-1/2";
 
@@ -201,22 +262,8 @@ export function MediaPiece({
             style={{ aspectRatio: `${media.ratio}` }}
           />
         ) : null}
-        {href ? <Link href={href} aria-label={label} className="absolute inset-0 z-[2] outline-offset-[-4px]" /> : null}
-        {isVideo && live ? (
-          <button
-            type="button"
-            onClick={() => sound.toggle(id)}
-            aria-label={audible ? `Couper le son : ${media.title}` : `Activer le son : ${media.title}`}
-            aria-pressed={audible}
-            className="absolute bottom-3 right-3 z-[3] flex size-11 items-center justify-center bg-teal text-cream transition-transform duration-[var(--dur-press)] active:scale-[0.94]"
-          >
-            {audible ? <SoundOn /> : <SoundOff />}
-          </button>
-        ) : media.kind === "video" ? (
-          <span aria-hidden="true" className="pointer-events-none absolute bottom-3 right-3 z-[3] flex size-11 items-center justify-center bg-teal text-cream">
-            <Play />
-          </span>
-        ) : null}
+        {link ? <Link href={link} aria-label={label} className="absolute inset-0 z-[2] outline-offset-[-4px]" /> : null}
+        {controls}
       </div>
     );
   }
@@ -247,30 +294,14 @@ export function MediaPiece({
         </div>
       </div>
 
-      {href ? <Link href={href} aria-label={label} className="absolute inset-0 z-[2] outline-offset-[-10px]" /> : null}
+      {link || (href && still) ? <Link href={href!} aria-label={label} className="absolute inset-0 z-[2] outline-offset-[-10px]" /> : null}
 
       {media.kind === "video" && still ? (
-        <span aria-hidden="true" className="pointer-events-none absolute bottom-[8%] right-[8%] z-[3] flex size-11 items-center justify-center bg-teal text-cream">
+        <span aria-hidden="true" className="pointer-events-none absolute bottom-[8%] right-[8%] z-[3] flex size-11 items-center justify-center rounded-full bg-cream/90 text-teal">
           <Play />
         </span>
       ) : null}
-      {isVideo ? (
-        live ? (
-          <button
-            type="button"
-            onClick={() => sound.toggle(id)}
-            aria-label={audible ? `Couper le son : ${media.title}` : `Activer le son : ${media.title}`}
-            aria-pressed={audible}
-            className="absolute bottom-[8%] right-[8%] z-[3] flex size-11 items-center justify-center bg-teal text-cream transition-transform duration-[var(--dur-press)] active:scale-[0.97]"
-          >
-            {audible ? <SoundOn /> : <SoundOff />}
-          </button>
-        ) : (
-          <span aria-hidden="true" className="pointer-events-none absolute bottom-[8%] right-[8%] z-[3] flex size-11 items-center justify-center bg-teal text-cream">
-            <Play />
-          </span>
-        )
-      ) : null}
+      {isVideo ? <div className="absolute inset-[8%]">{controls}</div> : null}
     </div>
   );
 }

@@ -80,11 +80,11 @@ export function Hero() {
         </div>
 
         {/* Under the panel: the title (focal point) left, the rest right. */}
-        <div className="mt-14 grid gap-10 md:mt-16 lg:grid-cols-12 lg:items-end">
+        <div className="mt-20 grid gap-12 md:mt-28 lg:grid-cols-12 lg:items-end">
           <HeroTitle
             id="hero-title"
             lines={hero.title}
-            className="leading-[0.9] tracking-[-0.045em] max-lg:text-center lg:col-span-8 lg:text-[min(7.4vw,10rem)]"
+            className="leading-[0.9] tracking-[-0.045em] max-lg:text-center lg:col-span-8 lg:text-[min(6.2vw,8.5rem)]"
           />
           <HeroFade
             delay={0.2}

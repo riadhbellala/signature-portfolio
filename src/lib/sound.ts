@@ -56,6 +56,10 @@ export const sound = {
   unlock() {
     emit({ enabled: true, interacted: true });
   },
+  /** The visitor started this video: it becomes the one that plays (and speaks if sound is on). */
+  focus(id: string) {
+    emit({ interacted: true, active: id });
+  },
   toggle(id: string) {
     // Unmuting from a video's button also makes it the one that speaks.
     if (!state.enabled || state.active !== id)

@@ -39,11 +39,11 @@ export function ClientShowcase() {
           <li key={c.id}>
             <Reveal>
 
-              <div className="grid gap-[var(--space-grid)] gap-y-8 lg:grid-cols-12 lg:gap-x-12">
+              <div className="grid gap-[var(--space-grid)] gap-y-8 lg:grid-cols-12 lg:gap-x-14">
                 {/* The story */}
                 <RevealItem className={b % 2 ? "lg:order-2 lg:col-span-4" : "lg:col-span-4"}>
                   <div className="flex flex-col gap-6 lg:sticky lg:top-28">
-                    <h3 className="font-display text-[clamp(2rem,3.4vw,3.5rem)] font-bold leading-[1] tracking-[-0.03em]">{c.name}</h3>
+                    <h3 className="font-display text-[clamp(1.875rem,2.6vw,2.75rem)] font-bold leading-[1] tracking-[-0.03em]">{c.name}</h3>
                     <p className="max-w-[36ch] text-lead text-ink-muted">{c.line}</p>
                     <dl className="grid grid-cols-3 rounded-[var(--radius-lg)] bg-sand/60 py-4">
                       {stats.map((st) => (

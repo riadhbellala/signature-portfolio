@@ -53,13 +53,13 @@
   --text-display--letter-spacing: -0.045em;
   --text-display--font-weight: 800;
 
-  --text-h1: clamp(2.75rem, 6.4vw, 6rem);
+  --text-h1: clamp(2.5rem, 5.2vw, 5rem);
   --text-h1--line-height: 0.95;
   --text-h1--letter-spacing: -0.035em;
   --text-h1--font-weight: 700;
 
-  --text-h2: clamp(2.5rem, 5.6vw, 6rem);
-  --text-h2--line-height: 0.95;
+  --text-h2: clamp(2.25rem, 4.2vw, 4.75rem);
+  --text-h2--line-height: 1;
   --text-h2--letter-spacing: -0.03em;
   --text-h2--font-weight: 700;
 
@@ -163,7 +163,7 @@
   --dur-ui: 200ms;
   --dur-snap: 560ms;
   --dur-draw: 800ms;
-  --gutter: 20px;
+  --gutter: 16px;
   /* Content width: fills large screens, stops at 1680px so lines and images stay readable. */
   --page-max: 2400px;
   /* Left edge of the container's content, for things placed on the section. */
@@ -171,22 +171,22 @@
 
   /* White space scale (8px base, fluid between phone and wide desktop). One rhythm everywhere:
      section > head-to-content > block > grid gap. */
-  --space-section: clamp(5.5rem, 4rem + 6vw, 11rem); /* 88 → 176px: top/bottom of a section */
-  --space-head: clamp(2.5rem, 2rem + 2.5vw, 5rem);    /* 40 → 80px: section title → its content */
-  --space-block: clamp(3rem, 2rem + 3vw, 6rem);       /* 48 → 96px: between big blocks / card rows */
-  --space-grid: clamp(1rem, 0.75rem + 0.8vw, 1.75rem); /* 16 → 28px: gap inside grids and bentos */
+  --space-section: clamp(7rem, 5rem + 7vw, 13rem); /* 112 → 208px: top/bottom of a section */
+  --space-head: clamp(3rem, 2.25rem + 3vw, 6rem);   /* 48 → 96px: section title → its content */
+  --space-block: clamp(4rem, 2.5rem + 4vw, 8rem);     /* 64 → 128px: between big blocks / card rows */
+  --space-grid: clamp(1rem, 0.6rem + 1.1vw, 2rem);    /* 16 → 32px: gap inside grids and bentos */
 }
 @media (min-width: 48rem) {
-  :root { --gutter: 40px; }
+  :root { --gutter: 28px; }
 }
 @media (min-width: 64rem) {
-  :root { --gutter: 56px; }
+  :root { --gutter: 40px; }
 }
 @media (min-width: 96rem) {
-  :root { --gutter: 80px; }
+  :root { --gutter: 56px; }
 }
 @media (min-width: 120rem) {
-  :root { --gutter: 120px; }
+  :root { --gutter: 72px; }
 }
 
 @layer base {
