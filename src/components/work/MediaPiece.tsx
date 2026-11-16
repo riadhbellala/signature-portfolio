@@ -78,6 +78,7 @@ export function MediaPiece({
   vertical = false,
   still = false,
   plain = false,
+  smallControls = false,
   className,
   style,
 }: {
@@ -85,6 +86,8 @@ export function MediaPiece({
   still?: boolean;
   /** A clean rectangle in the media's shape: no puzzle cut, no knobs, no bevel. */
   plain?: boolean;
+  /** Smaller play / sound buttons on phones (for narrow tiles). */
+  smallControls?: boolean;
   media: Media;
   edges: Edges;
   sizes: string;
@@ -210,7 +213,7 @@ export function MediaPiece({
   };
   // A video plays where it is: clicking it starts or stops it, it does not open the project.
   const link = href && !isVideo ? href : undefined;
-  const btn = "flex size-11 items-center justify-center rounded-full bg-cream/90 text-teal backdrop-blur transition-transform duration-[var(--dur-press)] hover:bg-cream active:scale-[0.92]";
+  const btn = clsx(smallControls && "max-md:size-7 max-md:[&_svg]:size-3", "flex size-11 items-center justify-center rounded-full bg-cream/90 text-teal backdrop-blur transition-transform duration-[var(--dur-press)] hover:bg-cream active:scale-[0.92]");
   const controls = isVideo ? (
     <>
       <button
@@ -219,7 +222,7 @@ export function MediaPiece({
         aria-label={`${play ? "Pause" : "Lire"} : ${media.title}`}
         className="absolute inset-0 z-[2] cursor-pointer outline-offset-[-4px]"
       />
-      <div className="pointer-events-none absolute inset-x-3 bottom-3 z-[3] flex items-center justify-between">
+      <div className={clsx("pointer-events-none absolute z-[3] flex items-center justify-between", smallControls ? "inset-x-1.5 bottom-1.5 md:inset-x-3 md:bottom-3" : "inset-x-3 bottom-3")}>
         <span aria-hidden="true" className={clsx(btn, "pointer-events-none")}>
           {play ? <Pause /> : <Play />}
         </span>

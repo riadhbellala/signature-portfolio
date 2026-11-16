@@ -4,32 +4,28 @@ import { agencyVideos } from "@/content/projects";
 import { MediaPiece } from "./MediaPiece";
 
 /**
- * Signature's own promotional videos (presented by Zahra, commerciale de l'agence): three
- * vertical videos in a row, widths ∝ ratio so they share one height, a caption under each.
+ * Signature's own promotional videos: one bento tile each (vertical, 9:16), the title in a chip
+ * at the top, play and sound buttons at the bottom. Rendered as grid items of the parent bento.
  */
 export function AgencyVideos({ label }: { label: string }) {
   return (
-    <figure>
-      <div className="flex gap-2">
-        {agencyVideos.map((v) => (
-          <div key={v.title} className="relative min-w-0" style={{ flex: `${v.media.ratio} 1 0` }}>
-            <MediaPiece
-              plain
-              media={v.media}
-              edges={{ top: "flat", bottom: "flat", left: "flat", right: "flat" }}
-              sizes="(min-width: 1024px) 200px, 33vw"
-            />
-          </div>
-        ))}
-      </div>
-      <div className="mt-3 flex gap-2">
-        {agencyVideos.map((v) => (
-          <p key={v.title} className="min-w-0 pr-2 font-display text-small font-semibold" style={{ flex: `${v.media.ratio} 1 0` }}>
+    <>
+      {agencyVideos.map((v) => (
+        <figure key={v.title} className="relative w-[64%] shrink-0 snap-start scroll-ml-[var(--gutter)] sm:w-[40%] lg:w-auto lg:min-w-0">
+          <MediaPiece
+            plain
+            shape={9 / 16}
+            media={v.media}
+            edges={{ top: "flat", bottom: "flat", left: "flat", right: "flat" }}
+            sizes="(min-width: 1024px) 22vw, 33vw"
+            className="!rounded-[var(--radius-lg)]"
+          />
+          <figcaption className="pointer-events-none absolute left-3 top-3 z-[3] rounded-full bg-cream/90 px-3 py-1.5 font-display text-meta font-semibold text-teal backdrop-blur">
             {v.title}
-          </p>
-        ))}
-      </div>
-      {label ? <figcaption className="mt-3 text-small text-ink-muted">{label}</figcaption> : null}
-    </figure>
+          </figcaption>
+        </figure>
+      ))}
+      {label ? <p className="sr-only">{label}</p> : null}
+    </>
   );
 }

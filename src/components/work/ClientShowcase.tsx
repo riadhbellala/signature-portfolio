@@ -39,13 +39,14 @@ export function ClientShowcase() {
           <li key={c.id}>
             <Reveal>
 
-              <div className="grid gap-[var(--space-grid)] gap-y-8 lg:grid-cols-12 lg:gap-x-14">
+              <div className="grid gap-[var(--space-grid)] gap-y-6 lg:grid-cols-12 lg:gap-x-14">
                 {/* The story */}
-                <RevealItem className={b % 2 ? "lg:order-2 lg:col-span-4" : "lg:col-span-4"}>
-                  <div className="flex flex-col gap-6 lg:sticky lg:top-28">
+                {/* Phones: the work comes first (the eye goes to the picture), then the name and one action. */}
+                <RevealItem className={b % 2 ? "max-lg:order-2 lg:order-2 lg:col-span-4" : "max-lg:order-2 lg:col-span-4"}>
+                  <div className="flex flex-col gap-4 lg:sticky lg:top-28 lg:gap-6">
                     <h3 className="font-display text-[clamp(1.875rem,2.6vw,2.75rem)] font-bold leading-[1] tracking-[-0.03em]">{c.name}</h3>
                     <p className="max-w-[36ch] text-lead text-ink-muted">{c.line}</p>
-                    <dl className="grid grid-cols-3 rounded-[var(--radius-lg)] bg-sand/60 py-4">
+                    <dl className="grid grid-cols-3 rounded-[var(--radius-lg)] bg-sand/60 py-3 lg:py-4">
                       {stats.map((st) => (
                         <div key={st.l} className="flex flex-col items-center gap-1">
                           <dt className="sr-only">{st.l}</dt>
@@ -59,7 +60,7 @@ export function ClientShowcase() {
                         <span className="btn-label">{home.showcase.open}</span>
                         <ArrowUpRightIcon size={14} />
                       </Link>
-                      <Link href="#contact" className="btn btn-secondary">
+                      <Link href="#contact" className="btn btn-secondary max-lg:hidden">
                         <span className="btn-label">{home.showcase.start}</span>
                       </Link>
                     </div>
@@ -69,7 +70,7 @@ export function ClientShowcase() {
                 {/* The work */}
                 {video ? (
                   // With a video: two pictures stacked on the left, the video tall on the right.
-                  <RevealItem className={`grid grid-cols-3 gap-[var(--space-grid)] lg:col-span-8 ${b % 2 ? "lg:order-1" : ""}`}>
+                  <RevealItem className={`grid grid-cols-3 gap-[var(--space-grid)] max-lg:order-1 lg:col-span-8 ${b % 2 ? "lg:order-1" : ""}`}>
                     <div className="col-span-2 grid gap-[var(--space-grid)]">
                       {stills.filter((src) => src !== thumbOf(video)).slice(0, 2).map((src, k) => (
                         <Link key={k} href={href} aria-label={`${c.name}, ${home.showcase.open}`} className="group relative block aspect-[16/10] overflow-hidden rounded-[var(--radius-lg)] bg-sand">
@@ -91,7 +92,7 @@ export function ClientShowcase() {
                     </div>
                   </RevealItem>
                 ) : (
-                  <RevealItem className={`grid grid-cols-2 gap-[var(--space-grid)] lg:col-span-8 ${b % 2 ? "lg:order-1" : ""}`}>
+                  <RevealItem className={`grid grid-cols-2 gap-[var(--space-grid)] max-lg:order-1 lg:col-span-8 ${b % 2 ? "lg:order-1" : ""}`}>
                     <Link href={href} aria-label={`${c.name}, ${home.showcase.open}`} className="group relative col-span-2 block aspect-[16/10] overflow-hidden rounded-[var(--radius-xl)] bg-sand">
                       <Image src={stills[0]} alt="" fill sizes="(min-width: 1024px) 62vw, 100vw" className={img} />
                     </Link>

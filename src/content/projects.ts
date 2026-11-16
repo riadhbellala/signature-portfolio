@@ -105,9 +105,9 @@ const V = {
   souipanel: vimeo("1246220225", "2225553681-e38a4554b57f3ed0e0cc0682a2e6760f755247f5e3716c1013ef1b3d61c691ac", "Souipanel, vidéo du stand"),
   riffCollage: vimeo("1246220224", "2225554127-6f1190d10d77e07ad42f62f7b7d58bc09edbe8325784ae8d68af4e42775fc3dd", "RIFF, collage vidéo"),
   riffPromo: vimeo("1246220229", "2225554665-c45ee11f93fdd05ff767cf9f5609d4eacd08e6fe489f16c7ab3d6892528c95ce", "RIFF Promotion, film", false),
-  zahraSite: vimeo("1246219262", "2225552431-5607d67894f624819b6870011d8b6f064ab7d61e01f59caf11c48bc049a104ca", "Signature, sites web — présenté par Zahra"),
-  zahraSignature: vimeo("1246219263", "2225552573-9ce5f59d381f8ed9814f9a778bc318fac4b84c5bacba03df5a4577d06239db01", "Signature, vidéo de l’agence — présentée par Zahra"),
-  zahraMenu: vimeo("1246219302", "2225552487-a11de38ed830914be96540437da5b204c80ccb8c5af1fdf4cc1bba7e597be57b", "Signature, menus — présenté par Zahra"),
+  zahraSite: vimeo("1246219262", "2225552431-5607d67894f624819b6870011d8b6f064ab7d61e01f59caf11c48bc049a104ca", "Signature, sites web"),
+  zahraSignature: vimeo("1246219263", "2225552573-9ce5f59d381f8ed9814f9a778bc318fac4b84c5bacba03df5a4577d06239db01", "Signature, vidéo de l’agence"),
+  zahraMenu: vimeo("1246219302", "2225552487-a11de38ed830914be96540437da5b204c80ccb8c5af1fdf4cc1bba7e597be57b", "Signature, menus"),
   louiz1: vimeo("1246213183", "2225546069-2313c53f622f31f73799d07c1fbde6bd11d99c01db8d85eeff42f987002cb159", "Louiz, salon jour 1"),
   louiz2: vimeo("1246213184", "2225545959-66766f77af45da05a7195cd3112726961e977d4e71aa7a197504c0901f44c106", "Louiz, salon jour 2"),
   hasena: vimeo("1246213181", "2225546905-cee9333ad7778f0d8397d23d6c88cbc7af9818add93ae1d45b724f0090500b1f", "Hasena Millénium"),
@@ -264,7 +264,7 @@ export const showcase: { client: ClientId; pieces: [string, number][] }[] = [
 ];
 
 /**
- * Signature's own promotional videos, presented by Zahra (commerciale de l'agence). Not client
+ * Signature's own promotional videos, presented by the agency's commerciale. Not client
  * work: shown with the services, each next to the service it promotes.
  */
 export const agencyVideos: { title: string; media: Media }[] = [

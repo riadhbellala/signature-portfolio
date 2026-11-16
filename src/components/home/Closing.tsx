@@ -112,13 +112,14 @@ export function Services() {
           <li className="col-span-2 lg:col-span-4 lg:row-span-1 lg:h-auto">
             <a
               href="#contact"
-              className="group flex h-full flex-col justify-between gap-4 rounded-[var(--radius-lg)] bg-ochre p-5 text-teal no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98] sm:flex-row sm:items-center sm:p-6"
+              className="group flex h-full items-center justify-between gap-4 rounded-[var(--radius-lg)] bg-ochre py-3 pl-5 pr-3 text-teal no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98] sm:p-6"
             >
-              <span className="font-display text-h3 leading-tight">
+              <span className="font-display text-[1.0625rem] font-bold leading-tight sm:text-h3">
                 {t.customTitle}
               </span>
-              <span className="btn btn-primary !bg-teal !text-cream self-start sm:self-auto">
-                <span className="btn-label">{t.customAction}</span>
+              {/* Phones: a round arrow only, so the strip stays one slim line. */}
+              <span className="btn btn-primary !bg-teal !text-cream shrink-0 max-sm:!size-11 max-sm:!p-0 max-sm:justify-center">
+                <span className="btn-label max-sm:sr-only">{t.customAction}</span>
                 <ArrowIcon />
               </span>
             </a>
@@ -429,14 +430,28 @@ export function AgencyBridge() {
       {/* The cream page coming up under the card: its rounded top meets the sand of Services. */}
       <div aria-hidden="true" className="absolute inset-x-0 bottom-0 top-[180px] rounded-t-[var(--radius-xl)] bg-cream" />
       <Container>
-        <div className="tone-teal relative rounded-[var(--radius-lg)] bg-teal p-6 text-cream md:p-8">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
-            <p className="font-display text-h3 leading-tight lg:col-span-4">
-              {t.videosLabel}
-            </p>
-            <div className="lg:col-span-7 lg:col-start-6">
-              <AgencyVideos label="" />
+        {/* Bento: the words in a teal tile, each video in its own tile beside it. */}
+        <div className="relative flex flex-col gap-8 lg:grid lg:grid-cols-[1.25fr_1fr_1fr_1fr] lg:gap-[var(--space-grid)]">
+          {/* Phones: no tile, just the words on the page, so it does not stack box on box. */}
+          <div className="flex flex-col justify-between gap-6 max-lg:items-center max-lg:text-center lg:gap-8 lg:rounded-[var(--radius-lg)] lg:bg-teal lg:p-8 lg:text-cream">
+            <div className="flex flex-col gap-4">
+              <span className="font-sans text-meta uppercase tracking-[0.14em] text-teal-muted lg:text-ochre">{t.videosKicker}</span>
+              <p className="font-display text-h2 font-bold leading-[1.02] lg:text-[clamp(1.75rem,2.4vw,2.5rem)] tracking-[-0.03em] text-teal lg:text-cream">{t.videosLabel}</p>
+              <p className="max-w-[38ch] text-small text-teal-muted lg:text-cream/75">{t.videosLine}</p>
             </div>
+            {/* Phones: no button here, the videos below are the action. */}
+            <div className="max-lg:hidden">
+              <span className="tone-teal block">
+                <Link href="/projets#dossier-reseaux-sociaux" className="btn btn-primary">
+                  <span className="btn-label">{t.videosCta}</span>
+                  <ArrowUpRightIcon size={14} />
+                </Link>
+              </span>
+            </div>
+          </div>
+          {/* Phones: one swipeable row of large tiles (the next one peeks out); desktop: bento tiles. */}
+          <div className="-mx-[var(--gutter)] flex snap-x snap-mandatory gap-3 overflow-x-auto px-[var(--gutter)] pb-1 [scrollbar-width:none] lg:contents">
+            <AgencyVideos label="" />
           </div>
         </div>
       </Container>
