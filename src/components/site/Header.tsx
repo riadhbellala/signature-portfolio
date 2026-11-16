@@ -4,7 +4,6 @@ import clsx from "clsx";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { categoryNumber } from "@/content/categories";
 import { contact } from "@/content/contact";
 import { folders, projectsIn } from "@/content/projects";
 import { nav } from "@/content/site";
@@ -23,7 +22,6 @@ const rise = {
   },
 };
 
-const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
  * Sticky 64px header: logo, "Projets" (opens the seven project types, each straight into its
@@ -166,9 +164,6 @@ export function Header() {
           )}
         >
           <span className="flex w-full items-baseline gap-3">
-            <span className="font-sans text-meta text-ink-muted tabular">
-              ({pad(categoryNumber(c.id))})
-            </span>
             <span
               className={clsx(
                 "font-display font-semibold decoration-ochre decoration-2 underline-offset-4 group-hover:underline",
@@ -182,7 +177,7 @@ export function Header() {
             </span>
           </span>
           {compact ? null : (
-            <span className="measure line-clamp-2 pl-10 text-small text-ink-muted">
+            <span className="measure line-clamp-2 text-small text-ink-muted">
               {c.definition}
             </span>
           )}

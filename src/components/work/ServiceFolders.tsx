@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { categoryNumber, type CategoryId } from "@/content/categories";
 import {
   cover,
@@ -25,7 +25,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
  * projects as pieces. Only types with work get a folder.
  */
 export function ServiceFolders() {
-  const cats = folders();
+  const cats = useMemo(() => folders(), []);
   const [active, setActive] = useState<CategoryId>(cats[0].id);
   // Phones: two folders per row, so each one is smaller and fans its pictures tighter.
   const [small, setSmall] = useState(false);
@@ -38,17 +38,30 @@ export function ServiceFolders() {
   }, []);
 
   useEffect(() => {
-    const apply = () => {
-      const id = window.location.hash.replace("#dossier-", "");
+    const apply = (hash = window.location.hash) => {
+      const id = hash.replace(/^.*#dossier-/, "");
       const c = cats.find((x) => x.id === id);
-      if (window.location.hash.startsWith("#dossier-") && c) {
+      if (hash.includes("#dossier-") && c) {
         setActive(c.id);
         document.getElementById("dossiers")?.scrollIntoView({ block: "start" });
       }
     };
+    // Next.js links change the hash with pushState, which fires no hashchange: also catch clicks
+    // on any #dossier- link (the navbar) and back/forward.
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as Element | null)?.closest?.("a[href*=\"#dossier-\"]");
+      if (a) apply(a.getAttribute("href") ?? "");
+    };
+    const fromUrl = () => apply();
     apply();
-    window.addEventListener("hashchange", apply);
-    return () => window.removeEventListener("hashchange", apply);
+    window.addEventListener("hashchange", fromUrl);
+    window.addEventListener("popstate", fromUrl);
+    document.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("hashchange", fromUrl);
+      window.removeEventListener("popstate", fromUrl);
+      document.removeEventListener("click", onClick);
+    };
   }, [cats]);
 
   const c = cats.find((x) => x.id === active)!;
