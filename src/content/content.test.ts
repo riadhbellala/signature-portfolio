@@ -19,10 +19,7 @@ describe("content", () => {
   });
 
   it("points every showcase piece at a real media", () => {
-    showcase.forEach((b) => {
-      expect(b.pieces).toHaveLength(3);
-      b.pieces.forEach(([slug, i]) => expect(getProject(slug)?.media[i]).toBeDefined());
-    });
+    showcase.forEach(([slug, i]) => expect(getProject(slug)?.media[i]).toBeDefined());
   });
 
   it("points every service at a real type", () => {

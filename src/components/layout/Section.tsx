@@ -11,8 +11,9 @@ export interface SectionProps {
   id?: string;
   /** Draw the hairline script trace behind this section, like the posts. */
   trace?: "left" | "right";
-  /** Section padding: full (96–128), compact (64–96, the project sections) or none. */
-  spacing?: "full" | "compact" | "none";
+  /** Section padding: full, compact, flow (half a section top and bottom, so every gap between
+   *  two flow sections is exactly one --space-section) or none. */
+  spacing?: "full" | "compact" | "flow" | "none";
   /** Teal sections only: the single knob pushing into the neighbouring cream section. */
   joint?: PuzzleJointProps;
   /** Sheet: rounded top corners, sliding over the previous section (bento layering). */
@@ -40,6 +41,7 @@ export function Section({ tone = "cream", as: Tag = "section", id, trace, spacin
         sheet && "z-[1] -mt-10 rounded-t-[var(--radius-xl)] md:-mt-14",
         spacing === "full" && "py-[var(--space-section)]",
         spacing === "compact" && "py-[calc(var(--space-section)*0.85)]",
+        spacing === "flow" && "py-[calc(var(--space-section)*0.5)]",
         className,
       )}
       {...rest}
@@ -75,8 +77,8 @@ export function Grid({ className, children }: { className?: string; children: Re
 export function SectionHead({ id, title, lead, className }: { id: string; title: string; lead?: string; className?: string }) {
   return (
     <div className={clsx("grid gap-5 md:gap-6 lg:grid-cols-12 lg:items-end", className)}>
-      <RiseText id={id} text={title} className="text-h2 max-md:text-center lg:col-span-7" />
-      {lead ? <p className="measure text-lead text-ink-muted max-md:mx-auto max-md:text-center lg:col-span-4 lg:col-start-9">{lead}</p> : null}
+      <RiseText id={id} text={title} className="text-h2 lg:col-span-7" />
+      {lead ? <p className="measure text-lead text-ink-muted lg:col-span-4 lg:col-start-9">{lead}</p> : null}
     </div>
   );
 }

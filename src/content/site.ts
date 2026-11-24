@@ -2,7 +2,7 @@
 
 export const nav = {
   links: [
-    { label: "Projets", href: "/#dossiers" },
+    { label: "Projets", href: "/projets" },
     { label: "Services", href: "/#services" },
     { label: "Clients", href: "/#clients" },
     { label: "Contact", href: "/#contact" },
@@ -27,8 +27,8 @@ export const home = {
     description: "Les projets de Signature, agence 360° à Oran : sites web, identités, murs, tableaux, façades, stands et réseaux sociaux.",
   },
   hero: {
-    title: ["Nos projets,", "pièce par pièce."],
-    line: "Agence 360° à Oran : stands de salon, vidéos, sites web et identités de marque, de l’idée jusqu’au montage.",
+    title: ["Agence 360° à Oran,", "de l’idée au montage."],
+    line: "Stands de salon, vidéos, sites web et identités de marque, conçus et réalisés par une seule équipe.",
     puzzle: { a: "votre marque", b: "nos solutions", groupLabel: "Votre marque, plus nos solutions" },
     primary: { label: "Démarrer un projet", href: "#contact" },
     /** Shortcut for visitors in a hurry: straight to the page with every project. */
@@ -55,7 +55,7 @@ export const home = {
       { id: "site-web", label: "Sites web" },
       { id: "identite", label: "Branding" },
     ],
-    bgAlt: "Illustration : un stand de salon, une boutique, des toiles, un ordinateur et un téléphone, l’univers de Signature",
+    bgAlt: "Un stand de salon aux arches teal, salon crème et touches ocre, dans un hall d’exposition",
     talk: "Un projet ? Écrivez-nous sur WhatsApp.",
     trusted: "Ils nous font confiance :",
     trustedMore: (n: number) => `et ${n} autres.`,
@@ -63,8 +63,8 @@ export const home = {
     soundOff: "Couper le son",
   },
   showcase: {
-    title: "Nos projets, client par client.",
-    lead: "Une marque, trois pièces de son projet. Ouvrez-en une pour tout voir.",
+    title: "Nos derniers projets.",
+    lead: "Stands, sites web, marques, vidéos et impression : un projet par image. Ouvrez-en un pour tout voir.",
     open: "Voir le projet",
     start: "Un projet similaire",
   },

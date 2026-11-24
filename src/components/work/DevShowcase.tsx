@@ -3,7 +3,6 @@
 import clsx from "clsx";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { devCopy, devMedia, devSites, type Device } from "@/content/dev";
 import { ArrowUpRightIcon } from "../ui/icons";
@@ -176,9 +175,9 @@ export function DevShowcase() {
   const card = "relative flex flex-col gap-3 bg-cream p-6 text-teal lg:min-h-[168px] lg:p-7";
   const cardHead = (f: (typeof features)[number]) => (
     <>
-      <span className="flex items-center gap-3">
-        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-sand font-sans text-small tabular">{f.n}</span>
-        <span className="font-display text-piece font-semibold leading-tight">{f.title}</span>
+      <span className="flex flex-col gap-3">
+        <span className="tabular text-meta text-teal-muted">{f.n}</span>
+        <span className="font-display text-h3">{f.title}</span>
       </span>
       <p className="text-small text-teal-muted">{f.line}</p>
     </>
@@ -191,8 +190,8 @@ export function DevShowcase() {
     <div className="tone-teal relative rounded-[var(--radius-xl)] bg-teal text-cream lg:mt-28">
       {/* Top: title, line, two pills. */}
       <div className="relative px-6 pb-10 pt-10 md:px-16 md:pt-20 lg:grid lg:grid-cols-[minmax(0,44%)_minmax(0,1fr)] lg:items-center lg:gap-10 lg:pb-20">
-        <div className="flex flex-col gap-6 max-lg:items-center max-lg:text-center ">
-          <h2 id="dev-title" className="font-display text-[clamp(2.125rem,3.4vw,3.5rem)] font-bold leading-[0.98] tracking-[-0.035em]">
+        <div className="flex flex-col gap-6">
+          <h2 id="dev-title" className="font-display text-h2">
             {devCopy.title.map((l) => (
               <span key={l} className="block">
                 {l}
@@ -200,14 +199,11 @@ export function DevShowcase() {
             ))}
           </h2>
           <p className="max-w-[40ch] text-lead text-ink-muted">{devCopy.lead}</p>
-          <div className="flex flex-wrap items-center gap-3 max-lg:justify-center">
+          <div className="flex flex-wrap items-center gap-3">
             <a href={site.url} target="_blank" rel="noreferrer" className="btn btn-primary">
               <span className="btn-label">{devCopy.visit}</span>
               <ArrowUpRightIcon size={14} />
             </a>
-            <Link href="/projets#dossier-site-web" className="btn btn-secondary">
-              <span className="btn-label">Tous nos sites</span>
-            </Link>
           </div>
         </div>
         {/* The laptop: out of the top of the shape, over the cards' corner. */}
@@ -248,7 +244,7 @@ export function DevShowcase() {
 
         {/* Bottom of the shape: which site is on the laptop, and the round buttons to change it. */}
         <div className="grid items-center gap-8 px-6 pb-10 pt-12 md:px-16 lg:grid-cols-12 lg:pb-16 lg:pt-14">
-          <div className="flex flex-col gap-2 max-lg:items-center max-lg:text-center lg:col-span-6">
+          <div className="flex flex-col gap-2 lg:col-span-6">
             <p className="font-display text-h3">{site.name}</p>
             <p className="text-small text-ink-muted">
               {site.kind} · {site.domain}
@@ -257,7 +253,7 @@ export function DevShowcase() {
               <span className="block h-full bg-ochre" style={{ width: `${(reduce ? 1 : progress) * 100}%` }} />
             </span>
           </div>
-          <ul aria-label={devCopy.listLabel} className="flex flex-wrap gap-2 max-lg:justify-center md:gap-3 lg:col-span-6 lg:justify-end">
+          <ul aria-label={devCopy.listLabel} className="flex flex-wrap gap-2 md:gap-3 lg:col-span-6 lg:justify-end">
             {devSites.map((s, i) => {
               const on = i === active;
               return (
@@ -269,7 +265,7 @@ export function DevShowcase() {
                     aria-label={s.name}
                     title={s.name}
                     className={clsx(
-                      "flex size-12 items-center justify-center rounded-full font-display md:size-14 text-small font-bold transition-[transform,background-color,color] duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] active:scale-90",
+                      "flex size-12 items-center justify-center rounded-full font-display md:size-14 text-small font-semibold transition-[transform,background-color,color] duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] active:scale-90",
                       on ? "scale-110 bg-cream text-teal" : "bg-teal-deep text-cream hover:bg-cream/15",
                     )}
                   >

@@ -85,8 +85,8 @@ export function Header() {
   // Which section the visitor is in: its link gets the ochre underline.
   useEffect(() => {
     const ids: Record<string, string> = {
-      projets: "/#dossiers",
-      dossiers: "/#dossiers",
+      projets: "/projets",
+      dossiers: "/projets",
       services: "/#services",
       clients: "/#clients",
       contact: "/#contact",
@@ -156,7 +156,7 @@ export function Header() {
     folders().map((c) => (
       <li key={c.id}>
         <a
-          href={`/#dossier-${c.id}`}
+          href={`/projets#dossier-${c.id}`}
           onClick={close}
           className={clsx(
             "group flex items-baseline gap-3 no-underline",

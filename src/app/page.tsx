@@ -3,11 +3,9 @@ import { AgencyBridge, Clients, Contact, Services } from "@/components/home/Clos
 import { FloatingProjects } from "@/components/home/FloatingProjects";
 import { Hero } from "@/components/home/Hero";
 import { projects } from "@/content/projects";
-import { WordBand } from "@/components/home/WordBand";
 import { ClientShowcase } from "@/components/work/ClientShowcase";
 import { DevShowcase } from "@/components/work/DevShowcase";
-import { ServiceFolders } from "@/components/work/ServiceFolders";
-import { Container, Section, SectionHead } from "@/components/layout/Section";
+import { Container, Section } from "@/components/layout/Section";
 import { MotionRoot } from "@/components/motion/Reveal";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
@@ -19,10 +17,8 @@ export const metadata: Metadata = {
 };
 
 /**
- * One page; each section keeps its own ground (cream, sand, teal), so the tone itself marks
- * where one ends and the next begins.
- * Order (focal path): hero and reel; the sites we built (dark panel); what we do (cards);
- * the work, client by client; every project by service; clients wall; contact.
+ * One page. Order: hero; the work, client by client; the sites we built; what we do;
+ * the agency on video; clients; contact. Every project by service lives on /projets.
  */
 export default function HomePage() {
   return (
@@ -30,37 +26,20 @@ export default function HomePage() {
       <Header />
       <main id="contenu">
         <Hero />
-        <Section id="developpement" spacing="compact" aria-labelledby="dev-title" className="scroll-mt-16 pt-0 md:pt-0 lg:pt-0">
+        <Section id="projets" spacing="flow" aria-labelledby="projets-title" className="scroll-mt-16">
+          <Container>
+            <ClientShowcase titleId="projets-title" />
+          </Container>
+        </Section>
+        <Section id="developpement" spacing="flow" aria-labelledby="dev-title" className="scroll-mt-16">
           <Container>
             <DevShowcase />
           </Container>
         </Section>
         <Services />
-        {/* Outside the projects section, so no section clipping can cut it (iOS Safari). */}
         <AgencyBridge />
-        <Section id="projets" tone="cream" sheet spacing="compact" aria-labelledby="projets-title" className="scroll-mt-16 !pt-[250px] lg:!pt-[200px]">
-          <Container>
-            <SectionHead id="projets-title" title={home.showcase.title} lead={home.showcase.lead} />
-            <div className="mt-[var(--space-head)]">
-              <ClientShowcase />
-            </div>
-          </Container>
-        </Section>
-        <WordBand words={["stands", "vidéo", "sites web", "branding", "supports"]} />
-        <Section id="dossiers" spacing="compact" aria-labelledby="dossiers-title" className="relative z-[2] scroll-mt-16 !bg-transparent !pb-0">
-          <Container>
-            <SectionHead id="dossiers-title" title={home.folders.title} lead={home.folders.lead} />
-            <div className="mt-[var(--space-head)]">
-              <ServiceFolders />
-            </div>
-          </Container>
-        </Section>
-        {/* One sand sheet under Clients and Contact: it starts under the last projects of the open
-            folder, so they sit across the seam, half on cream, half on sand. */}
-        <div className="relative z-[1] -mt-[140px] bg-cream md:-mt-[180px]">
-          <Clients />
-          <Contact />
-        </div>
+        <Clients />
+        <Contact />
       </main>
       <FloatingProjects href={home.hero.rush.href} label={home.hero.rush.title} count={projects.length} />
       <Footer tone="teal" />

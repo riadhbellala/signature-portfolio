@@ -2,149 +2,39 @@ import Image from "next/image";
 import Link from "next/link";
 import { clients } from "@/content/clients";
 import { contact } from "@/content/contact";
-import { services } from "@/content/services";
 import { home } from "@/content/site";
 import { Container, Section, SectionHead } from "../layout/Section";
 import { Assemble, AssembleLast, AssemblePiece } from "../motion/Assemble";
-import { RiseText } from "../motion/RiseText";
 import { gridEdges, type Edge } from "../puzzle/geometry";
 import { PuzzlePiece, PuzzleStrip } from "../puzzle/PuzzlePiece";
 import { DisplayTitle } from "../type/DisplayTitle";
 import { MetaLabel } from "../type/Labels";
 import { ArrowIcon, ArrowUpRightIcon } from "../ui/icons";
 import { AgencyVideos } from "../work/AgencyVideos";
+import { ServiceIndex } from "./ServiceIndex";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
-/**
- * Services: a bento of illustrated tiles (one per métier, the lead one big), then an ochre strip:
- * the way out for anything not listed.
- */
+/** Services: the section head, then the index of pôles (ServiceIndex). */
 export function Services() {
   const t = home.services;
   return (
     <Section
       id="services"
       tone="cream"
-      sheet
-      spacing="compact"
+      spacing="flow"
       aria-labelledby="services-title"
-      className="scroll-mt-16 !pb-[276px]"
+      className="scroll-mt-16"
     >
       <Container>
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
-          <RiseText
-            id="services-title"
-            text={t.title}
-            className="text-h2 max-md:text-center lg:col-span-7"
-          />
-          <p className="measure text-lead max-md:mx-auto max-md:text-center lg:col-span-4 lg:col-start-9">
-            {t.lead}
-          </p>
+        <SectionHead id="services-title" title={t.title} lead={t.lead} />
+        <div className="mt-[var(--space-head)]">
+          <ServiceIndex />
         </div>
-        {/* Bento: stands lead (big tile), sites web wide, the rest square; the façade wide.
-            Each tile: number, name, one line, its illustration; the whole tile opens the folder. */}
-        <ul className="mt-[var(--space-head)] grid grid-cols-2 gap-[var(--space-grid)] lg:grid-cols-4 lg:grid-rows-[260px_260px_240px_auto]">
-          {BENTO.map((b) => {
-            const s = services.find((x) => x.category === b.id)!;
-            return (
-              <li key={s.name} className={b.cls}>
-                <Link
-                  href={`/projets#dossier-${s.category}`}
-                  className={`group relative flex h-full flex-col justify-end overflow-hidden rounded-[var(--radius-lg)] ${b.tone} p-4 text-cream no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98] sm:p-6 ${b.big ? "min-h-[340px]" : "min-h-[220px]"}`}
-                >
-                  {/* The banner, full bleed (leans in on hover); without one, the plain tile. */}
-                  {s.image ? (
-                    <>
-                      <Image
-                        src={s.image}
-                        alt=""
-                        fill
-                        sizes={
-                          b.big || b.wide
-                            ? "(min-width: 1024px) 50vw, 100vw"
-                            : "(min-width: 1024px) 25vw, 50vw"
-                        }
-                        className="object-cover transition-transform duration-[900ms] ease-[var(--ease-out-quint)] group-hover:scale-[1.06]"
-                      />
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-0 bg-linear-to-t from-teal-deep/90 via-teal-deep/25 to-transparent"
-                      />
-                    </>
-                  ) : null}
-                  <span className="relative flex items-end justify-between gap-3">
-                    <span className="flex min-w-0 flex-col gap-1">
-                      <span
-                        className={
-                          b.big
-                            ? "font-display text-h3 leading-tight"
-                            : "font-display text-piece leading-tight"
-                        }
-                      >
-                        {s.name}
-                      </span>
-                      <span
-                        className={`text-small text-cream/80 ${b.big || b.wide ? "max-w-[34ch]" : "hidden"}`}
-                      >
-                        {s.line}
-                      </span>
-                      {/* The services inside this pôle. */}
-                      <span className="mt-2 flex flex-wrap gap-1.5 max-sm:hidden">
-                        {s.items.map((it) => (
-                          <span
-                            key={it}
-                            className="rounded-full px-2.5 py-1 text-meta text-cream/90 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-cream)_30%,transparent)]"
-                          >
-                            {it}
-                          </span>
-                        ))}
-                      </span>
-                    </span>
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-ochre text-teal transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:rotate-45 sm:size-11">
-                      <ArrowUpRightIcon size={14} />
-                    </span>
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-          <li className="col-span-2 lg:col-span-4 lg:row-span-1 lg:h-auto">
-            <a
-              href="#contact"
-              className="group flex h-full items-center justify-between gap-4 rounded-[var(--radius-lg)] bg-ochre py-3 pl-5 pr-3 text-teal no-underline transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] hover:-translate-y-1 active:scale-[0.98] sm:p-6"
-            >
-              <span className="font-display text-[1.0625rem] font-bold leading-tight sm:text-h3">
-                {t.customTitle}
-              </span>
-              {/* Phones: a round arrow only, so the strip stays one slim line. */}
-              <span className="btn btn-primary !bg-teal !text-cream shrink-0 max-sm:!size-11 max-sm:!p-0 max-sm:justify-center">
-                <span className="btn-label max-sm:sr-only">{t.customAction}</span>
-                <ArrowIcon />
-              </span>
-            </a>
-          </li>
-        </ul>
       </Container>
     </Section>
   );
 }
-
-/** Bento order and shapes (mobile 2 columns, desktop 4). `img`: where the illustration sits. */
-const BENTO: {
-  id: string;
-  cls: string;
-  big?: boolean;
-  wide?: boolean;
-  tone: string;
-}[] = [
-  { id: "stands", big: true, cls: "col-span-2 lg:row-span-2", tone: "bg-teal" },
-  { id: "site-web", wide: true, cls: "col-span-2", tone: "bg-teal-deep" },
-  { id: "reseaux-sociaux", cls: "", tone: "bg-teal-muted" },
-  { id: "identite", cls: "", tone: "bg-teal-deep" },
-  { id: "facade", wide: true, cls: "col-span-2", tone: "bg-teal-deep" },
-  { id: "supports", wide: true, cls: "col-span-2", tone: "bg-teal" },
-];
 
 const CLIENT_LAYOUTS = [
   // Banner height = cols / 4.44, the ratio of the Signature banner image.
@@ -164,11 +54,10 @@ export function Clients() {
     <Section
       id="clients"
       tone="cream"
-      spacing="compact"
+      spacing="flow"
       aria-labelledby="clients-title"
-      // Transparent: the sand comes from the sheet that wraps Clients and Contact (page.tsx), so
-      // the clients wall can hang over the top of Contact, half on sand, half on teal.
-      className="relative z-[2] scroll-mt-16 !bg-transparent !pb-0 !pt-[calc(140px+var(--space-section)*0.85)] md:!pt-[calc(180px+var(--space-section)*0.85)]"
+      // No bottom padding: the clients banner hangs over the top of Contact, half cream, half teal.
+      className="relative z-[2] scroll-mt-16 !bg-transparent !pb-0"
     >
       <Container>
         <SectionHead id="clients-title" title={t.title} lead={t.lead} />
@@ -313,9 +202,9 @@ export function Contact() {
               id="contact-title"
               size="h1"
               lines={t.title}
-              className="max-md:text-center"
+              
             />
-            <p className="measure mt-6 text-lead text-ink-muted max-md:mx-auto max-md:text-center">
+            <p className="measure mt-6 text-lead text-ink-muted">
               {t.lead}
             </p>
           </div>
@@ -419,42 +308,29 @@ export function Contact() {
   );
 }
 
-/** Zahra's videos: one teal card set across the seam, half on Services, half on the projects. */
+/**
+ * The agency on video: the same head as every section (title left, line and link right), then
+ * the three vertical videos side by side (phones: one swipeable row, the next one peeking out).
+ */
 export function AgencyBridge() {
   const t = home.services;
   return (
-    // First thing inside the projects section, pulled up a fixed distance into Services: the top
-    // part sits on sand, the rest on cream, and the projects follow below it whatever its height
-    // (the card grows with the screen, so nothing may depend on its height).
-    <div className="relative z-[3] -mb-[140px] -mt-[220px]">
-      {/* The cream page coming up under the card: its rounded top meets the sand of Services. */}
-      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 top-[180px] rounded-t-[var(--radius-xl)] bg-cream" />
+    <section aria-labelledby="videos-title" className="relative py-[calc(var(--space-section)*0.5)]">
       <Container>
-        {/* Bento: the words in a teal tile, each video in its own tile beside it. */}
-        <div className="relative flex flex-col gap-8 lg:grid lg:grid-cols-[1.25fr_1fr_1fr_1fr] lg:gap-[var(--space-grid)]">
-          {/* Phones: no tile, just the words on the page, so it does not stack box on box. */}
-          <div className="flex flex-col justify-between gap-6 max-lg:items-center max-lg:text-center lg:gap-8 lg:rounded-[var(--radius-lg)] lg:bg-teal lg:p-8 lg:text-cream">
-            <div className="flex flex-col gap-4">
-              <span className="font-sans text-meta uppercase tracking-[0.14em] text-teal-muted lg:text-ochre">{t.videosKicker}</span>
-              <p className="font-display text-h2 font-bold leading-[1.02] lg:text-[clamp(1.75rem,2.4vw,2.5rem)] tracking-[-0.03em] text-teal lg:text-cream">{t.videosLabel}</p>
-              <p className="max-w-[38ch] text-small text-teal-muted lg:text-cream/75">{t.videosLine}</p>
-            </div>
-            {/* Phones: no button here, the videos below are the action. */}
-            <div className="max-lg:hidden">
-              <span className="tone-teal block">
-                <Link href="/projets#dossier-reseaux-sociaux" className="btn btn-primary">
-                  <span className="btn-label">{t.videosCta}</span>
-                  <ArrowUpRightIcon size={14} />
-                </Link>
-              </span>
-            </div>
-          </div>
-          {/* Phones: one swipeable row of large tiles (the next one peeks out); desktop: bento tiles. */}
-          <div className="-mx-[var(--gutter)] flex snap-x snap-mandatory gap-3 overflow-x-auto px-[var(--gutter)] pb-1 [scrollbar-width:none] lg:contents">
-            <AgencyVideos label="" />
+        <div className="grid gap-5 md:gap-6 lg:grid-cols-12 lg:items-end">
+          <h2 id="videos-title" className="font-display text-h2 lg:col-span-7">{t.videosLabel}</h2>
+          <div className="flex flex-col items-start gap-5 lg:col-span-4 lg:col-start-9">
+            <p className="measure text-lead text-ink-muted">{t.videosLine}</p>
+            <Link href="/projets#dossier-reseaux-sociaux" className="inline-flex items-center gap-2 font-display text-body font-semibold no-underline">
+              <span className="underline decoration-ochre decoration-2 underline-offset-[6px]">{t.videosCta}</span>
+              <ArrowUpRightIcon size={14} />
+            </Link>
           </div>
         </div>
+        <div className="-mx-[var(--gutter)] mt-[var(--space-head)] flex snap-x snap-mandatory gap-[var(--space-grid)] overflow-x-auto px-[var(--gutter)] [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-12 lg:items-start lg:overflow-visible lg:px-0">
+          <AgencyVideos label="" />
+        </div>
       </Container>
-    </div>
+    </section>
   );
 }

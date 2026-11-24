@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Poppins } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import "lenis/dist/lenis.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin", "latin-ext"],
-  weight: ["600", "700", "800"],
-  display: "swap",
-});
-
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -29,8 +22,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr" className={`${poppins.variable} ${interTight.variable}`}>
+    <html lang="fr" className={`${interTight.variable}`}>
       <head>
+        {/* Without JS the scroll reveals never fire: show everything. */}
+        <noscript>
+          <style>{`[data-reveal]{clip-path:none!important;opacity:1!important;transform:none!important}[data-reveal] img{transform:none!important}`}</style>
+        </noscript>
         {/* Project videos are on Vimeo: open the connections early so they start fast. */}
         <link rel="preconnect" href="https://player.vimeo.com" />
         <link rel="preconnect" href="https://i.vimeocdn.com" />

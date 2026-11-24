@@ -45,44 +45,44 @@
   --radius-xl: 40px; /* section panels */
 
   /* Type */
-  --font-display: var(--font-poppins), ui-sans-serif, sans-serif;
+  --font-display: var(--font-inter-tight), ui-sans-serif, sans-serif;
   --font-sans: var(--font-inter-tight), ui-sans-serif, sans-serif;
 
-  --text-display: clamp(3.5rem, 10.5vw, 11rem);
-  --text-display--line-height: 0.9;
+  --text-display: clamp(2.75rem, 1.4rem + 5.6vw, 8rem);
+  --text-display--line-height: 0.92;
   --text-display--letter-spacing: -0.045em;
-  --text-display--font-weight: 800;
+  --text-display--font-weight: 600;
 
   --text-h1: clamp(2.5rem, 5.2vw, 5rem);
   --text-h1--line-height: 0.95;
-  --text-h1--letter-spacing: -0.035em;
-  --text-h1--font-weight: 700;
+  --text-h1--letter-spacing: -0.04em;
+  --text-h1--font-weight: 600;
 
   --text-h2: clamp(2.25rem, 4.2vw, 4.75rem);
   --text-h2--line-height: 1;
-  --text-h2--letter-spacing: -0.03em;
-  --text-h2--font-weight: 700;
+  --text-h2--letter-spacing: -0.035em;
+  --text-h2--font-weight: 600;
 
   /* Client name in the showcase's title corner (narrower than a section title). */
   --text-title: clamp(2rem, 1rem + 2.4vw, 3.25rem);
   --text-title--line-height: 0.95;
   --text-title--letter-spacing: -0.03em;
-  --text-title--font-weight: 700;
+  --text-title--font-weight: 600;
 
   --text-h3: clamp(1.375rem, 1rem + 0.8vw, 1.875rem);
   --text-h3--line-height: 1.15;
   --text-h3--letter-spacing: -0.02em;
-  --text-h3--font-weight: 700;
+  --text-h3--font-weight: 600;
 
   --text-list: clamp(1.25rem, 1rem + 0.6vw, 1.5rem);
   --text-list--line-height: 1.3;
   --text-list--letter-spacing: -0.01em;
   --text-list--font-weight: 600;
 
-  --text-lead: 1.125rem;
+  --text-lead: clamp(1.125rem, 1rem + 0.35vw, 1.3125rem);
   --text-lead--line-height: 1.55;
 
-  --text-body: 1rem;
+  --text-body: 1.0625rem;
   --text-body--line-height: 1.55;
 
   --text-meta: 0.75rem;
@@ -537,3 +537,36 @@
 @keyframes hero-bg { from { transform: scale(1.08); } to { transform: scale(1); } }
 .hero-bg { animation: hero-bg 2400ms var(--ease-out-quint) both; }
 @media (prefers-reduced-motion: reduce) { .hero-bg { animation: none; } }
+
+/* ---------- Scroll reveals (InView). Marketing sections only, fire once. ----------
+   mask: the frame opens upward (clip-path, strong ease-in-out) while the picture inside settles
+         from 1.12 to 1 (strong ease-out): an image pan inside a mask.
+   up:   fade + 24px slide up (ease-out); siblings stagger through --d.
+   Reduced motion: opacity only. No JS: everything visible (noscript rule in layout). */
+:root { --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1); }
+[data-reveal="mask"] {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1100ms var(--ease-in-out-quart) var(--d, 0ms);
+}
+[data-reveal="mask"] img {
+  transform: scale(1.12);
+  transition:
+    transform 1600ms var(--ease-out-quint) var(--d, 0ms),
+    scale 900ms var(--ease-out-quint);
+}
+[data-reveal="mask"][data-in] { clip-path: inset(0 0 0 0); }
+[data-reveal="mask"][data-in] img { transform: scale(1); }
+[data-reveal="up"] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms var(--ease-out-quint) var(--d, 0ms),
+    transform 700ms var(--ease-out-quint) var(--d, 0ms);
+}
+[data-reveal="up"][data-in] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal="mask"] { clip-path: none; opacity: 0; transition: opacity 400ms ease var(--d, 0ms) !important; }
+  [data-reveal="mask"][data-in] { opacity: 1; }
+  [data-reveal="mask"] img { transform: none; }
+  [data-reveal="up"] { transform: none; transition: opacity 400ms ease var(--d, 0ms) !important; }
+}

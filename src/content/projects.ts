@@ -251,16 +251,20 @@ export const projects: Project[] = [
 ];
 
 /**
- * Client blocks (puzzle layout): the order on the page and the three pieces each shows,
- * as [project slug, media index] pairs.
+ * Home showcase: one piece per project, mixing every service (stands, sites, branding, video,
+ * print, façades). [project slug, media index]; the order is the order on the page.
  */
-export const showcase: { client: ClientId; pieces: [string, number][] }[] = [
-  { client: "logis", pieces: [["logis-stand", 0], ["logis-stand", 1], ["logis-stand", 2]] },
-  { client: "royaume-blanc", pieces: [["royaume-blanc-stand", 0], ["royaume-blanc-stand", 4], ["royaume-blanc-stand", 2]] },
-  { client: "montazah", pieces: [["montazah-stand", 0], ["montazah-stand", 2], ["montazah-stand", 4]] },
-  { client: "souipanel", pieces: [["souipanel-stand", 0], ["souipanel-stand", 3], ["souipanel-stand", 5]] },
-  { client: "riff", pieces: [["riff-stand", 1], ["riff-videos", 0], ["riff-stand", 6]] },
-  { client: "island-petroleum", pieces: [["island-petroleum-stands", 1], ["island-petroleum-stands", 16], ["island-petroleum-stands", 30]] },
+export const showcase: [string, number][] = [
+  ["logis-stand", 0],
+  ["riff-site", 1],
+  ["chickentastic-identite", 0],
+  ["altusplast-film", 0],
+  ["la-fabbrica-packaging", 7],
+  ["royaume-blanc-stand", 0],
+  ["altusplast-print", 0],
+  ["ndwi-camion", 0],
+  ["ni-hao-identite", 1],
+  ["island-petroleum-stands", 1],
 ];
 
 /**

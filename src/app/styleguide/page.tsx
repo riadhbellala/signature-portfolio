@@ -384,7 +384,7 @@ function Device({ n, title, rule, children }: { n: number; title: string; rule: 
 
 function TypeScale({ onTeal }: { onTeal?: boolean }) {
   const rows = [
-    { name: "Display", spec: "Poppins 800 · clamp(56, 9vw, 140) · 0.9 · −0.045em", el: <p className="font-display text-display">{onTeal ? "Nos murs." : "On construit."}</p> },
+    { name: "Display", spec: "Inter Tight 600 · clamp(44, 5.6vw, 128) · 0.92 · −0.045em", el: <p className="font-display text-display">{onTeal ? "Nos murs." : "On construit."}</p> },
     { name: "H1", spec: "Poppins 700 · clamp(40, 5.5vw, 76) · 0.95 · −0.035em", el: <p className="font-display text-h1">Façade & enseigne</p> },
     { name: "H2", spec: "Poppins 700 · clamp(32, 4vw, 56) · 1 · −0.03em", el: <p className="font-display text-h2">Stands & événements</p> },
     { name: "H3", spec: "Poppins 700 · 24 · 1.15 · −0.02em", el: <p className="font-display text-h3">Identité & logo</p> },
