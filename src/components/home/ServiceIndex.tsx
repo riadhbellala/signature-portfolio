@@ -1,9 +1,5 @@
-"use client";
-
-import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { services } from "@/content/services";
 import { home } from "@/content/site";
 import { InView } from "../motion/InView";
@@ -12,78 +8,64 @@ import { ArrowIcon, ArrowUpRightIcon } from "../ui/icons";
 const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
- * Services as an editorial index: one row per pôle (number, name, line, what is inside), each row
- * opens its folder. Desktop: the picture of the row under the pointer (or focus) shows in a
- * sticky frame on the left. Phones: a small picture in each row instead.
+ * Services as a ruled table: a grid drawn with hairlines only (3 × 2 on desktop, 2 columns on
+ * tablets, one column on phones). Each cell: number and arrow on top, name, one line and what
+ * is inside at the bottom. On hover (pointer devices) the service's picture rises into the
+ * cell from the bottom (clip-path) and the text turns cream over it. The whole cell opens the
+ * folder.
  */
 export function ServiceIndex() {
   const t = home.services;
-  const [active, setActive] = useState(0);
   return (
-    <div className="grid gap-[var(--space-head)] lg:grid-cols-12 lg:gap-x-[var(--space-grid)]">
-      <div className="max-lg:hidden lg:col-span-4">
-        <InView kind="mask" className="sticky top-28 aspect-[4/5] overflow-hidden rounded-[var(--radius-sm)] bg-teal-deep">
-          {services.map((s, i) =>
-            s.image ? (
-              <Image
-                key={s.name}
-                src={s.image}
-                alt=""
-                fill
-                sizes="33vw"
-                className={clsx(
-                  // Crossfade, and the picture coming in settles from a slight zoom (image pan).
-                  "object-cover transition-[opacity,scale] duration-700 ease-[var(--ease-out-quint)]",
-                  i === active ? "scale-100 opacity-100" : "scale-[1.06] opacity-0",
-                )}
-              />
-            ) : null,
-          )}
-        </InView>
-      </div>
+    <div>
+      <ul className="grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((s, i) => (
+          <InView as="li" key={s.name} delay={(i % 3) * 80} className="border-b border-r border-line">
+            <Link
+              href={`/projets#dossier-${s.category}`}
+              className="group relative flex h-full min-h-[260px] flex-col justify-between gap-10 overflow-hidden p-6 no-underline md:min-h-[320px] md:p-8"
+            >
+              {s.image ? (
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 [clip-path:inset(100%_0_0_0)] transition-[clip-path] duration-[600ms] ease-[var(--ease-in-out-quart)] group-hover:[clip-path:inset(0_0_0_0)] group-focus-visible:[clip-path:inset(0_0_0_0)]"
+                >
+                  <Image src={s.image} alt="" fill sizes="(min-width: 1024px) 33vw, 50vw" className="object-cover" />
+                  <span className="absolute inset-0 bg-linear-to-t from-teal-deep/90 via-teal-deep/50 to-teal-deep/20" />
+                </span>
+              ) : null}
 
-      <div className="lg:col-span-7 lg:col-start-6">
-        <ol className="border-b border-line">
-          {services.map((s, i) => (
-            <InView as="li" key={s.name} delay={i * 70} className="border-t border-line">
-              <Link
-                href={`/projets#dossier-${s.category}`}
-                onMouseEnter={() => setActive(i)}
-                onFocus={() => setActive(i)}
-                className="group grid grid-cols-[auto_1fr_auto] items-start gap-x-5 py-7 no-underline md:gap-x-8 md:py-9"
-              >
-                <span className="relative size-16 overflow-hidden rounded-[var(--radius-xs)] bg-teal-deep lg:hidden">
-                  {s.image ? <Image src={s.image} alt="" fill sizes="64px" className="object-cover" /> : null}
+              <span className="relative flex items-start justify-between transition-colors duration-[var(--dur-ui)] ease-out group-hover:text-cream group-focus-visible:text-cream">
+                <span className="tabular text-meta">{pad(i + 1)}</span>
+                <ArrowUpRightIcon
+                  size={16}
+                  className="transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </span>
+
+              <span className="relative flex flex-col gap-3">
+                <span className="font-display text-h3 transition-colors duration-[var(--dur-ui)] ease-out group-hover:text-cream group-focus-visible:text-cream">
+                  {s.name}
                 </span>
-                <span className="tabular pt-2 text-meta text-ink-muted max-lg:hidden">{pad(i + 1)}</span>
-                <span className="flex min-w-0 flex-col gap-2">
-                  <span
-                    className={clsx(
-                      "font-display text-h3 transition-colors duration-[var(--dur-ui)] ease-out lg:text-[clamp(1.75rem,1.2rem+1.2vw,2.5rem)] lg:leading-[1.05]",
-                      i === active ? "lg:text-ink" : "lg:text-ink-muted/60",
-                    )}
-                  >
-                    {s.name}
-                  </span>
-                  <span className="max-w-[46ch] text-body text-ink-muted">{s.line}</span>
-                  <span className="text-small text-ink-muted/80 max-md:hidden">{s.items.join(" · ")}</span>
+                <span className="max-w-[36ch] text-body text-ink-muted transition-colors duration-[var(--dur-ui)] ease-out group-hover:text-cream/85 group-focus-visible:text-cream/85">
+                  {s.line}
                 </span>
-                <span className="pt-2 text-ink transition-transform duration-[var(--dur-ui)] ease-[var(--ease-out-quint)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
-                  <ArrowUpRightIcon size={16} />
+                <span className="text-small text-ink-muted/80 transition-colors duration-[var(--dur-ui)] ease-out group-hover:text-cream/70 group-focus-visible:text-cream/70">
+                  {s.items.join(" · ")}
                 </span>
-              </Link>
-            </InView>
-          ))}
-        </ol>
-        {/* Anything not listed: one quiet line, same rhythm as the rows. */}
-        <a href="#contact" className="group mt-8 flex items-center justify-between gap-4 no-underline">
-          <span className="text-body text-ink-muted">{t.customTitle}</span>
-          <span className="flex shrink-0 items-center gap-2 font-display text-body font-semibold underline decoration-ochre decoration-2 underline-offset-[6px]">
-            {t.customAction}
-            <ArrowIcon />
-          </span>
-        </a>
-      </div>
+              </span>
+            </Link>
+          </InView>
+        ))}
+      </ul>
+      {/* Anything not listed: one quiet line under the table. */}
+      <a href="#contact" className="group mt-8 flex items-center justify-between gap-4 no-underline">
+        <span className="text-body text-ink-muted">{t.customTitle}</span>
+        <span className="flex shrink-0 items-center gap-2 font-display text-body font-semibold underline decoration-ochre decoration-2 underline-offset-[6px]">
+          {t.customAction}
+          <ArrowIcon />
+        </span>
+      </a>
     </div>
   );
 }
