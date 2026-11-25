@@ -3,10 +3,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, ViewTransition } from "react";
 import { categoryNumber, type CategoryId } from "@/content/categories";
 import {
   cover,
+  leadIndex,
   folders,
   getClient,
   projectsIn,
@@ -126,7 +127,9 @@ export function ServiceFolders() {
             <ul className="mt-[var(--space-head)] grid grid-cols-2 gap-x-[var(--space-grid)] gap-y-10 md:gap-y-14 lg:grid-cols-3">
               {list.map((p) => (
                 <li key={p.slug} className="group flex flex-col gap-4">
-                  {/* Every card the same shape (4:3), so the grid lines up whatever the media. */}
+                  {/* Every card the same shape (4:3), so the grid lines up whatever the media.
+                      Shared element: the card becomes the project page's hero (view transition). */}
+                  <ViewTransition name={`projet-${p.slug}`} share="morph" default="none">
                   <div>
                     {p.category === "site-web" ? (
                       // Sites: the bare laptop mockup, no card, no puzzle shape.
@@ -153,7 +156,7 @@ export function ServiceFolders() {
                     ) : (
                       <MediaPiece
                         plain
-                        media={cover(p)}
+                        media={p.media[leadIndex(p)]}
                         shape={4 / 3}
                         href={`/projets/${p.slug}`}
                         label={`${getClient(p.client).name}, ${p.title}`}
@@ -167,6 +170,7 @@ export function ServiceFolders() {
                       />
                     )}
                   </div>
+                  </ViewTransition>
                   <Link
                     href={`/projets/${p.slug}`}
                     tabIndex={-1}
