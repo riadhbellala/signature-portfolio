@@ -6,9 +6,10 @@ export const contact = {
   email: { display: "signature.alg@gmail.com", href: "mailto:signature.alg@gmail.com?subject=Nouveau%20projet" },
   instagram: { display: "@signature.alg", href: "https://www.instagram.com/signature.alg/" },
   address: {
-    lines: ["[ADRESSE À CONFIRMER]", "Oran, Algérie"],
-    /** Replace with the Google Maps link of the studio. */
-    mapHref: "https://www.google.com/maps/search/?api=1&query=Oran%2C%20Alg%C3%A9rie",
+    /** The street line can be added above "Oran, Algérie" once confirmed. */
+    lines: ["Oran, Algérie"],
+    /** The studio on Apple Plans (opens in Google Maps / browser on other devices). */
+    mapHref: "https://maps.apple/p/W0J9yXWAAJvUXH",
   },
   website: { display: "signature-alg.com", href: "https://signature-alg.com" },
 };

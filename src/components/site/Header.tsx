@@ -191,6 +191,8 @@ export function Header() {
         "tone-cream sticky top-0 z-40 border-b border-line transition-transform duration-300 ease-[var(--ease-out-quint)]",
         hidden && !menu && !types && "-translate-y-full",
       )}
+      // Own view-transition name: it stays put while pages crossfade (globals.css).
+      style={{ viewTransitionName: "site-header" }}
     >
       <a
         href="#contenu"

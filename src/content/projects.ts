@@ -306,6 +306,9 @@ export const categoriesWithWork = () => categories.filter((c) => projectsIn(c.id
 /** The service folders, in folderOrder, empty ones included. */
 export const folders = () => folderOrder.map(getCategory);
 export const cover = (p: Project) => p.media[0];
+/** The picture that leads a project: the one the home showcase shows (so it can morph into the
+ *  hero), else the first. Returns its index in p.media. */
+export const leadIndex = (p: Project) => showcase.find(([slug]) => slug === p.slug)?.[1] ?? 0;
 export const thumbOf = (m: Media) => (m.kind === "image" ? m.src : m.thumb);
 
 /** Next project of the same type, wrapping round. */

@@ -570,3 +570,44 @@
   [data-reveal="mask"] img { transform: none; }
   [data-reveal="up"] { transform: none; transition: opacity 400ms ease var(--d, 0ms) !important; }
 }
+
+/* ---------- Shared element (React ViewTransition, share="morph") ----------
+   The showcase picture glides into the project hero: one object moving, not two swapping.
+   Choreography (900ms): the old page dissolves first (250ms), the picture travels on a smooth
+   ease-in-out (easeInOutCubic, easings.net), the new page settles in under it once it lands.
+   The header has its own name, so it stays put instead of flickering in the crossfade.
+   Snapshots keep cover-fit, so a change of frame ratio crops instead of stretching. */
+:root { --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1); }
+::view-transition-group(.morph) {
+  animation-duration: 900ms;
+  animation-timing-function: var(--ease-in-out-cubic);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+::view-transition-old(.morph),
+::view-transition-new(.morph) {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  animation-duration: 900ms;
+  animation-timing-function: var(--ease-in-out-cubic);
+}
+::view-transition-old(root) {
+  animation: 250ms var(--ease-out-quint) both vt-fade-out;
+}
+::view-transition-new(root) {
+  animation: 500ms var(--ease-out-quint) 450ms both vt-rise-in;
+}
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-rise-in { from { opacity: 0; transform: translateY(16px); } }
+::view-transition-group(site-header) { animation: none; }
+::view-transition-old(site-header) { display: none; }
+::view-transition-new(site-header) { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-image-pair(*) {
+    animation-duration: 0s !important;
+  }
+}

@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, ViewTransition } from "react";
 import { getCategory } from "@/content/categories";
 import { getClient, getProject, showcase, thumbOf, type Media } from "@/content/projects";
 import { home } from "@/content/site";
@@ -97,6 +97,7 @@ export function ClientShowcase({ titleId }: { titleId: string }) {
               i !== active && "lg:opacity-35 lg:[filter:blur(4px)] lg:hover:opacity-70 lg:hover:[filter:blur(0)]",
             )}
           >
+            {/* Pictures are shared elements: each becomes its project page's hero (view transition). */}
             {it.media.kind === "video" ? (
               <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-sm)] bg-teal-deep lg:aspect-[16/10]">
                 <MediaPiece
@@ -111,6 +112,7 @@ export function ClientShowcase({ titleId }: { titleId: string }) {
                 />
               </div>
             ) : (
+            <ViewTransition name={`projet-${it.id}`} share="morph" default="none">
             <Link href={it.href} aria-label={`${it.name}, ${t.open}`} className="group relative block aspect-[4/3] overflow-hidden rounded-[var(--radius-sm)] bg-sand no-underline lg:aspect-[16/10]">
               <Image src={it.cover} alt="" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover transition-transform duration-[900ms] ease-[var(--ease-out-quint)] group-hover:scale-[1.03]" />
               <span className="absolute bottom-4 right-4 inline-flex h-10 items-center gap-2 rounded-full bg-cream px-4 font-display text-small font-semibold text-teal transition-opacity duration-[var(--dur-ui)] ease-out [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 group-focus-visible:opacity-100">
@@ -118,6 +120,7 @@ export function ClientShowcase({ titleId }: { titleId: string }) {
                 <ArrowUpRightIcon size={12} />
               </span>
             </Link>
+            </ViewTransition>
             )}
             <div className="mt-4 flex flex-col gap-1 lg:hidden">
               <p className="text-meta uppercase text-ink-muted">{it.types}</p>
